@@ -53,56 +53,52 @@ git config user.email "travis@travis-ci.org"
 # This is the list of things to be documented
 doxyfiles="list/int"
 
-for i in $doxyfiles; do
-    echo $i
-done
-
 ################################################################################
 ##### Generate the Doxygen documentation (from master) and log the output. #####
 echo 'Generating Doxygen code documentation...'
-# Redirect both stderr and stdout to the log file and the console.
-echo $doxyfiles
-pwd
-cwd=$(pwd)
-cd $doxyfiles/doxygen
-doxygen 2>&1 | tee doxygen.log
-cd $cwd
 
-################################################################################
-##### Copy generated doc from master folder to gh-pages one.               #####
-mkdir -p gh-pages/$doxyfiles/html
-mv $doxyfiles/doxygen/html gh-pages/$doxyfiles/html
+for i in $doxyfiles; do
+    echo $i
 
-cd gh-pages/$doxyfiles
-pwd 
-ls -l
-cd html 
-ls -l
-################################################################################
-##### Upload the documentation to the gh-pages branch of the repository.   #####
-# Only upload if Doxygen successfully created the documentation.
-# Check this by verifying that the html directory and the file html/index.html
-# both exist. This is a good indication that Doxygen did it's work.
-if [ -d "html" ] && [ -f "html/index.html" ]; then
+	cwd=$(pwd)
 
-    echo 'Uploading documentation to the gh-pages branch...'
-    # Add everything in this directory (the Doxygen code documentation) to the
-    # gh-pages branch.
-    # GitHub is smart enough to know which files have changed and which files have
-    # stayed the same and will only update the changed files.
-    git add --all
+	# Redirect both stderr and stdout to the log file and the console.
+	cd $doxyfiles/doxygen
+	doxygen 2>&1 | tee doxygen.log
+	cd $cwd
 
-    # Commit the added files with a title and description containing the Travis CI
-    # build number and the GitHub commit reference that issued this build.
-    git commit -m "Deploy code docs to GitHub Pages. Travis build: ${TRAVIS_BUILD_NUMBER}" -m "Commit: ${TRAVIS_COMMIT}"
+	################################################################################
+	##### Copy generated doc from master folder to gh-pages one.               #####
+	mkdir -p gh-pages/$doxyfiles/html
+	mv $doxyfiles/doxygen/html gh-pages/$doxyfiles
 
-    # Force push to the remote gh-pages branch.
-    # The ouput is redirected to /dev/null to hide any sensitive credential data
-    # that might otherwise be exposed.
-    git push "https://${GH_REPO_TOKEN}@${GH_REPO_REF}" > /dev/null 2>&1
-else
-    echo '' >&2
-    echo 'Warning: No documentation (html) files have been found!' >&2
-    exit 1
-fi
+	cd gh-pages/$doxyfiles
+	################################################################################
+	##### Upload the documentation to the gh-pages branch of the repository.   #####
+	# Only upload if Doxygen successfully created the documentation.
+	# Check this by verifying that the html directory and the file html/index.html
+	# both exist. This is a good indication that Doxygen did it's work.
+	if [ -d "html" ] && [ -f "html/index.html" ]; then
 
+		echo 'Uploading documentation to the gh-pages branch...'
+		# Add everything in this directory (the Doxygen code documentation) to the
+		# gh-pages branch.
+		# GitHub is smart enough to know which files have changed and which files have
+		# stayed the same and will only update the changed files.
+		git add --all
+
+		# Commit the added files with a title and description containing the Travis CI
+		# build number and the GitHub commit reference that issued this build.
+		git commit -m "Deploy code docs to GitHub Pages. Travis build: ${TRAVIS_BUILD_NUMBER}" -m "Commit: ${TRAVIS_COMMIT}"
+
+		# Force push to the remote gh-pages branch.
+		# The ouput is redirected to /dev/null to hide any sensitive credential data
+		# that might otherwise be exposed.
+		git push "https://${GH_REPO_TOKEN}@${GH_REPO_REF}" > /dev/null 2>&1
+	else
+		echo '' >&2
+		echo 'Warning: No documentation (html) files have been found!' >&2
+		exit 1
+	fi
+	cd $cwd # Move to base folder for the next doc
+done
