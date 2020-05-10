@@ -68,7 +68,9 @@ for i in $doxyfiles; do
 
 	################################################################################
 	##### Copy generated doc from master folder to gh-pages one.               #####
-	mkdir -p gh-pages/$i/html
+	dir=gh-pages/$i/html
+	if [ -d "$dir" ]; then rm -Rf $dir; fi
+	mkdir -p $dir
 	mv $i/doxygen/html gh-pages/$i
 
 	cd gh-pages/$i
