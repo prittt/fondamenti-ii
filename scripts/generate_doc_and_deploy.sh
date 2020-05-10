@@ -42,7 +42,17 @@ set -e
 # Get the current gh-pages branch
 git clone -b gh-pages https://github.com/prittt/Fondamenti-II.git gh-pages
 
+################################################################################
+##### Configure git for pushing the new doc.                               #####
+# Set the push default to simple i.e. push only the current branch.
+git config --global push.default simple
+# Pretend to be an user called Travis CI.
+git config user.name "Travis CI"
+git config user.email "travis@travis-ci.org"
+
+# This is the list of things to be documented
 doxyfiles="list/int"
+
 
 ################################################################################
 ##### Generate the Doxygen documentation (from master) and log the output. #####
@@ -60,15 +70,7 @@ cd $cwd
 mkdir -p gh-pages/$doxyfiles/html
 mv $doxyfiles/doxygen/html gh-pages/$doxyfiles/html
 
-################################################################################
-##### Configure git for pushing the new doc.                               #####
-cd gh-pages
-# Set the push default to simple i.e. push only the current branch.
-git config --global push.default simple
-# Pretend to be an user called Travis CI.
-git config user.name "Travis CI"
-git config user.email "travis@travis-ci.org"
-
+cd gh-pages/$doxyfiles
 ################################################################################
 ##### Upload the documentation to the gh-pages branch of the repository.   #####
 # Only upload if Doxygen successfully created the documentation.
@@ -90,9 +92,10 @@ if [ -d "html" ] && [ -f "html/index.html" ]; then
     # Force push to the remote gh-pages branch.
     # The ouput is redirected to /dev/null to hide any sensitive credential data
     # that might otherwise be exposed.
-    git push --force "https://${GH_REPO_TOKEN}@${GH_REPO_REF}" > /dev/null 2>&1
+    git push "https://${GH_REPO_TOKEN}@${GH_REPO_REF}" > /dev/null 2>&1
 else
     echo '' >&2
     echo 'Warning: No documentation (html) files have been found!' >&2
     exit 1
 fi
+
