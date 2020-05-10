@@ -4,7 +4,7 @@
 
 # Fondamenti di Informatica II e Lab - UNIMORE
 [![License](https://img.shields.io/github/license/prittt/Fondamenti-II)](https://github.com/prittt/Fondamenti-II/blob/master/LICENSE)
-[![Docs](https://readthedocs.org/projects/pip/badge/?version=latest&style=flat)](https://pritt.github.io/Fondamenti-II/)
+[![Docs](https://readthedocs.org/projects/pip/badge/?version=latest&style=flat)](https://prittt.github.io/Fondamenti-II/)
 
 Questo repository è principalmente rivolto agli studenti di Fondamenti di Informatica II e Lab del Corso di Laurea Triennale in Ingegneria Informatica del Dipartimento di Ingegneria "Enzo Ferrari" dell'Università degl Studi di Modena e Reggio Emilia.
 
