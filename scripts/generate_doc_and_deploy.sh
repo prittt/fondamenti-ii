@@ -53,6 +53,9 @@ git config user.email "travis@travis-ci.org"
 # This is the list of things to be documented
 doxyfiles="list/int"
 
+for i in $doxyfiles; do
+    echo $i
+done
 
 ################################################################################
 ##### Generate the Doxygen documentation (from master) and log the output. #####
@@ -72,6 +75,8 @@ mv $doxyfiles/doxygen/html gh-pages/$doxyfiles/html
 
 cd gh-pages/$doxyfiles
 pwd 
+ls -l
+cd html 
 ls -l
 ################################################################################
 ##### Upload the documentation to the gh-pages branch of the repository.   #####
