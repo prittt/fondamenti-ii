@@ -42,7 +42,7 @@ set -e
 # Get the current gh-pages branch
 git clone -b gh-pages https://github.com/prittt/Fondamenti-II.git gh-pages
 
-doxyfiles = "list/int"
+doxyfiles="list/int"
 
 ################################################################################
 ##### Generate the Doxygen documentation (from master) and log the output. #####
