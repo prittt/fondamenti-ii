@@ -13,7 +13,6 @@ branches:
 env:
   global:
     - GH_REPO_NAME: Fondamenti-II
-    - DOXYFILE: $TRAVIS_BUILD_DIR/doc/doxygen
     - GH_REPO_REF: github.com/prittt/Fondamenti-II.git
 
 # Install dependencies

@@ -42,21 +42,21 @@ set -e
 # Get the current gh-pages branch
 git clone -b gh-pages https://github.com/prittt/Fondamenti-II.git gh-pages
 
+doxyfiles = "list/int"
+
 ################################################################################
 ##### Generate the Doxygen documentation (from master) and log the output. #####
 echo 'Generating Doxygen code documentation...'
 # Redirect both stderr and stdout to the log file and the console.
 cwd=$(pwd)
-cd $DOXYFILE
+cd $doxyfiles/doxygen
 doxygen 2>&1 | tee doxygen.log
 cd $cwd
 
 ################################################################################
 ##### Copy generated doc from master folder to gh-pages one.               #####
-pwd
-ls -l 
-mkdir gh-pages/doc/html
-mv doc/html gh-pages/doc/html
+mkdir -p gh-pages/$doxyfiles/html
+mv $doxyfiles/doxygen/html gh-pages/$doxyfiles/html
 
 ################################################################################
 ##### Configure git for pushing the new doc.                               #####
