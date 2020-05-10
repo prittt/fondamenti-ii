@@ -71,6 +71,8 @@ mkdir -p gh-pages/$doxyfiles/html
 mv $doxyfiles/doxygen/html gh-pages/$doxyfiles/html
 
 cd gh-pages/$doxyfiles
+pwd 
+ls -l
 ################################################################################
 ##### Upload the documentation to the gh-pages branch of the repository.   #####
 # Only upload if Doxygen successfully created the documentation.
