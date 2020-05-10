@@ -15,7 +15,6 @@ __AUTHOR__="Federico Bolelli" # Script adapted from the one designed by "Jeroen 
 # Required global variables:
 # - TRAVIS_BUILD_NUMBER : The number of the current build.
 # - TRAVIS_COMMIT       : The commit that the current build is testing.
-# - DOXYFILE            : The Doxygen configuration file.
 # - GH_REPO_NAME        : The name of the repository.
 # - GH_REPO_REF         : The GitHub reference to the repository.
 # - GH_REPO_TOKEN       : Secure token to the github repository.
@@ -51,7 +50,7 @@ git config user.name "Travis CI"
 git config user.email "travis@travis-ci.org"
 
 # This is the list of things to be documented
-doxyfiles="list/int"
+doxyfiles='"list/int" "list/vector"'
 
 ################################################################################
 ##### Generate the Doxygen documentation (from master) and log the output. #####
@@ -63,16 +62,16 @@ for i in $doxyfiles; do
 	cwd=$(pwd)
 
 	# Redirect both stderr and stdout to the log file and the console.
-	cd $doxyfiles/doxygen
+	cd $i/doxygen
 	doxygen 2>&1 | tee doxygen.log
 	cd $cwd
 
 	################################################################################
 	##### Copy generated doc from master folder to gh-pages one.               #####
-	mkdir -p gh-pages/$doxyfiles/html
-	mv $doxyfiles/doxygen/html gh-pages/$doxyfiles
+	mkdir -p gh-pages/$i/html
+	mv $i/doxygen/html gh-pages/$i
 
-	cd gh-pages/$doxyfiles
+	cd gh-pages/$i
 	################################################################################
 	##### Upload the documentation to the gh-pages branch of the repository.   #####
 	# Only upload if Doxygen successfully created the documentation.
