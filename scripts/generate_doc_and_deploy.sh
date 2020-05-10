@@ -54,7 +54,7 @@ cd $cwd
 ################################################################################
 ##### Copy generated doc from master folder to gh-pages one.               #####
 pwd
-ls - l 
+ls -l 
 mkdir gh-pages/doc/html
 mv doc/html gh-pages/doc/html
 
