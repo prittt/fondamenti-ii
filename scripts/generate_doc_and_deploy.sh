@@ -39,37 +39,25 @@ echo 'Setting up the script...'
 # Exit with nonzero exit code if anything fails
 set -e
 
-# Create a clean working directory for this script.
-mkdir code_docs
-cd code_docs
-
-# Get the current master ang gh-pages branches
-git clone https://github.com/prittt/Fondamenti-II.git master
+# Get the current gh-pages branch
 git clone -b gh-pages https://github.com/prittt/Fondamenti-II.git gh-pages
 
-cd master
-pwd
 ################################################################################
 ##### Generate the Doxygen documentation (from master) and log the output. #####
 echo 'Generating Doxygen code documentation...'
 # Redirect both stderr and stdout to the log file and the console.
 cwd=$(pwd)
 cd $DOXYFILE
-pwd
 doxygen 2>&1 | tee doxygen.log
 cd $cwd
 
 ################################################################################
-##### Copy generated doc from master branch to gh-pages one.               #####
-pwd
-cd .. # We are back in the code_docs folder
-pwd
-ls -l 
-ls master/doc/html
-mv master/doc/html gh-pages/doc
+##### Copy generated doc from master folder to gh-pages one.               #####
+mv doc/html gh-pages/doc/html
 
+################################################################################
+##### Configure git for pushing the new doc.                               #####
 cd gh-pages
-##### Configure git.
 # Set the push default to simple i.e. push only the current branch.
 git config --global push.default simple
 # Pretend to be an user called Travis CI.
