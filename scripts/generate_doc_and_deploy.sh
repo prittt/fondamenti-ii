@@ -48,6 +48,7 @@ doxyfiles="list/int"
 ##### Generate the Doxygen documentation (from master) and log the output. #####
 echo 'Generating Doxygen code documentation...'
 # Redirect both stderr and stdout to the log file and the console.
+echo $doxyfiles
 pwd
 cwd=$(pwd)
 cd $doxyfiles/doxygen
