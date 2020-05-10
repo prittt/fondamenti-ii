@@ -55,7 +55,7 @@ echo 'Generating Doxygen code documentation...'
 cwd=$(pwd)
 cd $DOXYFILE
 doxygen 2>&1 | tee doxygen.log
-cd cwd
+cd $cwd
 
 ################################################################################
 ##### Copy generated doc from master branch to gh-pages one.               #####
