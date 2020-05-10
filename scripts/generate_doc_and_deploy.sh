@@ -48,12 +48,14 @@ git clone https://github.com/prittt/Fondamenti-II.git master
 git clone -b gh-pages https://github.com/prittt/Fondamenti-II.git gh-pages
 
 cd master
+pwd
 ################################################################################
 ##### Generate the Doxygen documentation (from master) and log the output. #####
 echo 'Generating Doxygen code documentation...'
 # Redirect both stderr and stdout to the log file and the console.
 cwd=$(pwd)
 cd $DOXYFILE
+pwd
 doxygen 2>&1 | tee doxygen.log
 cd $cwd
 
@@ -61,6 +63,9 @@ cd $cwd
 ##### Copy generated doc from master branch to gh-pages one.               #####
 pwd
 cd .. # We are back in the code_docs folder
+pwd
+ls -l 
+ls master/doc/html
 mv master/doc/html gh-pages/doc
 
 cd gh-pages
