@@ -59,6 +59,7 @@ cd $cwd
 
 ################################################################################
 ##### Copy generated doc from master branch to gh-pages one.               #####
+pwd
 cd .. # We are back in the code_docs folder
 mv master/doc/html gh-pages/doc
 
