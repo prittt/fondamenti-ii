@@ -1,3 +1,24 @@
+/** @file
+Definizione del tipo ElemType e dichiarazione delle funzioni ad esso associate: 
+    - ElemCompare()
+    - ElemCopy()
+    - ElemDelete()
+    - GetElem()
+    - GetStdinElem()
+    - PrintElem()
+    - PrintStdoutElem()
+
+Le suddette funzioni dipendono da come ElemType viene definito: al variare
+della definizione di ElemType la dichiarazione delle funzioni non cambia, ma 
+la loro definizione deve essere modificata opportunamente.
+
+Definizione del tipo Item e delle funzioni primitive delle liste:
+    - CreateEmptyList()
+
+Le dichiarazione e le definizione delle suddette funzioni NON devono essere
+modificate al variare della definizione di ElemType.
+*/
+
 #ifndef LIST_INT_H_
 #define LIST_INT_H_
 
@@ -6,153 +27,197 @@
 #include <string.h>
 #include <stdlib.h>
 
-// Definizione del tipo di dato da usare nella lista e funzioni annesse
-typedef struct {
-    int* data;
-    size_t size; 
-} ElemType;
+/*****************************************************************************/
+/*                                 Element                                   */
+/*****************************************************************************/
 
-// Confronta due elementi e ritorna -1 se a < b, 0 se a = b e 1 se a > b
-int ElemCompare(const ElemType *e1, const ElemType *e2)
+/** @brief Definizione del tipo ElemType. */
+typedef int ElemType;
+
+/** @brief La funzione ElemCompare confronta due elementi.
+
+@param[in] e1 Puntatore al primo elemento di cui eseguire il confronto. Il 
+              valore contenuto in e1 non viene modificato.
+@param[in] e2 Puntatore al secondo elemento di cui eseguire il confronto. Il
+              valore contenuto in e2 non viene modificato.
+
+@return La funzione ritorna un valore intero che indica la relazione tra i due
+        elementi, ovvero:
+         - -1 se il contenuto del primo è minore di quello del secondo;
+         -  0 se i contenuti dei due elementi sono uguali
+         -  1 se il contenuto del primo è maggiore di quello del secondo;
+*/
+int ElemCompare(const ElemType *e1, const ElemType *e2);
+
+/** @brief La funzione ElemCopy crea e ritorna una copia dell'elemento dato.
+
+@param[in] e Puntatore all'elemento da copiare. Il valore contenuto in e non 
+             viene modificato.
+
+@return Copia dell'elemento e.
+*/
+ElemType ElemCopy(const ElemType *e);
+
+/** @brief La funzione ElemDelete libera la memoria occupata dall'elemento
+           specificato.
+
+@param[in] e Puntatore all'elemento di cui liberare la memoria.
+
+@return Non ci sono valori di ritorno.
+*/
+void ElemDelete(ElemType *e);
+
+/** @brief La funzione ReadElem legge un elemento da file.
+
+@param[in] f FILE * da cui leggere un elemento.
+
+@return Elemento letto da file.
+*/
+ElemType ReadElem(FILE *f);
+
+/** @brief La funzione ReadStdinElem legge un elemento da standard input.
+
+@return Elemento letto da standard input.
+*/
+ElemType ReadStdinElem();
+
+/** @brief La funzione WriteElem stampa un elemento su file.
+
+@param[in] e Puntatore all'elemento da stampare su file. Il valore contenuto in
+             e non viene modificato.
+@param[in] f FILE * su cui stampare l'elemento.
+
+@return Non ci sono valori di ritorno.
+*/
+void WriteElem(const ElemType *e, FILE *f);
+
+/** @brief La funzione PrintStdoutElem stampa un elemento su standard output.
+
+@param[in] e Puntatore all'elemento da stampare su standard output. Il valore
+             contenuto in e non viene modificato.
+
+@return Non ci sono valori di ritorno.
+*/
+void WriteStdoutElem(const ElemType *e);
+
+/*****************************************************************************/
+/*                          Item & Primitives                                */
+/*****************************************************************************/
+
+/** @brief Definizione del tipo Item. */
+struct Item
 {
-    return (e1 > e2) - (e1 < e2);
-}
-
-ElemType* ElemCopy(const ElemType *e)
-{
-    ElemType *new_elem = malloc(sizeof(ElemType));
-    *new_elem = *e;
-    //memcpy(new_elem.data, e->data, sizeof(int)*e->size);
-    return *new_elem;
-}
-
-void ElemDelete(ElemType *a)
-{
-    free(a.)
-    return *a;
-}
-
-typedef struct Item {
     ElemType value;
     struct Item *next;
-}Item;
+};
+typedef struct Item Item;
 
+/** @brief La funzione CreateEmptyList crea e ritorna una lista vuota, ovvero
+           NULL pointer.
 
-
-/** @brief La funzione EmptyList crea e ritorna una lista vuota (NULL pointer)
-
-@return Lista vuota (NULL pointer) 
+@return Lista vuota appena creata (NULL pointer)
 */
-Item* EmptyList(void) {
-    return NULL;
-}
+Item* CreateEmptyList(void);
 
-/** @brief La funzione Cons aggiunge un nuovo elemento in testa ad una lista data e ritorna il 
-            puntatore alla nuova testa della lista.
+/** @brief La funzione InsertHeadList aggiunge un nuovo elemento in testa ad 
+           una lista data e ritorna il puntatore alla nuova testa della lista.
 
-@param e Elemento da aggiugnere.
-@param l Puntatore alla testa della lista a cui aggiungere il nuovo elemento. La
-         lista puo' essere vuota (NULL pointer).
+@param e Puntatore all'elemento da aggiugnere in testa alla lista. Il valore 
+         contenuto in e non viene modificato.
+@param i Puntatore all'item in testa alla lista a cui aggiungere il nuovo 
+         elemento. Il valore contenuto in i non viene modificato. i puo'
+         puntare ad una lista vuota (NULL pointer).
 
-@return Puntatore nuova testa della lista.
+@return Puntatore all'item in testa alla lista ottenuta dopo l'aggiunta.
 */
-Item* Cons(ElemType e, Item* l) {
-    Item *t = malloc(sizeof(Item));
-    t->value = Copy(e);
-    t->next = l;
-    return t;
-}
+Item* InsertHeadList(const ElemType *e, const Item* i);
 
-/** @brief La funzione IsEmpty verifica se una lista è vuota o meno.
+/** @brief La funzione IsEmptyList verifica se una lista data è vuota o meno.
 
-@param l Puntatore alla testa della lista da verificare.
+@param i Puntatore all'item in testa alla lista da verificare.
 
 @return true se la lista e' vuota, false altrimenti.
 */
-bool IsEmpty(Item *l) {
-    return (l == NULL);
-}
+bool IsEmptyList(Item *i);
 
-/** @brief La funzione Head ritorna l'elemento in testa ad una lista senza 
-           rimuoverlo dalla lista.
+/** @brief La funzione GetHeadList ritorna una copia dell'elemento in testa ad 
+           una lista data senza rimuoverlo dalla lista.
 
-@param l Puntatore alla testa della lista da cui estrarre l'elemento in testa.
-         Nel caso in cui la lista specificata sia vuota la funzione termina il 
-         programma con codice di errore 1.
+@param i Puntatore all'item in testa alla lista. La lista non può essere vuota,
+         nel caso in cui lo sia la funzione termina il programma con codice di 
+         errore 1.
 
-@returns Elemento in testa alla lista.
+@returns Copia dell'elemento in testa alla lista.
 */
-ElemType Head(Item *l) {
-    if (IsEmpty(l)) {
-        printf("ERROR: Alla funzione 'Head()' è stata passata una lista vuota (NULL pointer).\n");
-        exit(1);
-    }
-    else {
-        return l->value;
-    }
-}
+ElemType GetHeadList(Item *i);
 
-/** @brief La funzione Tail ritorna una lista privata dell'elemento in testa. La funzione NON dealloca 
-           la memoria occupata dall'elemento in testa alla lista data.
+/** @brief La funzione GetTailList ritorna la lista privata dell'elemento in 
+           testa. La funzione NON dealloca la memoria occupata dall'elemento.
 
-@param l Puntatore alla testa della lista da cui eliminare l'elemento in testa.
-         Nel caso in cui la lista specificata sia vuota la funzione termina il
-         programma con codice di errore 2.
+@param i Puntatore all'item in testa alla lista da cui eliminare la testa. La 
+         lista non può essere vuota, nel caso in cui lo sia la funzione termina
+         il programma con codice di errore 2. 
 
-@return Puntatore alla testa della lista ottenuta dopo l'eliminazione dell'elemento in testa. 
-        Il valore di ritorno potrebbe essere una lista vuota.
+@return Puntatore all'item in testa alla lista ottenuta dopo l'eliminazione.
+        Il valore di ritorno potrebbe essere una lista vuota (NULL pointer).
 */
-Item* Tail(Item* l) {
-    if (IsEmpty(l)) {
-        printf("ERROR: Alla funzione 'Tail()' è stata passata una lista vuota (NULL pointer).\n");
-        exit(2);
-    }
-    else {
-        return l->next;
-    }
-}
+Item* GetTailList(Item* i);
 
 
-/** @brief La funzione InsertBack aggiunge un elemento in coda ad una lista (anche vuota) 
-           e ritorna la lista risultante.
+/** @brief La funzione InsertBackList aggiunge un elemento in coda ad una lista 
+           (anche vuota) e ritorna la lista risultante.
 
-@param l Puntatore alla testa della lista a cui aggiungere l'elemento. La 
-         lista puo' essere vuota (NULL pointer).
-@param e Elemento da aggiungere alla lista l.
+@param i Puntatore all'item in testa alla lista a cui aggiungere l'elemento 
+         specifciato. La lista puo' essere vuota (NULL pointer).
+@param e Puntatore all'elemento da aggiugnere in testa alla lista. Il valore 
+         contenuto in e non viene modificato.
 
-@return Puntatore alla testa della lista ottenuta dopo l'aggiunta dell'elemento.
+@return  Puntatore all'item in testa alla lista ottenuta dopo l'aggiunta 
+         dell'elemento.
 */
-Item* InsertBack(Item* l, const ElemType *e) {
-    
-    Item* n = Cons(e, EmptyList());
+Item* InsertBackList(Item* i, const ElemType *e);
 
-    if (IsEmpty(l)) {
-        return n;
-    }
+/** @brief La funzione DeleteList libera la memoria occupata da dagli elementi
+           di una lista.
 
-    Item* tmp = l;
-    while (!IsEmpty(Tail(tmp))) {
-        tmp = Tail(tmp);
-    }
+@param i Puntatore all'item in testa alla lista di cui liberare la memoria. 
+         Puo' essere una lista vuota (NULL pointer).
 
-    tmp->next = n;
-    return l;
-}
-
-/** @brief Dato un puntatore alla testa di una lista, la funzrion FreeList libera la memoria 
-           occupata dai suoi elementi.
-
-@param l Puntatore alla testa della lista di cui liberare la memoria.
-
-@return Nothing
+@return Non ci sono valori di ritorno.
 */
-void FreeList(Item* l) {
-    while (!IsEmpty(l)) {
-        Item* tmp = l;
-        l = l->next;
+void DeleteList(Item* item)
+{
+    while (!IsEmptyList(item)) {
+        Item* tmp = item;
+        item = item->next;
+        ElemDelete(tmp->value);
         free(tmp);
     }
 }
 
-#endif // !LIST_COORDS_H_
+/*****************************************************************************/
+/*                            Non Primitives                                 */
+/*****************************************************************************/
+
+/** @brief La funzione WriteList stampa la lista specificata su file.
+
+@param i Puntatore all'item in testa alla lista da stampare su file. La lista
+         non viene modificata. La lista può essere vuota.
+@param f FILE * su cui stampare la lista.
+
+@return Non ci sono valori di ritorno.
+*/
+void WriteList(const Item *i, FILE *f);
+
+/** @brief La funzione WriteStdoutList stampa la lista specificata su standard
+           output.
+
+@param i Puntatore all'item in testa alla lista da stampare su file. La lista
+         non viene modificata. La lista può essere vuota.
+
+@return Non ci sono valori di ritorno.
+*/
+void WriteStdoutList(const Item *i);
+
+#endif // LIST_INT_H_
 
