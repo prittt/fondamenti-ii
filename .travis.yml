@@ -1,6 +1,8 @@
 # This will run on Travis' 'new' container-based infrastructure
 sudo: false
 
+dist: bionic
+
 # To avoid ruby
 language: generic
 
@@ -28,6 +30,9 @@ addons:
 # Build the code
 #script:
 #  - make
+
+before_install:
+    - sudo apt-get -y install zip 
 
 # Generate and deploy documentation
 after_success:
