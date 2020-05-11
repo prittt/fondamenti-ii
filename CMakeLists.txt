@@ -26,6 +26,7 @@ FOREACH(cur_dir ${SUB_DIRS})
 		file(GLOB sources ${cur_sub_dir}/*.c)
 		file(GLOB headers ${cur_sub_dir}/*.h)
 		add_library(${target_name_uppercase} STATIC ${sources} ${headers})
+		target_include_directories(${target_name_uppercase} PUBLIC ${cur_sub_dir})
 	
 		if(EXISTS ${cur_sub_dir}/examples)
 			add_subdirectory(${cur_sub_dir}/examples)
