@@ -1,5 +1,4 @@
 set(examples_sources
-    insert_ord.c
     iterate.c
 )
 FOREACH(cur_file ${examples_sources})
