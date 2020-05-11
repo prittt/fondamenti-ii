@@ -3,17 +3,26 @@ Definizione del tipo ElemType e dichiarazione delle funzioni ad esso associate:
     - ElemCompare()
     - ElemCopy()
     - ElemDelete()
-    - GetElem()
-    - GetStdinElem()
-    - PrintElem()
-    - PrintStdoutElem()
+    - ReadElem()
+    - ReadStdinElem()
+    - WriteElem()
+    - WriteStdoutElem()
 
 Le suddette funzioni dipendono da come ElemType viene definito: al variare
 della definizione di ElemType la dichiarazione delle funzioni non cambia, ma 
 la loro definizione deve essere modificata opportunamente.
 
-Definizione del tipo Item e delle funzioni primitive delle liste:
+Definizione del tipo Item e delle funzioni primitive (e non) delle liste:
     - CreateEmptyList()
+    - InsertHeadList()
+    - IsEmptyList()
+    - GetHeadList()
+    - GetTailList()
+    - InsertBackList()
+    - DeleteList()
+
+    - WriteList()
+    - WriteStdoutList()
 
 Le dichiarazione e le definizione delle suddette funzioni NON devono essere
 modificate al variare della definizione di ElemType.
