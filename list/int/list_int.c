@@ -1,4 +1,8 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "list_int.h"
+
+#include <string.h>
+#include <stdlib.h>
 
 /*****************************************************************************/
 /*                                 Element                                   */
@@ -6,7 +10,7 @@
 
 int ElemCompare(const ElemType *e1, const ElemType *e2)
 {
-    return (e1 > e2) - (e1 < e2);
+    return (*e1 > *e2) - (*e1 < *e2);
 }
 
 ElemType ElemCopy(const ElemType *e)
@@ -48,7 +52,7 @@ Item* CreateEmptyList(void)
     return NULL;
 }
 
-Item* InsertHeadList(const ElemType *e, const Item* i)
+Item* InsertHeadList(const ElemType *e, Item* i)
 {
     Item *t = malloc(sizeof(Item));
     t->value = ElemCopy(e);
@@ -56,23 +60,23 @@ Item* InsertHeadList(const ElemType *e, const Item* i)
     return t;
 }
 
-bool IsEmptyList(Item *i)
+bool IsEmptyList(const Item *i)
 {
     return i == NULL;
 }
 
-ElemType GetHeadList(const Item *i)
+const ElemType* GetHeadList(const Item *i)
 {
     if (IsEmptyList(i)) {
         printf("ERROR: Alla funzione 'GetHeadList()' è stata passata una lista vuota (NULL pointer).\n");
         exit(1);
     }
     else {
-        return ElemCopy(i->value);
+        return &i->value;
     }
 }
 
-Item* GetTailList(Item* i)
+Item* GetTailList(const Item* i)
 {
     if (IsEmptyList(i)) {
         printf("ERROR: Alla funzione 'GetTail()' è stata passata una lista vuota (NULL pointer).\n");
@@ -86,19 +90,29 @@ Item* GetTailList(Item* i)
 Item* InsertBackList(Item* i, const ElemType *e)
 {
 
-    Item* n = Cons(e, CreateEmptyList());
+    Item* n = InsertHeadList(e, CreateEmptyList());
 
     if (IsEmptyList(i)) {
         return n;
     }
 
     Item* tmp = i;
-    while (!IsEmpty(Tail(tmp))) {
-        tmp = Taii(tmp);
+    while (!IsEmptyList(GetTailList(tmp))) {
+        tmp = GetTailList(tmp);
     }
 
     tmp->next = n;
     return i;
+}
+
+void DeleteList(Item* item)
+{
+    while (!IsEmptyList(item)) {
+        Item* tmp = item;
+        item = item->next;
+        ElemDelete(&tmp->value);
+        free(tmp);
+    }
 }
 
 /*****************************************************************************/
@@ -111,7 +125,7 @@ void WriteList(const Item *i, FILE *f)
     while (!IsEmptyList(i)) {
         WriteElem(GetHeadList(i), f);
         i = GetTailList(i);
-        if (!IsEmptyList(i)) printf("->");
+        if (!IsEmptyList(i)) printf(", ");
     }
     printf("]\n");
 }

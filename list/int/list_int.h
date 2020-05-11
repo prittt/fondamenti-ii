@@ -24,8 +24,6 @@ modificate al variare della definizione di ElemType.
 
 #include <stdbool.h>
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
 /*****************************************************************************/
 /*                                 Element                                   */
@@ -122,15 +120,14 @@ Item* CreateEmptyList(void);
 /** @brief La funzione InsertHeadList aggiunge un nuovo elemento in testa ad 
            una lista data e ritorna il puntatore alla nuova testa della lista.
 
-@param e Puntatore all'elemento da aggiugnere in testa alla lista. Il valore 
-         contenuto in e non viene modificato.
+@param e Puntatore all'elemento da aggiugnere in testa alla lista.
 @param i Puntatore all'item in testa alla lista a cui aggiungere il nuovo 
          elemento. Il valore contenuto in i non viene modificato. i puo'
          puntare ad una lista vuota (NULL pointer).
 
 @return Puntatore all'item in testa alla lista ottenuta dopo l'aggiunta.
 */
-Item* InsertHeadList(const ElemType *e, const Item* i);
+Item* InsertHeadList(const ElemType *e, Item* i);
 
 /** @brief La funzione IsEmptyList verifica se una lista data è vuota o meno.
 
@@ -138,7 +135,7 @@ Item* InsertHeadList(const ElemType *e, const Item* i);
 
 @return true se la lista e' vuota, false altrimenti.
 */
-bool IsEmptyList(Item *i);
+bool IsEmptyList(const Item *i);
 
 /** @brief La funzione GetHeadList ritorna una copia dell'elemento in testa ad 
            una lista data senza rimuoverlo dalla lista.
@@ -147,9 +144,9 @@ bool IsEmptyList(Item *i);
          nel caso in cui lo sia la funzione termina il programma con codice di 
          errore 1.
 
-@returns Copia dell'elemento in testa alla lista.
+@returns Puntatore all'elemento in testa alla lista.
 */
-ElemType GetHeadList(Item *i);
+const ElemType* GetHeadList(const Item *i);
 
 /** @brief La funzione GetTailList ritorna la lista privata dell'elemento in 
            testa. La funzione NON dealloca la memoria occupata dall'elemento.
@@ -161,7 +158,7 @@ ElemType GetHeadList(Item *i);
 @return Puntatore all'item in testa alla lista ottenuta dopo l'eliminazione.
         Il valore di ritorno potrebbe essere una lista vuota (NULL pointer).
 */
-Item* GetTailList(Item* i);
+Item* GetTailList(const Item* i);
 
 
 /** @brief La funzione InsertBackList aggiunge un elemento in coda ad una lista 
@@ -185,15 +182,7 @@ Item* InsertBackList(Item* i, const ElemType *e);
 
 @return Non ci sono valori di ritorno.
 */
-void DeleteList(Item* item)
-{
-    while (!IsEmptyList(item)) {
-        Item* tmp = item;
-        item = item->next;
-        ElemDelete(tmp->value);
-        free(tmp);
-    }
-}
+void DeleteList(Item* item);
 
 /*****************************************************************************/
 /*                            Non Primitives                                 */

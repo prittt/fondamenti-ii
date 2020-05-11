@@ -2,42 +2,53 @@
 
 #include <stdlib.h>
 
-list insord(element e, list l)
+Item* InsOrdRec(const ElemType *e, Item *i)
 {
-    list t;
-    if (empty(l) || !isLess(head(l), e)) {
-        t = cons(e, l);
-        //t->next = l;
-        return t;
+    if (IsEmptyList(i) || ElemCompare(GetHeadList(i), e) >= 0) {
+        return InsertHeadList(e, i);
     }
-    return cons(head(l), insord(e, tail(l)));
+    return InsertHeadList(GetHeadList(i), InsOrdRec(e, GetTailList(i)));
 }
 
-list insord2(element e, list l)
+Item* InsOrd(const ElemType *e, Item *i)
 {
-    list l1 = NULL, root = l;
-    list t;
-    if (empty(l) || !isLess(head(l), e)) {
-        t = cons(e, l);
-        return t;
+
+    if (IsEmptyList(i) || ElemCompare(GetHeadList(i), e) >= 0) {
+        return InsertHeadList(e, i);
     }
-    t = cons(e, NULL);
-    while (!empty(l) && isLess(head(l), e)) {
-        l1 = l;
-        l = tail(l);
+
+    Item* root = i;
+    Item* prev = CreateEmptyList();
+    Item* new_item = InsertHeadList(e, CreateEmptyList());
+
+    while (!IsEmptyList(i) && ElemCompare(GetHeadList(i), e) < 0) {
+        prev = i;
+        i = GetTailList(i);
     }
-    l1->next = t;
-    t->next = l;
+    prev->next = new_item;
+    new_item->next = i;
     return root;
 }
-void main(void)
+
+int main(void)
 {
-    list l1 = emptylist();
-    int el;
+    Item* i = CreateEmptyList();
+    Item* i_rec = CreateEmptyList();
+    ElemType e;
     do {
-        printf("\n Introdurre valore:\t");
-        el = getElement();
-        l1 = insord2(el, l1);
-    } while (el != 0); /* condiz. arbitraria */
-    showlist(l1);
+        printf("Introdurre valore:\t");
+        e = ReadStdinElem();
+        i = InsOrd(&e, i);
+        i_rec = InsOrdRec(&e, i_rec);
+
+        WriteStdoutList(i);
+        puts("");
+        WriteStdoutList(i_rec);
+
+    } while (e != 0); // Condizione di uscita arbitraria
+    WriteStdoutList(i);
+    puts("");
+    WriteStdoutList(i_rec);
+
+    return EXIT_SUCCESS;
 }
