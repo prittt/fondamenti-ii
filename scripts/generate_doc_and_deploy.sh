@@ -83,7 +83,7 @@ for i in $doxyfiles; do
 	echo ${zip_name}
 	zip ${zip_name} -r ${headers} ${sources}
 
-	file=gh-pages/$i/${zip_name}
+	file=../../gh-pages/$i/${zip_name}
 	if [ -f "$file" ]; then rm $file; fi
 	pwd
 	ls -l
