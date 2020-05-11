@@ -4,7 +4,7 @@
 
 # Fondamenti di Informatica II e Lab - UNIMORE
 [![License](https://img.shields.io/github/license/prittt/Fondamenti-II)](https://github.com/prittt/Fondamenti-II/blob/master/LICENSE)
-[![Docs](https://readthedocs.org/projects/pip/badge/?version=latest&style=flat)](https://github.com/prittt/Fondamenti-II/edit/master/README.md#docs)
+[![Docs](https://readthedocs.org/projects/pip/badge/?version=latest&style=flat)](https://github.com/prittt/Fondamenti-II/blob/master/README.md#docs)
 [![Build Status](https://travis-ci.com/prittt/Fondamenti-II.svg?token=uFxAjG3MrtqGf83nu4qz&branch=master)](https://travis-ci.com/prittt/Fondamenti-II)
 
 <p align="justify">
