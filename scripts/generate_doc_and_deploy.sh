@@ -73,12 +73,27 @@ for i in $doxyfiles; do
 	mkdir -p $dir
 	mv $i/doxygen/html gh-pages/$i
 
-	cd gh-pages/$i
+	################################################################################
+	##### Creation of the zip file for the download.                           #####
+	cd $i
+	headers=`ls *.h`
+	sources=`ls *.c`
+
+	zip_name="${i//\//_}.zip"
+	echo ${zip_name}
+	zip ${zip_name}.zip -r ${headers} ${sources}
+
+	file=gh-pages/$i/${zip_name}
+	if [ -f "$file" ]; then rm $file; fi
+	mv ${zip_name} ${file}
+	cd $cwd
+
 	################################################################################
 	##### Upload the documentation to the gh-pages branch of the repository.   #####
 	# Only upload if Doxygen successfully created the documentation.
 	# Check this by verifying that the html directory and the file html/index.html
 	# both exist. This is a good indication that Doxygen did it's work.
+	cd gh-pages/$i
 	if [ -d "html" ] && [ -f "html/index.html" ]; then
 
 		echo 'Uploading documentation to the gh-pages branch...'
