@@ -212,8 +212,8 @@ void WriteList(const Item *i, FILE *f);
 /** @brief La funzione WriteStdoutList stampa la lista specificata su standard
            output.
 
-@param i Puntatore all'item in testa alla lista da stampare su file. La lista
-         non viene modificata. La lista può essere vuota.
+@param i Puntatore all'item in testa alla lista da stampare su standard output.
+         La lista non viene modificata. La lista può essere vuota.
 
 @return Non ci sono valori di ritorno.
 */
