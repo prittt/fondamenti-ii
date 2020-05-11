@@ -65,7 +65,7 @@ bool IsEmptyList(const Item *i)
     return i == NULL;
 }
 
-const ElemType* GetHeadList(const Item *i)
+ElemType* GetHeadList(Item *i)
 {
     if (IsEmptyList(i)) {
         printf("ERROR: Alla funzione 'GetHeadList()' è stata passata una lista vuota (NULL pointer).\n");
@@ -123,7 +123,7 @@ void WriteList(const Item *i, FILE *f)
 {
     printf("[");
     while (!IsEmptyList(i)) {
-        WriteElem(GetHeadList(i), f);
+        WriteElem(&i->value, f);
         i = GetTailList(i);
         if (!IsEmptyList(i)) printf(", ");
     }

@@ -146,7 +146,7 @@ bool IsEmptyList(const Item *i);
 
 @returns Puntatore all'elemento in testa alla lista.
 */
-const ElemType* GetHeadList(const Item *i);
+ElemType* GetHeadList(Item *i);
 
 /** @brief La funzione GetTailList ritorna la lista privata dell'elemento in 
            testa. La funzione NON dealloca la memoria occupata dall'elemento.

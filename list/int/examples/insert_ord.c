@@ -40,15 +40,12 @@ int main(void)
         e = ReadStdinElem();
         i = InsOrd(&e, i);
         i_rec = InsOrdRec(&e, i_rec);
-
-        WriteStdoutList(i);
-        puts("");
-        WriteStdoutList(i_rec);
-
     } while (e != 0); // Condizione di uscita arbitraria
     WriteStdoutList(i);
-    puts("");
     WriteStdoutList(i_rec);
+
+    DeleteList(i);
+    DeleteList(i_rec);
 
     return EXIT_SUCCESS;
 }
