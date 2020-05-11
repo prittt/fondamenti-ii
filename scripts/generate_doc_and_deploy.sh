@@ -57,8 +57,10 @@ doxyfiles='list/int list/vector'
 echo 'Generating Doxygen code documentation...'
 
 for i in $doxyfiles; do
-    echo $i
-
+    echo "****************************************************"
+	echo "* $i"
+    echo "****************************************************"
+	
 	cwd=$(pwd)
 
 	# Redirect both stderr and stdout to the log file and the console.
@@ -85,8 +87,6 @@ for i in $doxyfiles; do
 
 	file=../../gh-pages/$i/${zip_name}
 	if [ -f "$file" ]; then rm $file; fi
-	pwd
-	ls -l
 	mv ${zip_name} ${file}
 	cd $cwd
 
