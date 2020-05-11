@@ -81,7 +81,7 @@ for i in $doxyfiles; do
 
 	zip_name="${i//\//_}.zip"
 	echo ${zip_name}
-	zip ${zip_name}.zip -r ${headers} ${sources}
+	zip ${zip_name} -r ${headers} ${sources}
 
 	file=gh-pages/$i/${zip_name}
 	if [ -f "$file" ]; then rm $file; fi
