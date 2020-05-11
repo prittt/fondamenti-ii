@@ -4,7 +4,7 @@
 
 # Fondamenti di Informatica II e Lab - UNIMORE
 [![License](https://img.shields.io/github/license/prittt/Fondamenti-II)](https://github.com/prittt/Fondamenti-II/blob/master/LICENSE)
-[![Docs](https://readthedocs.org/projects/pip/badge/?version=latest&style=flat)](https://github.com/prittt/Fondamenti-II/blob/master/README.md#docs)
+[![Docs](https://readthedocs.org/projects/pip/badge/?version=latest&style=flat)](https://github.com/prittt/Fondamenti-II/blob/master/README.md#doc)
 [![Build Status](https://travis-ci.com/prittt/Fondamenti-II.svg?token=uFxAjG3MrtqGf83nu4qz&branch=master)](https://travis-ci.com/prittt/Fondamenti-II)
 
 <p align="justify">
@@ -51,7 +51,7 @@ Nelle sottocartelle <code>examples</code> sono disponibili dei file <code>.c</co
 Il restante materiale è utilizzato per la gestione del repository: generazione automatica della documentazione, generazione del progetto, ecc e può essere pertanto ignorato. Nel seguito di questa pagina troverete i link alla documentazione delle primitive e i link per il download diretto di primitive specifiche. 
 </p>
 
-<h2><a name="doc" href="">Documentazione</a></h2>
+<h2><a name="doc">Documentazione</a></h2>
 
 ### Liste
 
