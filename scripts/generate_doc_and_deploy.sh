@@ -85,6 +85,8 @@ for i in $doxyfiles; do
 
 	file=gh-pages/$i/${zip_name}
 	if [ -f "$file" ]; then rm $file; fi
+	pwd
+	ls -l
 	mv ${zip_name} ${file}
 	cd $cwd
 
@@ -94,7 +96,7 @@ for i in $doxyfiles; do
 	# Check this by verifying that the html directory and the file html/index.html
 	# both exist. This is a good indication that Doxygen did it's work.
 	cd gh-pages/$i
-	if [ -d "html" ] && [ -f "html/index.html" ]; then
+	if ([ -d "html" ] && [ -f "html/index.html" ]) || [ -f "${zip_name}" ]; then
 
 		echo 'Uploading documentation to the gh-pages branch...'
 		# Add everything in this directory (the Doxygen code documentation) to the
