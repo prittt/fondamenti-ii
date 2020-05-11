@@ -34,19 +34,19 @@ La struttura del progetto è la seguente:
 
 ```
 
-<p align="justify" markdown="1">
-Come potete notare il codice relativo ad una specifica struttura dati si trova in una sottocartella con lo stesso nome: `list`, `tree`, `heap`. Per ognuna di queste vengono fornite diverse implementazioni a seconda del tipo di dato. Le dichiarazioni e le definizioni sono riportate rispettivamente nei nei file `.h` e `.c` in una specifica sottocartalle a seconda del tipo: `int`, `vector`, ecc.  
+<p align="justify">
+Come potete notare il codice relativo ad una specifica struttura dati si trova in una sottocartella con lo stesso nome: <code>list</code>, <code>tree</code>, <code>heap</code>. Per ognuna di queste vengono fornite diverse implementazioni a seconda del tipo di dato. Le dichiarazioni e le definizioni sono riportate rispettivamente nei nei file <code>.h</code> e <code>.c</code> in una specifica sottocartalle a seconda del tipo: `int`, `vector`, ecc.  
 </p>
 
-<p align="justify" markdown="1">
-Quindi ad esempio nella cartella `list>int` troviamo i file `list_int.h` e `list_int.c` che forniscono l'implementazione delle liste per il tipo `int`. 
+<p align="justify">
+Quindi ad esempio nella cartella <code>list>int</code> troviamo i file <code>list_int.h</code> e <code>list_int.c</code> che forniscono l'implementazione delle liste per il tipo <code>int</code>. 
 </p>
 
-<p align="justify" markdown="1">
-Nelle sottocartelle `examples` sono disponibili dei file `*c` contenenti dei `main()` di esempio di utilizzo delle primitive.
+<p align="justify">
+Nelle sottocartelle <code>examples</code> sono disponibili dei file <code>.c</code> contenenti dei <code>main()</code> di esempio di utilizzo delle primitive.
 </p>
 
-<p align="justify" markdown="1">
+<p align="justify">
 Il restante materiale è utilizazto per la gestione del repository: generazione automatica della documentazione, generazione del progetto, ecc e può essere pertanto ignorato. Nel seguito di questa pagina troverete i link alla documentazione delle primitive e i link per il download diretto di primitive specifiche. 
 </p>
 
