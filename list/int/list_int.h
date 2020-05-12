@@ -16,7 +16,7 @@ Definizione del tipo Item e delle funzioni primitive (e non) delle liste:
     - CreateEmptyList()
     - InsertHeadList()
     - IsEmptyList()
-    - GetHeadValue()
+    - GetHeadValueList()
     - GetTailList()
     - InsertBackList()
     - DeleteList()
