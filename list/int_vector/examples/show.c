@@ -1,4 +1,4 @@
-// Per controllare eventuali memory leaks
+// Per controllare eventuali memory leak
 //#define _CRTDBG_MAP_ALLOC
 //#include <stdlib.h>
 //#include <crtdbg.h>
@@ -31,7 +31,7 @@ int main(void) {
 
     DeleteList(list);
 
-    // Per controllare eventuali memory leaks
+    // Per controllare eventuali memory leak
     //_CrtDumpMemoryLeaks();
 
     return EXIT_SUCCESS;
