@@ -8,7 +8,7 @@
 [![Build Status](https://travis-ci.com/prittt/Fondamenti-II.svg?token=uFxAjG3MrtqGf83nu4qz&branch=master)](https://travis-ci.com/prittt/Fondamenti-II)
 
 <p align="justify">
-Questo repository è principalmente rivolto agli studenti di Fondamenti di Informatica II e Lab del Corso di Laurea Triennale in Ingegneria Informatica del Dipartimento di Ingegneria "Enzo Ferrari" dell'Università degl Studi di Modena e Reggio Emilia. Il repository contiene le primitive di liste, alberi e heap viste a lezione ed usate per le esercitazioni. Si noti che le implementazioni fornite sono implementazioni "semplificate", sviluppate a scopo puramente didattico. 
+Questo repository è principalmente rivolto agli studenti di Fondamenti di Informatica II e Lab del Corso di Laurea Triennale in Ingegneria Informatica del Dipartimento di Ingegneria "Enzo Ferrari" dell'Università degli Studi di Modena e Reggio Emilia. Il repository contiene le primitive di liste, alberi e heap viste a lezione ed usate per le esercitazioni. Si noti che le implementazioni fornite sono implementazioni "semplificate", sviluppate a scopo puramente didattico. 
 </p>
 
 <p align="justify">
