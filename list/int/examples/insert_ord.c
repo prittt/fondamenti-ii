@@ -1,3 +1,7 @@
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+
 #include "list_int.h"
 
 #include <stdlib.h>
@@ -7,7 +11,9 @@ Item* InsOrdRec(const ElemType *e, Item *i)
     if (IsEmptyList(i) || ElemCompare(GetHeadList(i), e) >= 0) {
         return InsertHeadList(e, i);
     }
-    return InsertHeadList(GetHeadList(i), InsOrdRec(e, GetTailList(i)));
+    Item* tmp = InsertHeadList(GetHeadList(i), InsOrdRec(e, GetTailList(i)));
+    free(i);
+    return tmp;
 }
 
 Item* InsOrd(const ElemType *e, Item *i)
@@ -46,6 +52,8 @@ int main(void)
 
     DeleteList(i);
     DeleteList(i_rec);
+
+    _CrtDumpMemoryLeaks();
 
     return EXIT_SUCCESS;
 }
