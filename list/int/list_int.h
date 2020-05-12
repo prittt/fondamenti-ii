@@ -16,7 +16,7 @@ Definizione del tipo Item e delle funzioni primitive (e non) delle liste:
     - CreateEmptyList()
     - InsertHeadList()
     - IsEmptyList()
-    - GetHeadList()
+    - GetHeadValue()
     - GetTailList()
     - InsertBackList()
     - DeleteList()
@@ -122,7 +122,7 @@ typedef struct Item Item;
 /** @brief La funzione CreateEmptyList crea e ritorna una lista vuota, ovvero
            NULL pointer.
 
-@return Lista vuota appena creata (NULL pointer)
+@return Lista vuota appena creata (NULL pointer).
 */
 Item* CreateEmptyList(void);
 
@@ -146,8 +146,8 @@ Item* InsertHeadList(const ElemType *e, Item* i);
 */
 bool IsEmptyList(const Item *i);
 
-/** @brief La funzione GetHeadList ritorna una copia dell'elemento in testa ad 
-           una lista data senza rimuoverlo dalla lista.
+/** @brief La funzione GetHeadList ritorna un puntatore all'elemento in testa 
+            ad una lista data senza rimuoverlo dalla lista.
 
 @param i Puntatore all'item in testa alla lista. La lista non può essere vuota,
          nel caso in cui lo sia la funzione termina il programma con codice di 
@@ -155,7 +155,7 @@ bool IsEmptyList(const Item *i);
 
 @returns Puntatore all'elemento in testa alla lista.
 */
-ElemType* GetHeadList(Item *i);
+ElemType* GetHeadValueList(Item *i);
 
 /** @brief La funzione GetTailList ritorna la lista privata dell'elemento in 
            testa. La funzione NON dealloca la memoria occupata dall'elemento.
@@ -183,8 +183,8 @@ Item* GetTailList(const Item* i);
 */
 Item* InsertBackList(Item* i, const ElemType *e);
 
-/** @brief La funzione DeleteList libera la memoria occupata da dagli elementi
-           di una lista.
+/** @brief La funzione DeleteList libera la memoria occupata dagli elementi di 
+           una lista.
 
 @param i Puntatore all'item in testa alla lista di cui liberare la memoria. 
          Puo' essere una lista vuota (NULL pointer).
@@ -194,7 +194,7 @@ Item* InsertBackList(Item* i, const ElemType *e);
 void DeleteList(Item* item);
 
 /*****************************************************************************/
-/*                            Non Primitives                                 */
+/*                             Non Primitive                                 */
 /*****************************************************************************/
 
 /** @brief La funzione WriteList stampa la lista specificata su file.
