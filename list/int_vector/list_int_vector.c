@@ -59,7 +59,7 @@ void WriteElem(const ElemType *e, FILE *f)
             printf(", ");
         }
     }
-    fprintf(f, "[");
+    fprintf(f, "]");
 }
 
 void WriteStdoutElem(const ElemType *e)
