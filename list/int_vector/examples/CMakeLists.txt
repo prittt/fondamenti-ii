@@ -1,5 +1,5 @@
 set(examples_sources
-    iterate.c
+    show.c
 )
 FOREACH(cur_file ${examples_sources})
     get_filename_component(exe_name ${cur_file} NAME_WE)
