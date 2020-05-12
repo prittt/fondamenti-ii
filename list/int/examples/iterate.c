@@ -2,7 +2,7 @@
 
 #include <stdlib.h>
 
-Item* CreateListFromVector(const ElemType *v, size_t v_size) {
+Item* CreateListFromVector(const int *v, size_t v_size) {
     Item *list = CreateEmptyList();
     for (size_t i = 0; i < v_size; ++i) {
         list = InsertBackList(list, &v[i]);
@@ -12,17 +12,17 @@ Item* CreateListFromVector(const ElemType *v, size_t v_size) {
 
 int main(void) {
     
-    ElemType v[] = { 1,2,3,4,5,6,7,8,9 };
-    size_t v_size = sizeof(v) / sizeof(ElemType);
+    int v[] = { 1,2,3,4,5,6,7,8,9 };
+    size_t v_size = sizeof(v) / sizeof(int);
     Item *list = CreateListFromVector(v, v_size);
 
     // Iterazione con il for usando le primitive:
     for (Item* tmp = list; !IsEmptyList(tmp); tmp = GetTailList(tmp)) {
         // Prendo il valore dell'elemento corrente della lista.
-        ElemType *e = GetHeadList(tmp); // ATTENZIONE: e punta proprio al 
-                                        // valore dell'Item corrente, quindi se
-                                        // lo modifico, modifico anche l'item 
-                                        // corrente
+        ElemType *e = GetHeadValueList(tmp); // ATTENZIONE: e punta proprio al 
+                                             // valore dell'Item corrente, 
+                                             // quindi se lo modifico, modifico
+                                             // anche l'item corrente
         // oppure, se voglio modificare e senza che la lista cambi:
         // ElemType e = ElemCopy(GetHeadList(tmp));
         // E lo uso 
@@ -30,7 +30,7 @@ int main(void) {
     }
 
     // Iterazione con il for senza la primitive:
-    for (Item* tmp = list; !tmp; tmp = tmp->next) {
+    for (Item* tmp = list; tmp; tmp = tmp->next) {
         ElemType e = tmp->value;
         // Cose ...
     }
@@ -38,7 +38,7 @@ int main(void) {
     // Iterazione con il while usando le primitive:
     Item* tmp = list;
     while (!IsEmptyList(tmp)) {
-        ElemType *e = GetHeadList(tmp);
+        ElemType *e = GetHeadValueList(tmp);
         // Cose ...
 
         tmp = GetTailList(tmp);
@@ -46,7 +46,7 @@ int main(void) {
 
     // Iterazione con il while senza le primitive:
     /*Item**/ tmp = list;
-    while (!tmp) {
+    while (tmp) {
         ElemType e = tmp->value;
         // Cose ...
         tmp = tmp->next;
