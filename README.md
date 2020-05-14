@@ -36,11 +36,11 @@ La struttura del progetto è la seguente:
 ```
 
 <p align="justify">
-Come potete notare il codice relativo ad una specifica struttura dati si trova in una sottocartella con lo stesso nome: <code>list</code>, <code>tree</code>, <code>heap</code>. Per ognuna di queste vengono fornite diverse implementazioni a seconda del tipo di dato. Le dichiarazioni e le definizioni sono riportate rispettivamente nei nei file <code>.h</code> e <code>.c</code> in una specifica sottocartalle a seconda del tipo: <code>int</code>, <code>int_vector</code>, ecc.  
+Come potete notare, il codice relativo ad una specifica struttura dati si trova in una sottocartella con lo stesso nome: <code>list</code>, <code>tree</code>, <code>heap</code>. Per ognuna di queste vengono fornite diverse implementazioni a seconda del tipo di dato. Le dichiarazioni e le definizioni sono riportate rispettivamente nei nei file <code>.h</code> e <code>.c</code> in una specifica sottocartelle a seconda del tipo: <code>int</code>, <code>int_vector</code>, ecc.  
 </p>
 
 <p align="justify">
-Quindi ad esempio nella cartella <code>list>int</code> troviamo i file <code>list_int.h</code> e <code>list_int.c</code> che forniscono l'implementazione delle liste per il tipo <code>int</code>. 
+Quindi, ad esempio, nella cartella <code>list>int</code> troviamo i file <code>list_int.h</code> e <code>list_int.c</code> che forniscono l'implementazione delle liste per il tipo <code>int</code>. 
 </p>
 
 <p align="justify">
