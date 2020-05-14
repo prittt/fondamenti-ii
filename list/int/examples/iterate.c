@@ -19,12 +19,10 @@ int main(void) {
     // Iterazione con il for usando le primitive:
     for (Item* tmp = list; !IsEmptyList(tmp); tmp = GetTailList(tmp)) {
         // Prendo il valore dell'elemento corrente della lista.
-        ElemType *e = GetHeadValueList(tmp); // ATTENZIONE: e punta proprio al 
-                                             // valore dell'Item corrente, 
-                                             // quindi se lo modifico, modifico
-                                             // anche l'item corrente
-        // oppure, se voglio modificare e senza che la lista cambi:
+        const ElemType *e = GetHeadValueList(tmp); 
+        // Se volessi un elemento modificabile potrei fare:
         // ElemType e = ElemCopy(GetHeadList(tmp));
+
         // E lo uso 
         // ...    
     }
@@ -38,7 +36,7 @@ int main(void) {
     // Iterazione con il while usando le primitive:
     Item* tmp = list;
     while (!IsEmptyList(tmp)) {
-        ElemType *e = GetHeadValueList(tmp);
+        const ElemType *e = GetHeadValueList(tmp);
         // Cose ...
 
         tmp = GetTailList(tmp);
