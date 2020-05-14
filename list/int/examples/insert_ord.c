@@ -31,25 +31,24 @@ Item* InsOrd(const ElemType *e, Item *i)
     return root;
 }
 
-
-Item* CreateListFromVector(const int *v, size_t v_size)
-{
-    Item *list = CreateEmptyList();
-    for (size_t i = 0; i < v_size; ++i) {
-        list = InsertBackList(list, &v[i]);
-    }
-    return list;
-}
-
 int main(void)
 {
+    Item* i = CreateEmptyList();
+    Item* i_rec = CreateEmptyList();
+    ElemType e;
+    // Acquisizione di elementi da stdin
+    do {
+        printf("Introdurre un valore intero: ");
+        e = ReadStdinElem();
+        i = InsOrd(&e, i);
+        i_rec = InsOrdRec(&e, i_rec);
+    } while (e != 0); // L'acquisizione termina quando viene inserito lo zero.
+    
+    WriteStdoutList(i);
+    WriteStdoutList(i_rec);
 
-    int v[] = { 1,2,3,4,5,6,7,8,9 };
-    size_t v_size = sizeof(v) / sizeof(int);
-    Item *list = CreateListFromVector(v, v_size);
-
-
-    DeleteList(list);
+    DeleteList(i);
+    DeleteList(i_rec);
 
     return EXIT_SUCCESS;
 }
