@@ -129,11 +129,11 @@ Item* InsertBackList(Item* i, const ElemType *e)
     return i;
 }
 
-void DeleteList(Item* item)
+void DeleteList(Item* i)
 {
-    while (!IsEmptyList(item)) {
-        Item* tmp = item;
-        item = item->next;
+    while (!IsEmptyList(i)) {
+        Item* tmp = i;
+        i = i->next;
         ElemDelete(&tmp->value);
         free(tmp);
     }

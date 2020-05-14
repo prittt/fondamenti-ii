@@ -191,7 +191,7 @@ Item* InsertBackList(Item* i, const ElemType *e);
 
 @return Non ci sono valori di ritorno.
 */
-void DeleteList(Item* item);
+void DeleteList(Item* i);
 
 /*****************************************************************************/
 /*                             Non Primitive                                 */
