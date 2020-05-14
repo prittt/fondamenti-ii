@@ -54,9 +54,9 @@ typedef struct ElemType ElemType;
 
 @return La funzione ritorna un valore intero che indica la relazione tra i due
         elementi, ovvero:
-         - -1 se il contenuto del primo è minore di quello del secondo;
+         - -1 se il contenuto del primo e' minore di quello del secondo;
          -  0 se i contenuti dei due elementi sono uguali
-         -  1 se il contenuto del primo è maggiore di quello del secondo;
+         -  1 se il contenuto del primo e' maggiore di quello del secondo;
 */
 int ElemCompare(const ElemType *e1, const ElemType *e2);
 
@@ -142,7 +142,7 @@ Item* CreateEmptyList(void);
 */
 Item* InsertHeadList(const ElemType *e, Item* i);
 
-/** @brief La funzione IsEmptyList verifica se una lista data è vuota o meno.
+/** @brief La funzione IsEmptyList verifica se una lista data e' vuota o meno.
 
 @param i Puntatore all'item in testa alla lista da verificare.
 
@@ -153,7 +153,7 @@ bool IsEmptyList(const Item *i);
 /** @brief La funzione GetHeadList ritorna un puntatore all'elemento in testa
             ad una lista data senza rimuoverlo dalla lista.
 
-@param i Puntatore all'item in testa alla lista. La lista non può essere vuota,
+@param i Puntatore all'item in testa alla lista. La lista non puo' essere vuota,
          nel caso in cui lo sia la funzione termina il programma con codice di
          errore 1.
 
@@ -165,7 +165,7 @@ const ElemType* GetHeadValueList(const Item *i);
            testa. La funzione NON dealloca la memoria occupata dall'elemento.
 
 @param i Puntatore all'item in testa alla lista da cui eliminare la testa. La
-         lista non può essere vuota, nel caso in cui lo sia la funzione termina
+         lista non puo' essere vuota, nel caso in cui lo sia la funzione termina
          il programma con codice di errore 2.
 
 @return Puntatore all'item in testa alla lista ottenuta dopo l'eliminazione.
@@ -204,7 +204,7 @@ void DeleteList(Item* i);
 /** @brief La funzione WriteList stampa la lista specificata su file.
 
 @param i Puntatore all'item in testa alla lista da stampare su file. La lista
-         non viene modificata. La lista può essere vuota.
+         non viene modificata. La lista puo' essere vuota.
 @param f FILE * su cui stampare la lista.
 
 @return Non ci sono valori di ritorno.
@@ -215,7 +215,7 @@ void WriteList(const Item *i, FILE *f);
            output.
 
 @param i Puntatore all'item in testa alla lista da stampare su standard output.
-         La lista non viene modificata. La lista può essere vuota.
+         La lista non viene modificata. La lista puo' essere vuota.
 
 @return Non ci sono valori di ritorno.
 */
