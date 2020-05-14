@@ -89,7 +89,7 @@ bool IsEmptyList(const Item *i)
     return i == NULL;
 }
 
-ElemType* GetHeadList(Item *i)
+const ElemType* GetHeadList(const Item *i)
 {
     if (IsEmptyList(i)) {
         printf("ERROR: Alla funzione 'GetHeadList()' e' stata passata una lista vuota (NULL pointer).\n");
