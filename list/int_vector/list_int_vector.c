@@ -92,7 +92,7 @@ bool IsEmptyList(const Item *i)
 ElemType* GetHeadList(Item *i)
 {
     if (IsEmptyList(i)) {
-        printf("ERROR: Alla funzione 'GetHeadList()' è stata passata una lista vuota (NULL pointer).\n");
+        printf("ERROR: Alla funzione 'GetHeadList()' e' stata passata una lista vuota (NULL pointer).\n");
         exit(1);
     }
     else {
@@ -103,7 +103,7 @@ ElemType* GetHeadList(Item *i)
 Item* GetTailList(const Item* i)
 {
     if (IsEmptyList(i)) {
-        printf("ERROR: Alla funzione 'GetTail()' è stata passata una lista vuota (NULL pointer).\n");
+        printf("ERROR: Alla funzione 'GetTail()' e' stata passata una lista vuota (NULL pointer).\n");
         exit(2);
     }
     else {
