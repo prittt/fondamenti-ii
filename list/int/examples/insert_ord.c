@@ -39,7 +39,9 @@ int main(void)
     // Acquisizione di elementi da stdin
     do {
         printf("Introdurre un valore intero: ");
-        e = ReadStdinElem();
+        if (ReadStdinElem(&e) != 1) {
+            break;
+        }
         i = InsOrd(&e, i);
         i_rec = InsOrdRec(&e, i_rec);
     } while (e != 0); // L'acquisizione termina quando viene inserito lo zero.
