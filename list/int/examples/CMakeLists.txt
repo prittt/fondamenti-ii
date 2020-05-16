@@ -1,7 +1,8 @@
 set(examples_sources
     insert_ord.c
     iterate.c
-	additional_op
+	additional_op.c
+	load.c
 )
 FOREACH(cur_file ${examples_sources})
     get_filename_component(exe_name ${cur_file} NAME_WE)
