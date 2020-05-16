@@ -6,10 +6,12 @@ dist: bionic
 # To avoid ruby
 language: generic
 
-# Blacklist
-branches:
-  except:
-    - gh-pages
+# Blacklist/Safelist
+branches:    
+  only:
+    - master
+#  except:
+#    - gh-pages
 
 # Environment variables
 env:
