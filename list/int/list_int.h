@@ -77,16 +77,19 @@ void ElemDelete(ElemType *e);
 /** @brief La funzione ReadElem legge un elemento da file.
 
 @param[in] f FILE * da cui leggere un elemento.
+@param[out] e Elemento letto da file.
 
-@return Elemento letto da file.
+@return Numero di elementi effettivamente letti (0 o 1).
 */
-ElemType ReadElem(FILE *f);
+int ReadElem(FILE *f, ElemType *e);
 
 /** @brief La funzione ReadStdinElem legge un elemento da standard input.
 
-@return Elemento letto da standard input.
+@param[out] e Elemento letto da standard input.
+
+@return Numero di elementi effettivamente letti (0 o 1).
 */
-ElemType ReadStdinElem();
+int ReadStdinElem(ElemType *e);
 
 /** @brief La funzione WriteElem stampa un elemento su file.
 

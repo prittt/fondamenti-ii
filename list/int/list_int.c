@@ -21,16 +21,14 @@ ElemType ElemCopy(const ElemType *e)
 void ElemDelete(ElemType *e)
 {}
 
-ElemType ReadElem(FILE *f)
+int ReadElem(FILE *f, ElemType *e)
 {
-    ElemType e;
-    fscanf(f, "%d", &e);
-    return e;
+    return fscanf(f, "%d", e);
 }
 
-ElemType ReadStdinElem()
+int ReadStdinElem(ElemType *e)
 {
-    return ReadElem(stdin);
+    return ReadElem(stdin, e);
 }
 
 void WriteElem(const ElemType *e, FILE *f)

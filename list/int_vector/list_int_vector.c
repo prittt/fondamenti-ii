@@ -33,21 +33,24 @@ void ElemDelete(ElemType *e)
     free(e->data);
 }
 
-ElemType ReadElem(FILE *f)
+int ReadElem(FILE *f, ElemType *e)
 {
-    ElemType e;
-    printf("Dimensione Vettore? ");
-    fscanf(f, "%u", &e.size);
-    for (size_t i = 0; i < e.size; ++i) {
-        printf("Valore? ");
-        fscanf(f, "%i", &e.data[i]);
+    int ret = fscanf(f, "%u", e->size);
+    e->data = NULL;
+    if (ret){
+        e->data = malloc(sizeof(int)*e->size);
+        for (size_t i = 0; i < e->size; ++i) {
+            if (!fscanf(f, "%i", e->data[i])) { 
+                return 0;
+            }
+        }
     }
-    return e;
+    return ret;
 }
 
-ElemType ReadStdinElem()
+int ReadStdinElem(ElemType *e)
 {
-    return ReadElem(stdin);
+    return ReadElem(stdin, e);
 }
 
 void WriteElem(const ElemType *e, FILE *f)
