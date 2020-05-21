@@ -78,19 +78,30 @@ ElemType ElemCopy(const ElemType *e);
 */
 void ElemDelete(ElemType *e);
 
-/** @brief La funzione ReadElem legge un elemento da file.
+/** @brief La funzione ReadElem legge un elemento da file, ovvero legge la sua
+           'size' (size_t), alloca spazio per 'size' interi e legge quindi size
+           interi salvandoli nel vettore puntato da 'data'. Se la lettura di 
+           anche solo uno dei valori fallisce la funzione ritorna 0, altrimenti 
+           ritorna 1.
 
 @param[in] f FILE * da cui leggere un elemento.
+@param[out] e Elemento letto da file.
 
-@return Elemento letto da file.
+@return Numero di elementi effettivamente letti (0 o 1).
 */
-ElemType ReadElem(FILE *f);
+int ReadElem(FILE *f, ElemType *e);
 
-/** @brief La funzione ReadStdinElem legge un elemento da standard input.
+/** @brief La funzione ReadStdinElem legge un elemento da standard input, 
+           ovvero legge la sua 'size' (size_t), alloca spazio per 'size' interi
+           e legge quindi size interi salvandoli nel vettore puntato da 'data'.
+           Se la lettura di anche solo uno dei valori fallisce la funzione 
+           ritorna 0, altrimenti ritorna 1.
 
-@return Elemento letto da standard input.
+@param[out] e Elemento letto da standard input.
+
+@return Numero di elementi effettivamente letti (0 o 1).
 */
-ElemType ReadStdinElem();
+int ReadStdinElem(ElemType *e);
 
 /** @brief La funzione WriteElem stampa un elemento su file.
 
