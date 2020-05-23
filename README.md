@@ -53,7 +53,7 @@ Il restante materiale è utilizzato per la gestione del repository: generazione 
 
 <h2><a name="doc">Documentazione</a></h2>
 
-### Liste
+### Liste (Singly Linked List)
 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
