@@ -14,17 +14,18 @@ la loro definizione deve essere modificata opportunamente.
 
 Definizione del tipo Node e delle funzioni primitive (e non) degli alberi:
     - CreateEmptyTree()
-    - InsertHeadList()
+    - CreateRootTree()
     - IsEmptyTree()
-    - GetHeadValueList()
-    - GetTailList()
-    - InsertBackList()
-    - DeleteList()
+    - GetRootTree()
+    - LeftTree()
+    - RightTree()
+    - IsLeafTree()
+    - DeleteTree()
 
-    - WriteList()
-    - WriteStdoutList()
+    - 
+    - 
 
-Le dichiarazione e le definizione delle suddette funzioni NON devono essere
+La dichiarazioni e la definizione delle suddette funzioni NON deve essere
 modificate al variare della definizione di ElemType.
 */
 

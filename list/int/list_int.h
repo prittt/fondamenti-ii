@@ -24,7 +24,7 @@ Definizione del tipo Item e delle funzioni primitive (e non) delle liste:
     - WriteList()
     - WriteStdoutList()
 
-Le dichiarazione e le definizione delle suddette funzioni NON devono essere
+La dichiarazioni e la definizione delle suddette funzioni NON deve essere
 modificate al variare della definizione di ElemType.
 */
 
