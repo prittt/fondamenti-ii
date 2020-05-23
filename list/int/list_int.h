@@ -117,8 +117,8 @@ void WriteStdoutElem(const ElemType *e);
 /** @brief Definizione del tipo Item. */
 struct Item
 {
-    ElemType value;
-    struct Item *next;
+    ElemType value; /*!< Valore associato all'item */
+    struct Item *next; /*!< Puntatore all'item successivo */
 };
 typedef struct Item Item;
 
@@ -132,8 +132,8 @@ Item* CreateEmptyList(void);
 /** @brief La funzione InsertHeadList aggiunge un nuovo elemento in testa ad 
            una lista data e ritorna il puntatore alla nuova testa della lista.
 
-@param e Puntatore all'elemento da aggiugnere in testa alla lista.
-@param i Puntatore all'item in testa alla lista a cui aggiungere il nuovo 
+@param[in] e Puntatore all'elemento da aggiugnere in testa alla lista.
+@param[in] i Puntatore all'item in testa alla lista a cui aggiungere il nuovo 
          elemento. Il valore contenuto in i non viene modificato. i puo'
          puntare ad una lista vuota (NULL pointer).
 
@@ -143,7 +143,7 @@ Item* InsertHeadList(const ElemType *e, Item* i);
 
 /** @brief La funzione IsEmptyList verifica se una lista data e' vuota o meno.
 
-@param i Puntatore all'item in testa alla lista da verificare.
+@param[in] i Puntatore all'item in testa alla lista da verificare.
 
 @return true se la lista e' vuota, false altrimenti.
 */
@@ -152,7 +152,7 @@ bool IsEmptyList(const Item *i);
 /** @brief La funzione GetHeadList ritorna un puntatore all'elemento in testa 
             ad una lista data senza rimuoverlo dalla lista.
 
-@param i Puntatore all'item in testa alla lista. La lista non puo' essere vuota,
+@param[in] i Puntatore all'item in testa alla lista. La lista non puo' essere vuota,
          nel caso in cui lo sia la funzione termina il programma con codice di 
          errore 1.
 
@@ -163,7 +163,7 @@ const ElemType* GetHeadValueList(const Item *i);
 /** @brief La funzione GetTailList ritorna la lista privata dell'elemento in 
            testa. La funzione NON dealloca la memoria occupata dall'elemento.
 
-@param i Puntatore all'item in testa alla lista da cui eliminare la testa. La 
+@param[in] i Puntatore all'item in testa alla lista da cui eliminare la testa. La 
          lista non puo' essere vuota, nel caso in cui lo sia la funzione termina
          il programma con codice di errore 2. 
 
@@ -176,9 +176,9 @@ Item* GetTailList(const Item* i);
 /** @brief La funzione InsertBackList aggiunge un elemento in coda ad una lista 
            (anche vuota) e ritorna la lista risultante.
 
-@param i Puntatore all'item in testa alla lista a cui aggiungere l'elemento 
+@param[in] i Puntatore all'item in testa alla lista a cui aggiungere l'elemento 
          specifciato. La lista puo' essere vuota (NULL pointer).
-@param e Puntatore all'elemento da aggiugnere in testa alla lista. Il valore 
+@param[in] e Puntatore all'elemento da aggiugnere in testa alla lista. Il valore 
          contenuto in e non viene modificato.
 
 @return  Puntatore all'item in testa alla lista ottenuta dopo l'aggiunta 
@@ -189,7 +189,7 @@ Item* InsertBackList(Item* i, const ElemType *e);
 /** @brief La funzione DeleteList libera la memoria occupata dagli elementi di 
            una lista.
 
-@param i Puntatore all'item in testa alla lista di cui liberare la memoria. 
+@param[in] i Puntatore all'item in testa alla lista di cui liberare la memoria. 
          Puo' essere una lista vuota (NULL pointer).
 
 @return Non ci sono valori di ritorno.
@@ -202,9 +202,9 @@ void DeleteList(Item* i);
 
 /** @brief La funzione WriteList stampa la lista specificata su file.
 
-@param i Puntatore all'item in testa alla lista da stampare su file. La lista
+@param[in] i Puntatore all'item in testa alla lista da stampare su file. La lista
          non viene modificata. La lista puo' essere vuota.
-@param f FILE * su cui stampare la lista.
+@param[in] f FILE * su cui stampare la lista.
 
 @return Non ci sono valori di ritorno.
 */
@@ -213,7 +213,7 @@ void WriteList(const Item *i, FILE *f);
 /** @brief La funzione WriteStdoutList stampa la lista specificata su standard
            output.
 
-@param i Puntatore all'item in testa alla lista da stampare su standard output.
+@param[in] i Puntatore all'item in testa alla lista da stampare su standard output.
          La lista non viene modificata. La lista puo' essere vuota.
 
 @return Non ci sono valori di ritorno.

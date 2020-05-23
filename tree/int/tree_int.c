@@ -100,37 +100,6 @@ bool IsLeafTree(const Node *n)
     return LeftTree(n) == NULL && RightTree(n) == NULL;
 }
 
-//tree InsertBinOrd(const element *e, tree t)
-//{
-//    if (IsEmpty(t)) {
-//        return ConsTree(e, EmptyTree(), EmptyTree());
-//    }
-//    tree root = t;
-//
-//    while (true) {
-//        if (*e < *GetRoot(t)) {
-//            if (IsEmpty(Left(t))) {
-//                t->left = ConsTree(e, EmptyTree(), EmptyTree());
-//                break;
-//            }
-//            else {
-//                t = Left(t);
-//            }
-//        }
-//        else {
-//            if (IsEmpty(Right(t))) {
-//                t->right = ConsTree(e, EmptyTree(), EmptyTree());
-//                break;
-//            }
-//            else {
-//                t = Right(t);
-//            }
-//        }
-//    }
-//
-//    return root;
-//}
-
 void DeleteTree(Node *n)
 {
     if (IsEmptyTree(n)) {
