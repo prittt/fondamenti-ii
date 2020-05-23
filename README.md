@@ -64,4 +64,4 @@ Il restante materiale è utilizzato per la gestione del repository: generazione 
 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
-| `int`        | <a href="https://prittt.github.io/Fondamenti-II/tree/int/html/tree__int_8h.html">list_int.html</a> | <a href="https://prittt.github.io/Fondamenti-II/tree/int/tree_int.zip">tree_int.zip</a> |
+| `int`        | <a href="https://prittt.github.io/Fondamenti-II/tree/int/html/tree__int_8h.html">tree_int.html</a> | <a href="https://prittt.github.io/Fondamenti-II/tree/int/tree_int.zip">tree_int.zip</a> |
