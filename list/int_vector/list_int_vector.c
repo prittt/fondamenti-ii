@@ -35,12 +35,12 @@ void ElemDelete(ElemType *e)
 
 int ReadElem(FILE *f, ElemType *e)
 {
-    int ret = fscanf(f, "%u", e->size);
+    int ret = fscanf(f, "%u", &e->size);
     e->data = NULL;
     if (ret){
         e->data = malloc(sizeof(int)*e->size);
         for (size_t i = 0; i < e->size; ++i) {
-            if (!fscanf(f, "%i", e->data[i])) { 
+            if (!fscanf(f, "%i", &e->data[i])) { 
                 return 0;
             }
         }
