@@ -13,9 +13,11 @@ if(DEFINED CMAKE_BUILD_TYPE)
  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS ${CMAKE_CONFIGURATION_TYPES})
 endif()
 
-set(SUB_DIRS "list")
+set(SUB_DIRS "list" "tree")
+# message(STATUS ${SUB_DIRS})
 
 FOREACH(cur_dir ${SUB_DIRS})
+	# message(STATUS ${cur_dir})
     file(GLOB sub_sub_dirs "${cur_dir}/*")
     FOREACH(cur_sub_dir ${sub_sub_dirs})
 		
