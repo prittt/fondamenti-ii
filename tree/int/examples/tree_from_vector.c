@@ -27,8 +27,18 @@ int main(void)
 {
     int v[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     size_t v_size = sizeof(v) / sizeof(int);
-    Node *tree = CreateTreeFromVector(v, v_size);
+    Node *tree = CreateEmptyTree();
+    
+    WriteStdoutPreOrderTree(tree);
+    WriteStdoutInOrderTree(tree);
+    WriteStdoutPostOrderTree(tree);
 
+    tree = CreateTreeFromVector(v, v_size);
+
+    WriteStdoutPreOrderTree(tree);
+    WriteStdoutInOrderTree(tree);
+    WriteStdoutPostOrderTree(tree);
+     
     DeleteTree(tree);
 
     return EXIT_SUCCESS;

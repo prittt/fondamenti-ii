@@ -22,8 +22,12 @@ Definizione del tipo Node e delle funzioni primitive (e non) degli alberi:
     - IsLeafTree()
     - DeleteTree()
 
-    - 
-    - 
+    - WritePreOrderTree()
+    - WriteStdoutPreOrderTree()
+    - WriteInOrderTree()
+    - WriteStdoutInOrderTree()
+    - WritePostOrderTree()
+    - WriteStdoutPostOrderTree()
 
 La dichiarazioni e la definizione delle suddette funzioni NON deve essere
 modificate al variare della definizione di ElemType.
@@ -213,28 +217,71 @@ bool IsLeafTree(const Node *n);
 void DeleteTree(Node *n);
 
 /*****************************************************************************/
-/*                             Non Primitive                                 */
+/*                             Non Primitives                                */
 /*****************************************************************************/
 
-/** @brief La funzione WriteList stampa la lista specificata su file.
-
-@param i Puntatore all'item in testa alla lista da stampare su file. La lista
-         non viene modificata. La lista puo' essere vuota.
-@param f FILE * su cui stampare la lista.
-
-@return Non ci sono valori di ritorno.
-*/
-//void WriteList(const Item *i, FILE *f);
-
-/** @brief La funzione WriteStdoutList stampa la lista specificata su standard
-           output.
-
-@param i Puntatore all'item in testa alla lista da stampare su standard output.
-         La lista non viene modificata. La lista puo' essere vuota.
+/** @brief La funzione WritePreOrderTree stampa l'albero specificato su file,
+           visitandolo in pre-ordine.
+           
+@param[in] n Puntatore al nodo radice dell'albero da stampare su file. L'albero 
+           non viene modificato. L'albero puo' essere vuoto.
+@param[in] f FILE * su cui stampare l'albero.
 
 @return Non ci sono valori di ritorno.
 */
-//void WriteStdoutList(const Item *i);
+void WritePreOrderTree(const Node *n, FILE *f);
+
+/** @brief La funzione WriteStdoutPreOrderTree stampa l'albero specificato su 
+           standard output, visitandolo in pre-ordine.
+
+@param[in] n Puntatore al nodo radice dell'albero da stampare su standard output. 
+           L'albero non viene modificato. L'albero puo' essere vuoto.
+
+@return Non ci sono valori di ritorno.
+*/
+void WriteStdoutPreOrderTree(const Node *n);
+
+/** @brief La funzione WriteInOrderTree stampa l'albero specificato su file,
+           visitandolo in ordine.
+
+@param[in] n Puntatore al nodo radice dell'albero da stampare su file. L'albero
+           non viene modificato. L'albero puo' essere vuoto.
+@param[in] f FILE * su cui stampare l'albero.
+
+@return Non ci sono valori di ritorno.
+*/
+void WriteInOrderTree(const Node *n, FILE *f);
+
+/** @brief La funzione WriteStdoutInOrderTree stampa l'albero specificato su
+           standard output, visitandolo in ordine.
+
+@param[in] n Puntatore al nodo radice dell'albero da stampare su standard output.
+           L'albero non viene modificato. L'albero puo' essere vuoto.
+
+@return Non ci sono valori di ritorno.
+*/
+void WriteStdoutInOrderTree(const Node *n);
+
+/** @brief La funzione WritePostOrderTree stampa l'albero specificato su file,
+           visitandolo in post-ordine.
+
+@param[in] n Puntatore al nodo radice dell'albero da stampare su file. L'albero
+           non viene modificato. L'albero puo' essere vuoto.
+@param[in] f FILE * su cui stampare l'albero.
+
+@return Non ci sono valori di ritorno.
+*/
+void WritePostOrderTree(const Node *n, FILE *f);
+
+/** @brief La funzione WriteStdoutPostOrderTree stampa l'albero specificato su
+           standard output, visitandolo in post-ordine.
+
+@param[in] n Puntatore al nodo radice dell'albero da stampare su standard output.
+           L'albero non viene modificato. L'albero puo' essere vuoto.
+
+@return Non ci sono valori di ritorno.
+*/
+void WriteStdoutPostOrderTree(const Node *n);
 
 #endif // TREE_INT_H_
 

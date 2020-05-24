@@ -121,18 +121,90 @@ void DeleteTree(Node *n)
 /*                            Non Primitives                                 */
 /*****************************************************************************/
 
-//void WriteList(const Item *i, FILE *f)
-//{
-//    printf("[");
-//    while (!IsEmptyList(i)) {
-//        WriteElem(&i->value, f);
-//        i = GetTailList(i);
-//        if (!IsEmptyList(i)) printf(", ");
-//    }
-//    printf("]\n");
-//}
-//
-//void WriteStdoutList(const Item *i)
-//{
-//    WriteList(i, stdout);
-//}
+static void WritePreOrderTreeRec(const Node *n, FILE *f)
+{
+    if (IsEmptyTree(n)) {
+        return;
+    }
+
+    printf("\t"); WriteElem(GetRootTree(n), f);
+    WritePreOrderTreeRec(LeftTree(n), f);
+    WritePreOrderTreeRec(RightTree(n), f);
+}
+
+void WritePreOrderTree(const Node *n, FILE *f)
+{
+    fprintf(f, "Albero in PreOrdine: ");
+    if (IsEmptyTree(n)) {
+        fprintf(f, "vuoto!");
+    }
+    else {
+        WritePreOrderTreeRec(n, f);
+    }
+    fprintf(f, "\n");
+}
+
+void WriteStdoutPreOrderTree(const Node *n) 
+{
+    WritePreOrderTree(n, stdout);
+}
+
+static void WriteInOrderTreeRec(const Node *n, FILE *f)
+{
+    if (IsEmptyTree(n)) {
+        return;
+    }
+
+    WriteInOrderTreeRec(LeftTree(n), f);
+
+    printf("\t"); WriteElem(GetRootTree(n), f);
+
+    WriteInOrderTreeRec(RightTree(n), f);
+    
+}
+
+void WriteInOrderTree(const Node *n, FILE *f)
+{
+    fprintf(f, "Albero in Ordine: ");
+    if (IsEmptyTree(n)) {
+        fprintf(f, "vuoto!");
+    }
+    else {
+        WriteInOrderTreeRec(n, f);
+    }
+    fprintf(f, "\n");
+}
+
+void WriteStdoutInOrderTree(const Node *n) 
+{
+    WriteInOrderTree(n, stdout);
+}
+
+static void WritePostOrderTreeRec(const Node *n, FILE *f)
+{
+    if (IsEmptyTree(n)) {
+        return;
+    }
+
+    WritePostOrderTreeRec(LeftTree(n), f);
+    WritePostOrderTreeRec(RightTree(n), f);
+
+    printf("\t"); WriteElem(GetRootTree(n), f);
+}
+
+void WritePostOrderTree(const Node *n, FILE *f)
+{
+    fprintf(f, "Albero in PostOrdine: ");
+    if (IsEmptyTree(n)) {
+        fprintf(f, "vuoto!");
+    }
+    else {
+        WritePostOrderTreeRec(n, f);
+    }
+    fprintf(f, "\n");
+}
+
+void WriteStdoutPostOrderTree(const Node *n)
+{
+    WritePostOrderTree(n, stdout);
+}
