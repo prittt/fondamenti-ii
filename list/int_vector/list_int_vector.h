@@ -209,7 +209,7 @@ Item* InsertBackList(Item* i, const ElemType *e);
 void DeleteList(Item* i);
 
 /*****************************************************************************/
-/*                             Non Primitive                                 */
+/*                             Non Primitives                                */
 /*****************************************************************************/
 
 /** @brief La funzione WriteList stampa la lista specificata su file.
