@@ -4,6 +4,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define _unused(x) ((void)(x))
+
 /*****************************************************************************/
 /*                                 Element                                   */
 /*****************************************************************************/
@@ -19,7 +21,13 @@ ElemType ElemCopy(const ElemType *e)
 }
 
 void ElemDelete(ElemType *e)
-{}
+{
+    // In questo caso la funzione ElemDelete non deve fare nulla, ma il 
+    // compilatore potrebbe segnalare il mancato utilizzo di e come warning
+    // o come errore. Utilizzando la macro _unused sopra definita eliminiamo
+    // questo il problema.
+    _unused(e);
+}
 
 int ReadElem(FILE *f, ElemType *e)
 {
@@ -33,7 +41,7 @@ int ReadStdinElem(ElemType *e)
 
 void WriteElem(const ElemType *e, FILE *f)
 {
-    printf("%d", *e);
+    fprintf(f, "%d", *e);
 }
 
 void WriteStdoutElem(const ElemType *e)
