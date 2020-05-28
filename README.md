@@ -60,7 +60,7 @@ Il restante materiale è utilizzato per la gestione del repository: generazione 
 | `int`        | <a href="https://prittt.github.io/Fondamenti-II/list/int/html/list__int_8h.html">list_int.html</a> | <a href="https://prittt.github.io/Fondamenti-II/list/int/list_int.zip">list_int.zip</a> |
 | `int_vector` | <a href="https://prittt.github.io/Fondamenti-II/list/int_vector/html/list__int__vector_8h.html">list_int_vector.html</a> | <a href="https://prittt.github.io/Fondamenti-II/list/int_vector/list_int_vector.zip">list_int_vector.zip</a> |
 
-### Alberi (bozza)
+### Alberi (Binary Tree)
 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
