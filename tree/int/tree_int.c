@@ -72,10 +72,10 @@ bool IsEmptyTree(const Node *n)
     return n == NULL;
 }
 
-const ElemType* GetRootTree(const Node *n)
+const ElemType* GetRootValueTree(const Node *n)
 {
     if (IsEmptyTree(n)) {
-        printf("ERROR: Alla funzione 'GetRootTree()' e' stato passato un albero vuoto (NULL pointer).\n");
+        printf("ERROR: Alla funzione 'GetRootValueTree()' e' stato passato un albero vuoto (NULL pointer).\n");
         exit(1);
     }
     else {
@@ -135,7 +135,7 @@ static void WritePreOrderTreeRec(const Node *n, FILE *f)
         return;
     }
 
-    printf("\t"); WriteElem(GetRootTree(n), f);
+    printf("\t"); WriteElem(GetRootValueTree(n), f);
     WritePreOrderTreeRec(LeftTree(n), f);
     WritePreOrderTreeRec(RightTree(n), f);
 }
@@ -165,7 +165,7 @@ static void WriteInOrderTreeRec(const Node *n, FILE *f)
 
     WriteInOrderTreeRec(LeftTree(n), f);
 
-    printf("\t"); WriteElem(GetRootTree(n), f);
+    printf("\t"); WriteElem(GetRootValueTree(n), f);
 
     WriteInOrderTreeRec(RightTree(n), f);
     
@@ -197,7 +197,7 @@ static void WritePostOrderTreeRec(const Node *n, FILE *f)
     WritePostOrderTreeRec(LeftTree(n), f);
     WritePostOrderTreeRec(RightTree(n), f);
 
-    printf("\t"); WriteElem(GetRootTree(n), f);
+    printf("\t"); WriteElem(GetRootValueTree(n), f);
 }
 
 void WritePostOrderTree(const Node *n, FILE *f)

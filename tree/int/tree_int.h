@@ -16,7 +16,7 @@ Definizione del tipo Node e delle funzioni primitive (e non) degli alberi:
     - CreateEmptyTree()
     - CreateRootTree()
     - IsEmptyTree()
-    - GetRootTree()
+    - GetRootValueTree()
     - LeftTree()
     - RightTree()
     - IsLeafTree()
@@ -161,7 +161,7 @@ Node* CreateRootTree(const ElemType *e, Node* l, Node* r);
 */
 bool IsEmptyTree(const Node *n);
 
-/** @brief La funzione GetRootTree ritorna un puntatore all'elemento contentuto
+/** @brief La funzione GetRootValueTree ritorna un puntatore all'elemento contentuto
            nel nodo radice dell'albero specificato.
 
 @param[in] n Puntatore al nodo radice dell'albero. L'albero non puo' essere vuoto,
@@ -170,7 +170,7 @@ bool IsEmptyTree(const Node *n);
 
 @returns Puntatore costante all'elemento contenuto nel nodo radice dell'albero.
 */
-const ElemType* GetRootTree(const Node *n);
+const ElemType* GetRootValueTree(const Node *n);
 
 /** @brief La funzione LeftTree ritorna un puntatore al nodo figlio (sinistro)
            dell'albero specificato.

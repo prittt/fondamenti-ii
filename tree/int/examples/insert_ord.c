@@ -10,7 +10,7 @@ Node* InsertBinOrd(const ElemType *e, Node* n)
     Node *root = n;
 
     while (true) {
-        if (ElemCompare(e, GetRootTree(n)) < 0) {
+        if (ElemCompare(e, GetRootValueTree(n)) < 0) {
             if (IsEmptyTree(LeftTree(n))) {
                 n->left = CreateRootTree(e, CreateEmptyTree(), CreateEmptyTree());
                 break;
@@ -41,6 +41,8 @@ int main(void) {
     for (unsigned i = 0; i < v_size; ++i) {
         tree = InsertBinOrd(&v[i], tree);
     }
+
+    DeleteTree(tree);
 
     return EXIT_SUCCESS;
 }
