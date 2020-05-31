@@ -127,13 +127,15 @@ void DeleteList(Item* i)
 
 void WriteList(const Item *i, FILE *f)
 {
-    printf("[");
+    fprintf(f, "[");
     while (!IsEmptyList(i)) {
         WriteElem(&i->value, f);
         i = GetTailList(i);
-        if (!IsEmptyList(i)) printf(", ");
+        if (!IsEmptyList(i)) {
+            fprintf(f, ", ");
+        }
     }
-    printf("]\n");
+    fprintf(f, "]\n");
 }
 
 void WriteStdoutList(const Item *i)
