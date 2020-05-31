@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.0.0)
 
 project ("Fondamenti-II")
 
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE)
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}" CACHE PATH "Install prefix" FORCE)
 
@@ -30,6 +32,9 @@ FOREACH(cur_dir ${SUB_DIRS})
 		add_library(${target_name_uppercase} STATIC ${sources} ${headers})
 		target_include_directories(${target_name_uppercase} PUBLIC ${cur_sub_dir})
 	
+		set(cur_folder "${cur_dir}/${dir_name}")
+		set_target_properties(${target_name_uppercase} PROPERTIES FOLDER ${cur_folder}) # Set target folder
+
 		if(EXISTS ${cur_sub_dir}/examples)
 			add_subdirectory(${cur_sub_dir}/examples)
 		endif()

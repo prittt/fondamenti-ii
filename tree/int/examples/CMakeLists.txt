@@ -2,17 +2,4 @@ set(examples_sources
     tree_from_vector.c
 	insert_ord.c
 )
-FOREACH(cur_file ${examples_sources})
-	get_filename_component(exe_name ${cur_file} NAME_WE)
-	file(GLOB test_files ${exe_name}*.txt )
-	FOREACH(f ${test_files})
-		get_filename_component(f_name ${f} NAME)		
-		configure_file(${f} ${CMAKE_CURRENT_BINARY_DIR}/${f_name} COPYONLY)
-	ENDFOREACH()
-		
-	set(exe_name "${target_name_uppercase}_${exe_name}")
-	
-    add_executable(${exe_name} ${cur_file} ${test_files})
-    set_target_properties(${exe_name} PROPERTIES FOLDER "examples")
-    target_link_libraries(${exe_name} ${target_name_uppercase})
-ENDFOREACH()
+include(../../../CMakeLists.examples.inc.txt)
