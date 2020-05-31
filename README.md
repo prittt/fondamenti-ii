@@ -30,13 +30,13 @@ La struttura del progetto è la seguente:
 |   |   ├── list_vector.h
 |   |   ├── list_vector.c
 +-- tree
-+-- heap
++-- min-heap
 +-- ...
 
 ```
 
 <p align="justify">
-Come potete notare, il codice relativo ad una specifica struttura dati si trova in una sottocartella con lo stesso nome: <code>list</code>, <code>tree</code>, <code>heap</code>. Per ognuna di queste vengono fornite diverse implementazioni a seconda del tipo di dato. Le dichiarazioni e le definizioni sono riportate rispettivamente nei nei file <code>.h</code> e <code>.c</code> in una specifica sottocartelle a seconda del tipo: <code>int</code>, <code>int_vector</code>, ecc.  
+Come potete notare, il codice relativo ad una specifica struttura dati si trova in una sottocartella con lo stesso nome: <code>list</code>, <code>tree</code>, <code>min-heap</code>. Per ognuna di queste vengono fornite diverse implementazioni a seconda del tipo di dato. Le dichiarazioni e le definizioni sono riportate rispettivamente nei nei file <code>.h</code> e <code>.c</code> in una specifica sottocartelle a seconda del tipo: <code>int</code>, <code>int_vector</code>, ecc.  
 </p>
 
 <p align="justify">
@@ -65,3 +65,9 @@ Il restante materiale è utilizzato per la gestione del repository: generazione 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
 | `int`        | <a href="https://prittt.github.io/Fondamenti-II/tree/int/html/tree__int_8h.html">tree_int.html</a> | <a href="https://prittt.github.io/Fondamenti-II/tree/int/tree_int.zip">tree_int.zip</a> |
+
+### Min-Heap (Vector-Based Binary Min-Heap)
+
+| Tipo di Dato | Documentazione | Sorgente Primitive | 
+|--------------|----------------|--------------------|
+| `int`        | <a href="https://prittt.github.io/Fondamenti-II/min-heap/int/html/min-heap__int_8h.html">min-heap_int.html</a> | <a href="https://prittt.github.io/Fondamenti-II/min-heap/int/min-heap_int.zip">min-heap_int.zip</a> |
