@@ -50,7 +50,7 @@ git config user.name "Travis CI"
 git config user.email "travis@travis-ci.org"
 
 # This is the list of things to be documented
-doxyfiles='list/int list/int_vector tree/int'
+doxyfiles='list/int list/int_vector tree/int min-heap/int'
 
 ################################################################################
 ##### Generate the Doxygen documentation (from master) and log the output. #####
