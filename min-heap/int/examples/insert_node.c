@@ -21,5 +21,7 @@ int main(void) {
         InsertNode(h, &v[i]);
     }
 
+    DeleteHeap(h);
+
     return EXIT_SUCCESS;
 }
