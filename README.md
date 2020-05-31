@@ -70,4 +70,4 @@ Il restante materiale è utilizzato per la gestione del repository: generazione 
 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
-| `int`        | <a href="https://prittt.github.io/Fondamenti-II/min-heap/int/html/min-heap__int_8h.html">min-heap_int.html</a> | <a href="https://prittt.github.io/Fondamenti-II/min-heap/int/min-heap_int.zip">min-heap_int.zip</a> |
+| `int`        | <a href="https://prittt.github.io/Fondamenti-II/min-heap/int/html/minheap__int_8h.html">minheap_int.html</a> | <a href="https://prittt.github.io/Fondamenti-II/min-heap/int/minheap_int.zip">minheap_int.zip</a> |
