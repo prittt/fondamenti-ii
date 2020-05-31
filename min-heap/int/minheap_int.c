@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include "tree_int.h"
+#include "minheap_int.h"
 
 #include <string.h>
 #include <stdlib.h>
@@ -29,6 +29,13 @@ void ElemDelete(ElemType *e)
     _unused(e);
 }
 
+void ElemSwap(ElemType *e1, ElemType *e2)
+{
+    ElemType tmp = *e1;
+    *e1 = *e2;
+    *e2 = tmp;
+}
+
 int ReadElem(FILE *f, ElemType *e)
 {
     return fscanf(f, "%d", e);
@@ -53,166 +60,104 @@ void WriteStdoutElem(const ElemType *e)
 /*                          Node & Primitives                                */
 /*****************************************************************************/
 
-Node* CreateEmptyTree(void)
+int LeftHeap(int i)
 {
-    return NULL;
+    return 2 * i + 1;
 }
 
-Node* CreateRootTree(const ElemType *e, Node *l, Node *r)
+int RightHeap(int i)
 {
-    Node* t = malloc(sizeof(Node));
-    t->value = ElemCopy(e);
-    t->left = l;
-    t->right = r;
-    return t;
+    return 2 * i + 2;
 }
 
-bool IsEmptyTree(const Node *n)
+int ParentHeap(int i)
 {
-    return n == NULL;
+    return (i - 1) / 2;
 }
 
-const ElemType* GetRootValueTree(const Node *n)
+bool IsEmptyHeap(const Heap *h)
 {
-    if (IsEmptyTree(n)) {
-        printf("ERROR: Alla funzione 'GetRootValueTree()' e' stato passato un albero vuoto (NULL pointer).\n");
+    return h->size == 0;
+}
+
+Heap* CreateEmptyHeap()
+{
+    Heap* h = malloc(1 * sizeof(Heap));
+    h->size = 0;
+    h->data = malloc(1 * sizeof(ElemType));
+    return h;
+}
+
+ElemType* GetNodeValueHeap(const Heap *h, int i)
+{
+    if (!h || i >= (int)h->size) {
+        printf("ERROR: 'GetNodeValueHeap()' si sta provando ad accedere ad un nodo che non fa parte dello heap.\n");
         exit(1);
     }
     else {
-        return &n->value;
+        return &h->data[i];
     }
 }
 
-Node* LeftTree(const Node *n)
+void MoveUpMinHeap(Heap *h, int i)
 {
-    if (IsEmptyTree(n)) {
-        return NULL;
-    }
-    else {
-        return n->left;
+    while (i != 1 && ElemCompare(GetNodeValueHeap(h,i), GetNodeValueHeap(h,ParentHeap(i))) < 0) {
+        ElemSwap(GetNodeValueHeap(h,i), GetNodeValueHeap(h,ParentHeap(i)));
+        i = ParentHeap(i);
     }
 }
 
-Node* RightTree(const Node *n)
+void MoveDownMinHeap(Heap *h, int i)
 {
-    if (IsEmptyTree(n)) {
-        return NULL;
-    }
-    else {
-        return n->right;
-    }
+    int l, r, largest = i;
+    bool done;
+    do {
+        done = true;
+        l = LeftHeap(i);
+        r = RightHeap(i);
+
+        if ((l <= (int)h->size) && ElemCompare(GetNodeValueHeap(h, l), GetNodeValueHeap(h, largest)) < 0) {
+            largest = l;
+        }
+
+        if ((r <= (int)h->size) && ElemCompare(GetNodeValueHeap(h, r), GetNodeValueHeap(h, largest)) < 0) {
+            largest = r;
+        }
+
+        if (largest != i) {
+            ElemSwap(GetNodeValueHeap(h, i), GetNodeValueHeap(h, largest));
+            i = largest;
+            done = false;
+        }
+
+    } while (!done);
 }
 
-bool IsLeafTree(const Node *n)
+void DeleteHeap(Heap *h)
 {
-    return LeftTree(n) == NULL && RightTree(n) == NULL;
-}
-
-void DeleteTree(Node *n)
-{
-    if (IsEmptyTree(n)) {
-        return;
+    for (size_t i = 0; i < h->size; ++i) {
+        ElemDelete(&h->data[i]);
     }
-
-    Node *l = LeftTree(n);
-    Node *r = RightTree(n);
-
-    ElemDelete(&n->value);
-    
-    free(n);
-
-    DeleteTree(l);
-    DeleteTree(r);
+    free(h);
 }
 
 /*****************************************************************************/
 /*                            Non Primitives                                 */
 /*****************************************************************************/
 
-static void WritePreOrderTreeRec(const Node *n, FILE *f)
+void WriteHeap(const Heap *h, FILE *f)
 {
-    if (IsEmptyTree(n)) {
-        return;
+    fprintf(f, "[");
+    for (size_t i = 0; i < h->size; ++i) {
+        WriteElem(GetNodeValueHeap(h,i), f);
+        if (i != h->size - 1) {
+            fprintf(f, ", ");
+        }
     }
-
-    printf("\t"); WriteElem(GetRootValueTree(n), f);
-    WritePreOrderTreeRec(LeftTree(n), f);
-    WritePreOrderTreeRec(RightTree(n), f);
+    fprintf(f, "]\n");
 }
 
-void WritePreOrderTree(const Node *n, FILE *f)
+void WriteStdoutHeap(const Heap *h)
 {
-    fprintf(f, "Albero in PreOrdine: ");
-    if (IsEmptyTree(n)) {
-        fprintf(f, "vuoto!");
-    }
-    else {
-        WritePreOrderTreeRec(n, f);
-    }
-    fprintf(f, "\n");
-}
-
-void WriteStdoutPreOrderTree(const Node *n) 
-{
-    WritePreOrderTree(n, stdout);
-}
-
-static void WriteInOrderTreeRec(const Node *n, FILE *f)
-{
-    if (IsEmptyTree(n)) {
-        return;
-    }
-
-    WriteInOrderTreeRec(LeftTree(n), f);
-
-    printf("\t"); WriteElem(GetRootValueTree(n), f);
-
-    WriteInOrderTreeRec(RightTree(n), f);
-    
-}
-
-void WriteInOrderTree(const Node *n, FILE *f)
-{
-    fprintf(f, "Albero in Ordine: ");
-    if (IsEmptyTree(n)) {
-        fprintf(f, "vuoto!");
-    }
-    else {
-        WriteInOrderTreeRec(n, f);
-    }
-    fprintf(f, "\n");
-}
-
-void WriteStdoutInOrderTree(const Node *n) 
-{
-    WriteInOrderTree(n, stdout);
-}
-
-static void WritePostOrderTreeRec(const Node *n, FILE *f)
-{
-    if (IsEmptyTree(n)) {
-        return;
-    }
-
-    WritePostOrderTreeRec(LeftTree(n), f);
-    WritePostOrderTreeRec(RightTree(n), f);
-
-    printf("\t"); WriteElem(GetRootValueTree(n), f);
-}
-
-void WritePostOrderTree(const Node *n, FILE *f)
-{
-    fprintf(f, "Albero in PostOrdine: ");
-    if (IsEmptyTree(n)) {
-        fprintf(f, "vuoto!");
-    }
-    else {
-        WritePostOrderTreeRec(n, f);
-    }
-    fprintf(f, "\n");
-}
-
-void WriteStdoutPostOrderTree(const Node *n)
-{
-    WritePostOrderTree(n, stdout);
+    WriteHeap(h, stdout);
 }

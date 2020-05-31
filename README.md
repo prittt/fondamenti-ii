@@ -66,7 +66,7 @@ Il restante materiale è utilizzato per la gestione del repository: generazione 
 |--------------|----------------|--------------------|
 | `int`        | <a href="https://prittt.github.io/Fondamenti-II/tree/int/html/tree__int_8h.html">tree_int.html</a> | <a href="https://prittt.github.io/Fondamenti-II/tree/int/tree_int.zip">tree_int.zip</a> |
 
-### Min-Heap (Vector-Based Binary Min-Heap)
+### Min-Heap (Array-Based Binary Min-Heap)
 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|

@@ -3,6 +3,7 @@ Definizione del tipo ElemType e dichiarazione delle funzioni ad esso associate:
     - ElemCompare()
     - ElemCopy()
     - ElemDelete()
+    - ElemSwap()
     - ReadElem()
     - ReadStdinElem()
     - WriteElem()
@@ -33,8 +34,8 @@ La dichiarazioni e la definizione delle suddette funzioni NON deve essere
 modificate al variare della definizione di ElemType.
 */
 
-#ifndef TREE_INT_H_
-#define TREE_INT_H_
+#ifndef MINHEAP_INT_H_
+#define MINHEAP_INT_H_
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -79,6 +80,15 @@ ElemType ElemCopy(const ElemType *e);
 */
 void ElemDelete(ElemType *e);
 
+/** @brief La funzione ElemSwap scambia i due elementi specificati.
+
+@param[in] e1 Puntatore al primo elemento da scambiare.
+@param[in] e2 Puntatore al secondo elemento da scambiare.
+
+@return Non ci sono valori di ritorno.
+*/
+void ElemSwap(ElemType *e1, ElemType *e2);
+
 /** @brief La funzione ReadElem legge un elemento da file.
 
 @param[in] f FILE * da cui leggere un elemento.
@@ -119,169 +129,117 @@ void WriteStdoutElem(const ElemType *e);
 /*                          Node & Primitives                                */
 /*****************************************************************************/
 
-/** @brief Definizione del tipo Node. */
-struct Node
-{
-    ElemType value; /*!< Valore associato al nodo */
-    struct Node *left; /*!< Puntatore al figlio sinistro del nodo */
-    struct Node *right; /*!< Puntatore al figlio destro del nodo */
+struct Heap{
+    ElemType *data;
+    size_t size;
 };
-typedef struct Node Node;
+typedef struct Heap Heap;
 
-/** @brief La funzione CreateEmptyTree crea e ritorna un albero vuoto, ovvero
-           NULL pointer.
+/** @brief La funzione LeftHeap prende in input l'indice di un nodo dello heap
+           e ritorna l'indice del suo figlio sinistro. 
 
-@return Albero vuoto appena creato (NULL pointer).
+@param[in] i Indice di un nodo nello heap. 
+
+@return Indice del figlio sinistro del nodo i. Non è detto che il nodo avente
+        l'indice ritornato sia effettivamente presente nello heap.
 */
-Node* CreateEmptyTree(void);
+int LeftHeap(int i);
 
-/** @brief La funzione CreateRootTree crea un nuovo albero avente come radice 
-           il valore specificato e come figli sinistro e destro i sottoalberi
-           dati. La funzione ritorna quindi il puntatore al nodo radice
-           dell'albero appena creato.
+/** @brief La funzione RightHeap prende in input l'indice di un nodo dello heap
+           e ritorna l'indice del suo figlio destro.
 
-@param[in] e Puntatore all'elemento il cui valore sara' copiato nel nodo radice del
-           nuovo albero.
-@param[in] l Puntatore al nodo che diventera' il figlio sinistro del nuovo albero. 
-           Il valore contenuto in l non viene modificato. l puo'
-           puntare ad un albero vuoto (NULL pointer).
-@param[in] r Puntatore al nodo che diventera' il figlio destro del nuovo albero.
-           Il valore contenuto in r non viene modificato. r puo'
-           puntare ad un albero vuoto (NULL pointer).
+@param[in] i Indice di un nodo nello heap.
 
-@return Puntatore al nodo radice dell'albero appena creato.
+@return Indice del figlio destro del nodo i. Non è detto che il nodo avente
+        l'indice ritornato sia effettivamente presente nello heap.
 */
-Node* CreateRootTree(const ElemType *e, Node* l, Node* r);
+int RightHeap(int i);
 
-/** @brief La funzione IsEmptyTree verifica se un albero e' vuoto o meno.
+/** @brief La funzione ParentHeap prende in input l'indice di un nodo dello heap
+           e ritorna l'indice del nodo padre.
 
-@param[in] n Puntatore al nodo radice dell'albero da verificare.
+@param[in] i Indice di un nodo nello heap.
 
-@return true se l'albero e' vuoto, false altrimenti.
+@return Indice del padre del nodo i. Non è detto che il nodo avente l'indice 
+        ritornato sia effettivamente presente nello heap.
 */
-bool IsEmptyTree(const Node *n);
+int ParentHeap(int i);
 
-/** @brief La funzione GetRootValueTree ritorna un puntatore all'elemento contentuto
-           nel nodo radice dell'albero specificato.
+/** @brief La funzione CreateEmptyHeap crea e ritorna un heap vuoto
+           implementato mediante array. 
 
-@param[in] n Puntatore al nodo radice dell'albero. L'albero non puo' essere vuoto,
-           nel caso in cui lo sia la funzione termina il programma con codice di
-           errore 1.
-
-@returns Puntatore costante all'elemento contenuto nel nodo radice dell'albero.
+@return Puntatore allo heap appena creato.
 */
-const ElemType* GetRootValueTree(const Node *n);
+Heap* CreateEmptyHeap();
 
-/** @brief La funzione LeftTree ritorna un puntatore al nodo figlio (sinistro)
-           dell'albero specificato.
+/** @brief La funzione IsEmptyHeap verifica se un heap e' vuoto o meno. Lo
+           heap deve esistere.
 
-@param[in] n Puntatore al nodo radice dell'albero da cui ottenere il figlio sinistro.
-          Puo' essere un nodo vuoto (NULL pointer). Il nodo n non viene modificato.
+@param[in] h Puntatore allo heap da testare.
 
-@returns Puntatore al nodo figlio (sinistro) dell'albero specificato. Se l'albero
-         specificato e' vuoto o non ha un figlio sinistro la funzione ritorna NULL;
+@return true se lo heap e' vuoto, ovvero contiene zero elementi, false 
+        altrimenti.
 */
-Node* LeftTree(const Node *n);
+bool IsEmptyHeap(const Heap *h);
 
-/** @brief La funzione RightTree ritorna un puntatore al nodo figlio (destro)
-           dell'albero specificato.
+ElemType* GetNodeValueHeap(const Heap *h, int i);
 
-@param[in] n Puntatore al nodo radice dell'albero da cui ottenere il figlio destro.
-           Puo' essere un nodo vuoto (NULL pointer). Il nodo n non viene modificato.
+/** @brief Dato un heap e l'indice di un nodo, la funzione MoveUpMinHeap sposta
+           il nodo in alto all'interno dell'albero heap, ovvero lo scambia con 
+           il nodo padre ricorsivamente fino a quando le condizione (min-)heap
+           non sono rispettate.
 
-@returns Puntatore al nodo figlio (destro) dell'albero specificato. Se l'albero
-         specificato e' vuoto o non ha un figlio destro la funzione ritorna NULL;
-*/
-Node* RightTree(const Node *n);
-
-/** @brief La funzione IsLeafTree verifica se il nodo specificato e' una foglia
-           oppure no.
-
-@param[in] n Puntatore al nodo da verificare. Puo' essere un nodo vuoto (NULL pointer). 
-           Il nodo n non viene modificato.
-
-@returns true se il nodo e' una foglia, ovvero se e' un nodo vuoto (NULL pointer)
-         o se entrambi i suoi figli (sinistro e destro) sono nodi vuoti (NULL 
-         pointer).
-*/
-bool IsLeafTree(const Node *n);
-
-/** @brief La funzione DeleteTree libera la memoria occupata dai nodi di un 
-           albero.
-
-@param[in] n Puntatore al nodo radice dell'albero di cui liberare la memoria. 
-           Puo' essere un albero vuoto (NULL pointer).
+@param[i] h (min-)heap. Tutti i nodi di h, ad eccezione di quello di indice i,
+            devono rispettare le condizioni (min-)heap.
+@param[i] i Indice del nodo su cui applicare la procedura.
 
 @return Non ci sono valori di ritorno.
 */
-void DeleteTree(Node *n);
+void MoveUpMinHeap(Heap *h, int i);
+
+/** @brief Dato un heap e l'indice di un nodo, la funzione MoveDownMinHeap 
+           sposta il nodo in basso all'interno dell'albero heap, ovvero lo 
+           scambia con il minore dei figli ricorsivamente fino a quando le 
+           condizione (min-)heap non sono rispettate.
+
+@param[i] h (min-)heap. Tutti i nodi di h, ad eccezione di quello di indice i,
+            devono rispettare le condizioni (min-)heap.
+@param[i] i Indice del nodo su cui applicare la procedura.
+
+@return Non ci sono valori di ritorno.
+*/
+void MoveDownMinHeap(Heap *h, int i);
+
+/** @brief La funzione DeleteHeap libera la memoria occupata dai nodi di uno
+           heap.
+
+@param[in] h Puntatore al primo elemento dell'array che memorizza lo heap.
+
+@return Non ci sono valori di ritorno.
+*/
+void DeleteHeap(Heap *h);
 
 /*****************************************************************************/
 /*                             Non Primitives                                */
 /*****************************************************************************/
 
-/** @brief La funzione WritePreOrderTree stampa l'albero specificato su file,
-           visitandolo in pre-ordine.
-           
-@param[in] n Puntatore al nodo radice dell'albero da stampare su file. L'albero 
-           non viene modificato. L'albero puo' essere vuoto.
-@param[in] f FILE * su cui stampare l'albero.
+/** @brief La funzione WriteHeap stampa lo heap specificato su file.
+
+@param[in] h Heap da stampare su file. Lo heap non viene modificato.
+@param[in] f FILE * su cui stampare lo heap.
 
 @return Non ci sono valori di ritorno.
 */
-void WritePreOrderTree(const Node *n, FILE *f);
+void WriteHeap(const Heap *h, FILE *f);
 
-/** @brief La funzione WriteStdoutPreOrderTree stampa l'albero specificato su 
-           standard output, visitandolo in pre-ordine.
+/** @brief La funzione WriteStdoutHeap stampa lo heap specificato su standard
+           output.
 
-@param[in] n Puntatore al nodo radice dell'albero da stampare su standard output. 
-           L'albero non viene modificato. L'albero puo' essere vuoto.
-
-@return Non ci sono valori di ritorno.
-*/
-void WriteStdoutPreOrderTree(const Node *n);
-
-/** @brief La funzione WriteInOrderTree stampa l'albero specificato su file,
-           visitandolo in ordine.
-
-@param[in] n Puntatore al nodo radice dell'albero da stampare su file. L'albero
-           non viene modificato. L'albero puo' essere vuoto.
-@param[in] f FILE * su cui stampare l'albero.
+@param[in] h Heap da stampare su standard output. Lo heap non viene modificato.
 
 @return Non ci sono valori di ritorno.
 */
-void WriteInOrderTree(const Node *n, FILE *f);
+void WriteStdoutHeap(const Heap *i);
 
-/** @brief La funzione WriteStdoutInOrderTree stampa l'albero specificato su
-           standard output, visitandolo in ordine.
-
-@param[in] n Puntatore al nodo radice dell'albero da stampare su standard output.
-           L'albero non viene modificato. L'albero puo' essere vuoto.
-
-@return Non ci sono valori di ritorno.
-*/
-void WriteStdoutInOrderTree(const Node *n);
-
-/** @brief La funzione WritePostOrderTree stampa l'albero specificato su file,
-           visitandolo in post-ordine.
-
-@param[in] n Puntatore al nodo radice dell'albero da stampare su file. L'albero
-           non viene modificato. L'albero puo' essere vuoto.
-@param[in] f FILE * su cui stampare l'albero.
-
-@return Non ci sono valori di ritorno.
-*/
-void WritePostOrderTree(const Node *n, FILE *f);
-
-/** @brief La funzione WriteStdoutPostOrderTree stampa l'albero specificato su
-           standard output, visitandolo in post-ordine.
-
-@param[in] n Puntatore al nodo radice dell'albero da stampare su standard output.
-           L'albero non viene modificato. L'albero puo' essere vuoto.
-
-@return Non ci sono valori di ritorno.
-*/
-void WriteStdoutPostOrderTree(const Node *n);
-
-#endif // TREE_INT_H_
+#endif // MINHEAP_INT_H_
 
