@@ -116,11 +116,11 @@ void MoveDownMinHeap(Heap *h, int i)
         l = LeftHeap(i);
         r = RightHeap(i);
 
-        if ((l <= (int)h->size) && ElemCompare(GetNodeValueHeap(h, l), GetNodeValueHeap(h, largest)) < 0) {
+        if ((l < (int)h->size) && ElemCompare(GetNodeValueHeap(h, l), GetNodeValueHeap(h, largest)) < 0) {
             largest = l;
         }
 
-        if ((r <= (int)h->size) && ElemCompare(GetNodeValueHeap(h, r), GetNodeValueHeap(h, largest)) < 0) {
+        if ((r < (int)h->size) && ElemCompare(GetNodeValueHeap(h, r), GetNodeValueHeap(h, largest)) < 0) {
             largest = r;
         }
 

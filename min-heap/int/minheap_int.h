@@ -137,7 +137,7 @@ typedef struct Heap Heap;
 
 @param[in] i Indice di un nodo nello heap. 
 
-@return Indice del figlio sinistro del nodo i. Non è detto che il nodo avente
+@return Indice del figlio sinistro del nodo i. Non e' detto che il nodo avente
         l'indice ritornato sia effettivamente presente nello heap.
 */
 int LeftHeap(int i);
@@ -147,7 +147,7 @@ int LeftHeap(int i);
 
 @param[in] i Indice di un nodo nello heap.
 
-@return Indice del figlio destro del nodo i. Non è detto che il nodo avente
+@return Indice del figlio destro del nodo i. Non e' detto che il nodo avente
         l'indice ritornato sia effettivamente presente nello heap.
 */
 int RightHeap(int i);
@@ -157,7 +157,7 @@ int RightHeap(int i);
 
 @param[in] i Indice di un nodo nello heap.
 
-@return Indice del padre del nodo i. Non è detto che il nodo avente l'indice 
+@return Indice del padre del nodo i. Non e' detto che il nodo avente l'indice 
         ritornato sia effettivamente presente nello heap.
 */
 int ParentHeap(int i);
@@ -172,7 +172,7 @@ Heap* CreateEmptyHeap();
 /** @brief La funzione IsEmptyHeap verifica se un heap e' vuoto o meno. Lo
            heap deve esistere.
 
-@param[in] h Puntatore allo heap da testare.
+@param[in] h Heap da testare.
 
 @return true se lo heap e' vuoto, ovvero contiene zero elementi, false 
         altrimenti.
@@ -218,7 +218,7 @@ void MoveDownMinHeap(Heap *h, int i);
 /** @brief La funzione DeleteHeap libera la memoria occupata dai nodi di uno
            heap.
 
-@param[in] h Puntatore al primo elemento dell'array che memorizza lo heap.
+@param[in] h Heap di cui liberare la memoria.
 
 @return Non ci sono valori di ritorno.
 */
