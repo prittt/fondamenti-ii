@@ -13,24 +13,21 @@ Le suddette funzioni dipendono da come ElemType viene definito: al variare
 della definizione di ElemType la dichiarazione delle funzioni non cambia, ma 
 la loro definizione deve essere modificata opportunamente.
 
-Definizione del tipo Node e delle funzioni primitive (e non) degli alberi:
-    - CreateEmptyTree()
-    - CreateRootTree()
-    - IsEmptyTree()
-    - GetRootValueTree()
-    - LeftTree()
-    - RightTree()
-    - IsLeafTree()
-    - DeleteTree()
+Definizione del tipo Heap e delle funzioni primitive (e non) degli heap binari:
+    - LeftHeap()
+    - RightHeap()
+    - ParentHeap()
+    - CreateEmptyHeap()
+    - IsEmptyHeap()
+    - GetNodeValueHeap()
+    - MoveUpMinHeap()
+    - MoveDownMinHeap()
+    - DeleteHeap()
 
-    - WritePreOrderTree()
-    - WriteStdoutPreOrderTree()
-    - WriteInOrderTree()
-    - WriteStdoutInOrderTree()
-    - WritePostOrderTree()
-    - WriteStdoutPostOrderTree()
+    - WriteHeap()
+    - WriteStdoutHeap()
 
-La dichiarazioni e la definizione delle suddette funzioni NON deve essere
+La dichiarazione e la definizione delle suddette funzioni NON devono essere
 modificate al variare della definizione di ElemType.
 */
 
@@ -135,8 +132,8 @@ struct Heap{
 };
 typedef struct Heap Heap;
 
-/** @brief La funzione LeftHeap prende in input l'indice di un nodo dello heap
-           e ritorna l'indice del suo figlio sinistro. 
+/** @brief Dato l'indice di un nodo dello heap, la funzione LeftHeap ritorna
+           l'indice del suo figlio sinistro.
 
 @param[in] i Indice di un nodo nello heap. 
 
@@ -145,8 +142,8 @@ typedef struct Heap Heap;
 */
 int LeftHeap(int i);
 
-/** @brief La funzione RightHeap prende in input l'indice di un nodo dello heap
-           e ritorna l'indice del suo figlio destro.
+/** @brief Dato l'indice di un nodo dello heap, la funzione RightHeap ritorna
+           l'indice del suo figlio destro.
 
 @param[in] i Indice di un nodo nello heap.
 
@@ -155,8 +152,8 @@ int LeftHeap(int i);
 */
 int RightHeap(int i);
 
-/** @brief La funzione ParentHeap prende in input l'indice di un nodo dello heap
-           e ritorna l'indice del nodo padre.
+/** @brief Dato l'indice di un nodo dello heap, la funzione ParentHeap ritorna
+           l'indice del nodo padre.
 
 @param[in] i Indice di un nodo nello heap.
 
@@ -182,6 +179,14 @@ Heap* CreateEmptyHeap();
 */
 bool IsEmptyHeap(const Heap *h);
 
+/** @brief La funzione GetNodeValueHeap ritorna un puntatore all'elemento
+           contenuto nel nodo di indice specificato.
+
+@param[in] h (min-)heap.
+@param[in] i Indice del nodo.
+
+@returns Puntatore all'elemento contenuto nel nodo di indice i.
+*/
 ElemType* GetNodeValueHeap(const Heap *h, int i);
 
 /** @brief Dato un heap e l'indice di un nodo, la funzione MoveUpMinHeap sposta

@@ -29,7 +29,7 @@ Definizione del tipo Node e delle funzioni primitive (e non) degli alberi:
     - WritePostOrderTree()
     - WriteStdoutPostOrderTree()
 
-La dichiarazioni e la definizione delle suddette funzioni NON deve essere
+La dichiarazione e la definizione delle suddette funzioni NON devono essere
 modificate al variare della definizione di ElemType.
 */
 
