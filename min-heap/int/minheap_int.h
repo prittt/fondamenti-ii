@@ -18,6 +18,7 @@ Definizione del tipo Heap e delle funzioni primitive (e non) degli heap binari:
     - RightHeap()
     - ParentHeap()
     - CreateEmptyHeap()
+    - InsertNodeMinHeap()
     - IsEmptyHeap()
     - GetNodeValueHeap()
     - MoveUpMinHeap()
