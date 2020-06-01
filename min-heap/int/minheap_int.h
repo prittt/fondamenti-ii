@@ -169,6 +169,16 @@ int ParentHeap(int i);
 */
 Heap* CreateEmptyHeap();
 
+/** @brief La funzione InsertNodeMinHeap aggiunge un nodo ad un heap garantendo 
+           che le proprieta' (min-)heap siano rispettate.
+
+@param[in] h (min-)heap.
+@param[in] e Valore da utilizzare per la creazione del nuovo nodo.
+
+@returns Non ci sono valori di ritorno.
+*/
+void InsertNodeMinHeap(Heap *h, const ElemType *e);
+
 /** @brief La funzione IsEmptyHeap verifica se un heap e' vuoto o meno. Lo
            heap deve esistere.
 

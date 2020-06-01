@@ -84,8 +84,18 @@ Heap* CreateEmptyHeap()
 {
     Heap* h = malloc(1 * sizeof(Heap));
     h->size = 0;
-    h->data = malloc(1 * sizeof(ElemType));
+    h->data = NULL;
     return h;
+}
+
+void InsertNodeMinHeap(Heap *h, const ElemType *e)
+{
+    h->size++;
+    h->data = realloc(h->data, sizeof(ElemType)*h->size);
+
+    h->data[h->size - 1] = ElemCopy(e);
+
+    MoveUpMinHeap(h, h->size - 1);
 }
 
 ElemType* GetNodeValueHeap(const Heap *h, int i)
