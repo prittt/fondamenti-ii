@@ -148,6 +148,7 @@ void DeleteHeap(Heap *h)
     for (size_t i = 0; i < h->size; ++i) {
         ElemDelete(&h->data[i]);
     }
+    free(h->data);
     free(h);
 }
 

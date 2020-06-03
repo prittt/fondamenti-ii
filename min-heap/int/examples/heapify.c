@@ -11,7 +11,7 @@
 
 @return Puntatore alla coda (min-)heap appena creata.
 */
-Heap* HeapifyMinHeap(ElemType *v, size_t v_size)
+Heap* HeapifyMinHeap(const ElemType *v, size_t v_size)
 {
     // Costruisco la heap con gli elementi del vettore v
     Heap *h = CreateEmptyHeap();
