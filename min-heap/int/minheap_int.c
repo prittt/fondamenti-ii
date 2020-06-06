@@ -111,7 +111,7 @@ ElemType* GetNodeValueHeap(const Heap *h, int i)
 
 void MoveUpMinHeap(Heap *h, int i)
 {
-    while (i != 1 && ElemCompare(GetNodeValueHeap(h,i), GetNodeValueHeap(h,ParentHeap(i))) < 0) {
+    while (i != 0 && ElemCompare(GetNodeValueHeap(h,i), GetNodeValueHeap(h,ParentHeap(i))) < 0) {
         ElemSwap(GetNodeValueHeap(h,i), GetNodeValueHeap(h,ParentHeap(i)));
         i = ParentHeap(i);
     }
