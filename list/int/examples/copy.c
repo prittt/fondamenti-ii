@@ -15,8 +15,8 @@ Item* CopyList(const Item* i) {
 
     // Itero tutti gli elementi della lista da copiare
     for (; !IsEmptyList(i); i = GetTailList(i)) {
-        // Aggiungo l'elemento corrente della lista di input (i) alla nuova lista
-        // usando la primitiva InsertBackList, la quale si occuper‡ di allocare
+        // Aggiungo l'elemento corrente della lista di input alla nuova lista
+        // usando la primitiva InsertBackList, la quale si occuper√† di allocare
         // opportunamente la memoria e aggiornare i puntatori!
         list_copy = InsertBackList(list_copy, GetHeadValueList(i));
     }
