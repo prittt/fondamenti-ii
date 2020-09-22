@@ -3,5 +3,6 @@ set(examples_sources
     iterate.c
 	additional_op.c
 	load.c
+	copy.c
 )
 include(../../../CMakeLists.examples.inc.txt)
