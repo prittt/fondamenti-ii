@@ -35,10 +35,10 @@ int main(void) {
 
     printf("Input:\n  list: ");
     WriteStdoutList(list);
-    printf("\n  head address: %p", list);
+    printf("  head address: %p", list);
     printf("\n\nOutput (copy):\n  list: ");
     WriteStdoutList(list_copy);
-    printf("\n  head address: %p", list_copy);
+    printf("  head address: %p", list_copy);
 
     DeleteList(list);
     DeleteList(list_copy);
