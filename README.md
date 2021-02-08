@@ -3,9 +3,9 @@
 </p>
 
 # Fondamenti di Informatica II e Lab - UNIMORE
-[![License](https://img.shields.io/github/license/prittt/Fondamenti-II)](https://github.com/prittt/Fondamenti-II/blob/master/LICENSE)
-[![Docs](https://readthedocs.org/projects/pip/badge/?version=latest&style=flat)](https://github.com/prittt/Fondamenti-II/blob/master/README.md#doc)
-[![Build Status](https://travis-ci.com/prittt/Fondamenti-II.svg?token=uFxAjG3MrtqGf83nu4qz&branch=master)](https://travis-ci.com/prittt/Fondamenti-II)
+[![License](https://img.shields.io/github/license/prittt/fondamenti-ii)](https://github.com/prittt/fondamenti-ii/blob/master/LICENSE)
+[![Docs](https://readthedocs.org/projects/pip/badge/?version=latest&style=flat)](https://github.com/prittt/fondamenti-ii/blob/master/README.md#doc)
+[![Build Status](https://travis-ci.com/prittt/fondamenti-ii.svg?token=uFxAjG3MrtqGf83nu4qz&branch=master)](https://travis-ci.com/prittt/fondamenti-ii)
 
 <p align="justify">
 Questo repository è principalmente rivolto agli studenti di Fondamenti di Informatica II e Lab del Corso di Laurea Triennale in Ingegneria Informatica del Dipartimento di Ingegneria "Enzo Ferrari" dell'Università degli Studi di Modena e Reggio Emilia. Il repository contiene le primitive di liste, alberi e heap viste a lezione ed usate per le esercitazioni. Si noti che le implementazioni fornite sono implementazioni "semplificate", sviluppate a scopo puramente didattico. 
@@ -57,17 +57,17 @@ Il restante materiale è utilizzato per la gestione del repository: generazione 
 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
-| `int`        | <a href="https://prittt.github.io/Fondamenti-II/list/int/html/list__int_8h.html">list_int.html</a> | <a href="https://prittt.github.io/Fondamenti-II/list/int/list_int.zip">list_int.zip</a> |
-| `int_vector` | <a href="https://prittt.github.io/Fondamenti-II/list/int_vector/html/list__int__vector_8h.html">list_int_vector.html</a> | <a href="https://prittt.github.io/Fondamenti-II/list/int_vector/list_int_vector.zip">list_int_vector.zip</a> |
+| `int`        | <a href="https://prittt.github.io/fondamenti-ii/list/int/html/list__int_8h.html">list_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/int/list_int.zip">list_int.zip</a> |
+| `int_vector` | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/html/list__int__vector_8h.html">list_int_vector.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/list_int_vector.zip">list_int_vector.zip</a> |
 
 ### Alberi (Binary Tree)
 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
-| `int`        | <a href="https://prittt.github.io/Fondamenti-II/tree/int/html/tree__int_8h.html">tree_int.html</a> | <a href="https://prittt.github.io/Fondamenti-II/tree/int/tree_int.zip">tree_int.zip</a> |
+| `int`        | <a href="https://prittt.github.io/fondamenti-ii/tree/int/html/tree__int_8h.html">tree_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/tree/int/tree_int.zip">tree_int.zip</a> |
 
 ### Min-Heap (Array-Based Binary Min-Heap)
 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
-| `int`        | <a href="https://prittt.github.io/Fondamenti-II/min-heap/int/html/minheap__int_8h.html">minheap_int.html</a> | <a href="https://prittt.github.io/Fondamenti-II/min-heap/int/min-heap_int.zip">minheap_int.zip</a> |
+| `int`        | <a href="https://prittt.github.io/fondamenti-ii/min-heap/int/html/minheap__int_8h.html">minheap_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/min-heap/int/min-heap_int.zip">minheap_int.zip</a> |
