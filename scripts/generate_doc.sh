@@ -3,24 +3,28 @@ echo 'Setting up the script...'
 
 # Get the current gh-pages branch
 mkdir gh-pages
+echo $(pwd)
 
 # Load the list of things to be documented from conf.txt
-doxyfiles=$(<scripts/conf.txt)
+doxyfiles=$(cat scripts/conf.txt)
+echo '******'
+echo $doxyfiles
+echo '******'
 
 ################################################################################
 ##### Generate the Doxygen documentation (from master) and log the output. #####
 echo 'Generating Doxygen code documentation...'
 
+cwd=$(pwd)
 for i in $doxyfiles; do
     echo "****************************************************"
 	echo "* $i"
     echo "****************************************************"
-	
-	cwd=$(pwd)
 
 	# Redirect both stderr and stdout to the log file and the console.
 	cd $i/doxygen
 	doxygen 2>&1 | tee doxygen.log
+	echo $(ls -l)
 	cd $cwd
 
 	################################################################################
@@ -45,3 +49,4 @@ for i in $doxyfiles; do
 	mv ${zip_name} ${file}
 	cd $cwd
 done
+echo $(ls -l gh-pages)
