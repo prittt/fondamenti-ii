@@ -1,15 +1,11 @@
 #!/bin/bash
-################################################################################
-##### Setup this script and get the current gh-pages branch.               #####
 echo 'Setting up the script...'
-# Exit with nonzero exit code if anything fails
-set -e
 
 # Get the current gh-pages branch
 mkdir gh-pages
 
 # Load the list of things to be documented from conf.txt
-doxyfiles=$(<conf.txt)
+doxyfiles=$(<scripts/conf.txt)
 
 ################################################################################
 ##### Generate the Doxygen documentation (from master) and log the output. #####

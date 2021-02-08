@@ -3,7 +3,7 @@ name: doc
 on: [push]
 
 jobs:
-  build:
+  docs:
     runs-on: ubuntu-18.04
     container:
         image: tsgkadot/docker-doxygen
@@ -12,8 +12,7 @@ jobs:
     
     # Build the HTML documentation
     - name: Doxygen
-      run: chmod +x ./scripts/generate_doc.sh && ./scripts/generate_doc.sh
-      shell: bash
+      run: chmod +x scripts/generate_doc.sh && scripts/generate_doc.sh
     
     # Deploy the HTML documentation to GitHub Pages
     - name: GH Pages Deployment
