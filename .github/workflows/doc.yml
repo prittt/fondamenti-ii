@@ -5,12 +5,10 @@ on: [push]
 jobs:
   docs:
     runs-on: ubuntu-18.04
-    #container:
-    #    image: tsgkadot/docker-doxygen
     steps:
     - uses: actions/checkout@v2
-      with: 
-        ref: development
+    #  with: 
+    #    ref: development
     
     #Install dependencies
     - name: Dependencies
