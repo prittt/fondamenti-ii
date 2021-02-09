@@ -1,30 +1,30 @@
-#include "list_int.h"
+#include "list.h"
 
 #include <stdlib.h>
 
-Item* InsOrdRec(const ElemType *e, Item *i)
+Item *ListInsOrdRec(const ElemType *e, Item *i)
 {
-    if (IsEmptyList(i) || ElemCompare(GetHeadValueList(i), e) >= 0) {
-        return InsertHeadList(e, i);
+    if (ListIsEmpty(i) || ElemCompare(ListGetHeadValue(i), e) >= 0) {
+        return ListInsertHead(e, i);
     }
-    Item* tmp = InsertHeadList(GetHeadValueList(i), InsOrdRec(e, GetTailList(i)));
+    Item *tmp = ListInsertHead(ListGetHeadValue(i), ListInsOrdRec(e, ListGetTail(i)));
     free(i);
     return tmp;
 }
 
-Item* InsOrd(const ElemType *e, Item *i)
+Item *ListInsOrd(const ElemType *e, Item *i)
 {
-    if (IsEmptyList(i) || ElemCompare(GetHeadValueList(i), e) >= 0) {
-        return InsertHeadList(e, i);
+    if (ListIsEmpty(i) || ElemCompare(ListGetHeadValue(i), e) >= 0) {
+        return ListInsertHead(e, i);
     }
 
-    Item* root = i;
-    Item* prev = CreateEmptyList();
-    Item* new_item = InsertHeadList(e, CreateEmptyList());
+    Item *root = i;
+    Item *prev = ListCreateEmpty();
+    Item *new_item = ListInsertHead(e, ListCreateEmpty());
 
-    while (!IsEmptyList(i) && ElemCompare(GetHeadValueList(i), e) < 0) {
+    while (!ListIsEmpty(i) && ElemCompare(ListGetHeadValue(i), e) < 0) {
         prev = i;
-        i = GetTailList(i);
+        i = ListGetTail(i);
     }
     prev->next = new_item;
     new_item->next = i;
@@ -33,24 +33,24 @@ Item* InsOrd(const ElemType *e, Item *i)
 
 int main(void)
 {
-    Item* i = CreateEmptyList();
-    Item* i_rec = CreateEmptyList();
+    Item *i = ListCreateEmpty();
+    Item *i_rec = ListCreateEmpty();
     ElemType e;
     // Acquisizione di elementi da stdin
     do {
         printf("Introdurre un valore intero: ");
-        if (ReadStdinElem(&e) != 1) {
+        if (ElemReadStdin(&e) != 1) {
             break;
         }
-        i = InsOrd(&e, i);
-        i_rec = InsOrdRec(&e, i_rec);
+        i = ListInsOrd(&e, i);
+        i_rec = ListInsOrdRec(&e, i_rec);
     } while (e != 0); // L'acquisizione termina quando viene inserito lo zero.
     
-    WriteStdoutList(i);
-    WriteStdoutList(i_rec);
+    ListWriteStdout(i);
+    ListWriteStdout(i_rec);
 
-    DeleteList(i);
-    DeleteList(i_rec);
+    ListDelete(i);
+    ListDelete(i_rec);
 
     return EXIT_SUCCESS;
 }

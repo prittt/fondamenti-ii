@@ -1,24 +1,24 @@
-#include "list_int.h"
+#include "list.h"
 
 #include <stdlib.h>
 
-Item* CreateListFromVector(const int *v, size_t v_size) {
-    Item *list = CreateEmptyList();
+Item *ListCreateFromVector(const int *v, size_t v_size) {
+    Item *list = ListCreateEmpty();
     for (size_t i = 0; i < v_size; ++i) {
-        list = InsertBackList(list, &v[i]);
+        list = ListInsertBack(list, &v[i]);
     }
     return list;
 }
 
-Item* CopyList(const Item* i) {
-    Item *list_copy = CreateEmptyList(); // Creo una lista vuota (NULL pointer)
+Item *ListCopy(const Item *i) {
+    Item *list_copy = ListCreateEmpty(); // Creo una lista vuota (NULL pointer)
 
     // Itero tutti gli elementi della lista da copiare
-    for (; !IsEmptyList(i); i = GetTailList(i)) {
+    for (; !ListIsEmpty(i); i = ListGetTail(i)) {
         // Aggiungo l'elemento corrente della lista di input alla nuova lista
-        // usando la primitiva InsertBackList, la quale si occuperà di allocare
+        // usando la primitiva ListInsertBack(), la quale si occupa di allocare
         // opportunamente la memoria e aggiornare i puntatori!
-        list_copy = InsertBackList(list_copy, GetHeadValueList(i));
+        list_copy = ListInsertBack(list_copy, ListGetHeadValue(i));
     }
 
     return list_copy;
@@ -28,20 +28,20 @@ int main(void) {
     
     int v[] = { 1,2,3,4,5,6,7,8,9 };
     size_t v_size = sizeof(v) / sizeof(int);
-    Item *list = CreateListFromVector(v, v_size);
+    Item *list = ListCreateFromVector(v, v_size);
 
 
-    Item *list_copy = CopyList(list);
+    Item *list_copy = ListCopy(list);
 
     printf("Input:\n  list: ");
-    WriteStdoutList(list);
+    ListWriteStdout(list);
     printf("  head address: %p", list);
     printf("\n\nOutput (copy):\n  list: ");
-    WriteStdoutList(list_copy);
+    ListWriteStdout(list_copy);
     printf("  head address: %p", list_copy);
 
-    DeleteList(list);
-    DeleteList(list_copy);
+    ListDelete(list);
+    ListDelete(list_copy);
 
     return EXIT_SUCCESS;
 }

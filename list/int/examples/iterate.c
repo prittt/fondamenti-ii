@@ -1,11 +1,11 @@
-#include "list_int.h"
+#include "list.h"
 
 #include <stdlib.h>
 
-Item* CreateListFromVector(const int *v, size_t v_size) {
-    Item *list = CreateEmptyList();
+Item *ListCreateFromVector(const int *v, size_t v_size) {
+    Item *list = ListCreateEmpty();
     for (size_t i = 0; i < v_size; ++i) {
-        list = InsertBackList(list, &v[i]);
+        list = ListInsertBack(list, &v[i]);
     }
     return list;
 }
@@ -14,32 +14,32 @@ int main(void) {
     
     int v[] = { 1,2,3,4,5,6,7,8,9 };
     size_t v_size = sizeof(v) / sizeof(int);
-    Item *list = CreateListFromVector(v, v_size);
+    Item *list = ListCreateFromVector(v, v_size);
 
     // Iterazione con il for usando le primitive:
-    for (Item* tmp = list; !IsEmptyList(tmp); tmp = GetTailList(tmp)) {
+    for (Item *tmp = list; !ListIsEmpty(tmp); tmp = ListGetTail(tmp)) {
         // Prendo il valore dell'elemento corrente della lista.
-        const ElemType *e = GetHeadValueList(tmp); 
+        const ElemType *e = ListGetHeadValue(tmp);
         // Se volessi un elemento modificabile potrei fare:
-        // ElemType e = ElemCopy(GetHeadList(tmp));
+        // ElemType e = ElemCopy(ListGetHeadValue(tmp));
 
         // E lo uso 
         // ...    
     }
 
     // Iterazione con il for senza la primitive:
-    for (Item* tmp = list; tmp; tmp = tmp->next) {
+    for (Item *tmp = list; tmp; tmp = tmp->next) {
         ElemType e = tmp->value;
         // Cose ...
     }
 
     // Iterazione con il while usando le primitive:
-    Item* tmp = list;
-    while (!IsEmptyList(tmp)) {
-        const ElemType *e = GetHeadValueList(tmp);
+    Item *tmp = list;
+    while (!ListIsEmpty(tmp)) {
+        const ElemType *e = ListGetHeadValue(tmp);
         // Cose ...
 
-        tmp = GetTailList(tmp);
+        tmp = ListGetTail(tmp);
     }
 
     // Iterazione con il while senza le primitive:
@@ -50,7 +50,7 @@ int main(void) {
         tmp = tmp->next;
     }
 
-    DeleteList(list);
+    ListDelete(list);
 
     return EXIT_SUCCESS;
 }
