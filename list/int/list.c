@@ -15,10 +15,10 @@ Item *ListCreateEmpty(void)
 
 Item *ListInsertHead(const ElemType *e, Item *i)
 {
-    Item *t = malloc(sizeof(Item));
-    t->value = ElemCopy(e);
-    t->next = i;
-    return t;
+    Item *n = malloc(sizeof(Item));
+    n->value = ElemCopy(e);
+    n->next = i;
+    return n;
 }
 
 bool ListIsEmpty(const Item *i)
