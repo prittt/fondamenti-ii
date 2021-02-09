@@ -3,7 +3,7 @@
 //#include <stdlib.h>
 //#include <crtdbg.h>
 
-#include "list_int.h"
+#include "list.h"
 
 #include <stdlib.h>
 
@@ -11,63 +11,63 @@
 /*                               IS MEMBER                                   */
 /*****************************************************************************/
 
-bool IsMember(const ElemType *e, Item* i)
+bool ListIsMember(const ElemType *e, Item* i)
 {
-    while (!IsEmptyList(i)) {
-        if (ElemCompare(e, GetHeadValueList(i)) == 0) {
+    while (!ListIsEmpty(i)) {
+        if (ElemCompare(e, ListGetHeadValue(i)) == 0) {
             return true;
         }
 
-        i = GetTailList(i);
+        i = ListGetTail(i);
     }
     return false;
 }
 
-bool IsMemberRec(const ElemType *e, Item* i)
+bool ListIsMemberRec(const ElemType *e, Item* i)
 {
-    if (IsEmptyList(i)) {
+    if (ListIsEmpty(i)) {
         return false;
     }
 
-    if (ElemCompare(e, GetHeadValueList(i)) == 0) {
+    if (ElemCompare(e, ListGetHeadValue(i)) == 0) {
         return true;
     }
 
-    return IsMemberRec(e, GetTailList(i));
+    return ListIsMemberRec(e, ListGetTail(i));
 }
 
 /*****************************************************************************/
 /*                                 LENGHT                                    */
 /*****************************************************************************/
-int Length(Item* i)
+int ListLength(Item *i)
 {
     int n = 0;
-    while (!IsEmptyList(i)) {
+    while (!ListIsEmpty(i)) {
         n++;
-        i = GetTailList(i);
+        i = ListGetTail(i);
     }
     return n;
 }
 
-int LengthRec(Item* i)
+int ListLengthRec(Item *i)
 {
-    if (IsEmptyList(i)) {
+    if (ListIsEmpty(i)) {
         return 0;
     }
 
-    return 1 + LengthRec(GetTailList(i));
+    return 1 + ListLengthRec(ListGetTail(i));
 }
 
 /*****************************************************************************/
 /*                                 APPEND                                    */
 /*****************************************************************************/
-Item* AppendRec(Item* i1, Item* i2)
+Item *ListAppendRec(Item *i1, Item *i2)
 {
-    if (IsEmptyList(i1)) {
+    if (ListIsEmpty(i1)) {
         return i2;
     }
 
-    Item* tmp = InsertHeadList(GetHeadValueList(i1), AppendRec(GetTailList(i1), i2));
+    Item* tmp = ListInsertHead(ListGetHeadValue(i1), ListAppendRec(ListGetTail(i1), i2));
     free(i1);
     return tmp;
 }
@@ -75,39 +75,39 @@ Item* AppendRec(Item* i1, Item* i2)
 /*****************************************************************************/
 /*                                  COPY                                     */
 /*****************************************************************************/
-Item* CopyRec(Item* i)
+Item *ListCopyRec(Item *i)
 {
-    if (IsEmptyList(i)) {
+    if (ListIsEmpty(i)) {
         return i;
     }
-    return InsertHeadList(GetHeadValueList(i), CopyRec(GetTailList(i)));
+    return ListInsertHead(ListGetHeadValue(i), ListCopyRec(ListGetTail(i)));
 }
 
 /*****************************************************************************/
 /*                                 REMOVE                                    */
 /*****************************************************************************/
-Item* RemoveRec(const ElemType* e, Item* i)
+Item *ListRemoveRec(const ElemType *e, Item *i)
 {
-    if (IsEmptyList(i)) {
+    if (ListIsEmpty(i)) {
         return i;
     }
 
-    if (ElemCompare(e, GetHeadValueList(i)) == 0) {
-        Item* tmp = GetTailList(i);
+    if (ElemCompare(e, ListGetHeadValue(i)) == 0) {
+        Item *tmp = ListGetTail(i);
         free(i);
         return tmp;
     }
     
-    Item* tmp = InsertHeadList(GetHeadValueList(i), RemoveRec(e, GetTailList(i)));
+    Item *tmp = ListInsertHead(ListGetHeadValue(i), ListRemoveRec(e, ListGetTail(i)));
     free(i);
     return tmp;
 }
 
-Item* CreateListFromVector(const int *v, size_t v_size)
+Item *ListCreateFromVector(const int *v, size_t v_size)
 {
-    Item *list = CreateEmptyList();
+    Item *list = ListCreateEmpty();
     for (size_t i = 0; i < v_size; ++i) {
-        list = InsertBackList(list, &v[i]);
+        list = ListInsertBack(list, &v[i]);
     }
     return list;
 }
@@ -117,41 +117,41 @@ int main(void)
 
     int v[] = { 1,2,3,4,5,6,7,8,9 };
     size_t v_size = sizeof(v) / sizeof(int);
-    Item *list = CreateListFromVector(v, v_size);
-    Item *other_list = CreateListFromVector(v, v_size - 5);
+    Item *list = ListCreateFromVector(v, v_size);
+    Item *other_list = ListCreateFromVector(v, v_size - 5);
 
     ElemType e;
     bool ret;
 
     e = 5;
-    ret = IsMember(&e, list);
-    ret = IsMemberRec(&e, list);
+    ret = ListIsMember(&e, list);
+    ret = ListIsMemberRec(&e, list);
     e = 11;
-    ret = IsMember(&e, list);
-    ret = IsMemberRec(&e, list);
+    ret = ListIsMember(&e, list);
+    ret = ListIsMemberRec(&e, list);
 
     int len;
-    len = Length(list);
-    len = LengthRec(list);
+    len = ListLength(list);
+    len = ListLengthRec(list);
 
-    WriteStdoutList(list);
-    WriteStdoutList(other_list);
-    list = AppendRec(list, other_list);
-    WriteStdoutList(list);
+    ListWriteStdout(list);
+    ListWriteStdout(other_list);
+    list = ListAppendRec(list, other_list);
+    ListWriteStdout(list);
 
-    other_list = CopyRec(list);
-    WriteStdoutList(other_list);
+    other_list = ListCopyRec(list);
+    ListWriteStdout(other_list);
 
     e = 1;
-    list = RemoveRec(&e, list);
-    WriteStdoutList(list);
+    list = ListRemoveRec(&e, list);
+    ListWriteStdout(list);
 
     e = 5;
-    list = RemoveRec(&e, list);
-    WriteStdoutList(list);
+    list = ListRemoveRec(&e, list);
+    ListWriteStdout(list);
 
-    DeleteList(list);
-    DeleteList(other_list);
+    ListDelete(list);
+    ListDelete(other_list);
 
     // Per controllare eventuali memory leak
     //_CrtDumpMemoryLeaks();
