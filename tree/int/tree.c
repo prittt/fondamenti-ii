@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include "tree_int.h"
+#include "tree.h"
 
 #include <string.h>
 #include <stdlib.h>

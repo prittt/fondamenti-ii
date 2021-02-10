@@ -21,6 +21,13 @@ for i in $doxyfiles; do
 	echo "* $i"
     echo "****************************************************"
 
+	# Let's copy the required source and header files for generating the current doc
+	echo "cp $i/../*.* $i"
+	cp $i/../*.* $i
+	type_name=$(basename $i)
+	echo "cp elemtype/$type_name/*.* $i"
+	cp elemtype/$type_name/*.* $i
+
 	# Redirect both stderr and stdout to the log file and the console.
 	cd $i/doxygen
 	doxygen 2>&1 | tee doxygen.log

@@ -1,36 +1,7 @@
 /** @file
-Definizione del tipo ElemType e dichiarazione delle funzioni ad esso associate: 
-    - ElemCompare()
-    - ElemCopy()
-    - ElemDelete()
-    - ReadElem()
-    - ReadStdinElem()
-    - WriteElem()
-    - WriteStdoutElem()
-
-Le suddette funzioni dipendono da come ElemType viene definito: al variare
-della definizione di ElemType la dichiarazione delle funzioni non cambia, ma 
-la loro definizione deve essere modificata opportunamente.
-
-Definizione del tipo Node e delle funzioni primitive (e non) degli alberi:
-    - CreateEmptyTree()
-    - CreateRootTree()
-    - IsEmptyTree()
-    - GetRootValueTree()
-    - LeftTree()
-    - RightTree()
-    - IsLeafTree()
-    - DeleteTree()
-
-    - WritePreOrderTree()
-    - WriteStdoutPreOrderTree()
-    - WriteInOrderTree()
-    - WriteStdoutInOrderTree()
-    - WritePostOrderTree()
-    - WriteStdoutPostOrderTree()
-
-La dichiarazione e la definizione delle suddette funzioni NON devono essere
-modificate al variare della definizione di ElemType.
+Definizione del tipo Node e delle funzioni primitive (e non) per alberi binari.
+La dichiarazione e la definizione di queste funzioni non varia al variare di
+ElemType.
 */
 
 #ifndef TREE_INT_H_
