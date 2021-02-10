@@ -17,38 +17,47 @@ La struttura del progetto è la seguente:
 
 ```
 .
+├── elemtype
+|   ├── int
+|   |   ├── elemtype.h
+|   |   ├── elemtype.c
+|   ├── char
+|   |   ├── elemtype.h
+|   |   ├── elemtype.c
+|   ├── int_vector
+|   |   ├── elemtype.h
+|   |   ├── elemtype.c
+|   ├── ...
 ├── list
 |   ├── int
 |   |   ├── examples
 |   |   |   ├── ins_ord.c
 |   |   |   ├── iterate.c
-|   |   ├── list_int.h
-|   |   ├── list_int.c
 |   ├── int_vector
 |   |   ├── examples
 |   |   |   ├── iterate.c
-|   |   ├── list_vector.h
-|   |   ├── list_vector.c
-+-- tree
-+-- min-heap
-+-- ...
+|   ├── list.h
+|   ├── list.c
+├── tree
+├── min-heap
+├── ...
 
 ```
 
 <p align="justify">
-Come potete notare, il codice relativo ad una specifica struttura dati si trova in una sottocartella con lo stesso nome: <code>list</code>, <code>tree</code>, <code>min-heap</code>. Per ognuna di queste vengono fornite diverse implementazioni a seconda del tipo di dato. Le dichiarazioni e le definizioni sono riportate rispettivamente nei nei file <code>.h</code> e <code>.c</code> in una specifica sottocartelle a seconda del tipo: <code>int</code>, <code>int_vector</code>, ecc.  
+Come potete notare, il codice relativo ad una specifica struttura dati si trova in una sottocartella con lo stesso nome: <code>list</code>, <code>tree</code>, <code>min-heap</code>. Per ognuna di queste viene fornita un'unica implementazione generica che non dipende dal tipo di dato. Le dichiarazioni e le definizioni di <code>ElemType</code> per uno specifico tipo di dato le trovate in sottocartelle di <code>elemtype</code>, rispettivamente nei file <code>.h</code> e <code>.c</code>. Le implementazioni di liste, alberi, e heap devono essere accompagnate da un'implementazione specifica di <code>ElemType</code> per funzionare correttamente.
 </p>
 
 <p align="justify">
-Quindi, ad esempio, nella cartella <code>list>int</code> troviamo i file <code>list_int.h</code> e <code>list_int.c</code> che forniscono l'implementazione delle liste per il tipo <code>int</code>. 
+Ad esempio, nella cartella <code>list</code> troviamo i file <code>list.h</code> e <code>list.c</code> che forniscono l'implementazione delle liste e che dovranno essere accompagnati dalla definizione di <code>ElemType</code> e dall'implementazione delle funzioni a esso associate. Se vogliamo utilizzizare liste di `int`, ad esempio, avremo bisogno anche dei file <code>elemtype>int>elemtype.h</code> e <code>elemtype>int>elemtype.c</code>.
 </p>
 
 <p align="justify">
-Nelle sottocartelle <code>examples</code> sono disponibili dei file <code>.c</code> contenenti dei <code>main()</code> di esempio di utilizzo delle primitive.
+Nelle sottocartelle <code>examples</code> sono disponibili dei file <code>.c</code> contenenti delle funzioni di esempio di utilizzo delle primitive.
 </p>
 
 <p align="justify">
-Il restante materiale è utilizzato per la gestione del repository: generazione automatica della documentazione, generazione del progetto, ecc e può essere pertanto ignorato. Nel seguito di questa pagina troverete i link alla documentazione delle primitive e i link per il download diretto di primitive specifiche. 
+Il restante materiale è utilizzato per la gestione del repository: generazione automatica della documentazione, generazione del progetto, ecc e può essere pertanto ignorato. Nel seguito di questa pagina troverete i link alla documentazione delle primitive e i link per il download diretto di primitive specifiche, ovvero primitive accompagnare ad una specifica implementazione di <code>ElemType</code>. 
 </p>
 
 <h2><a name="doc">Documentazione</a></h2>
