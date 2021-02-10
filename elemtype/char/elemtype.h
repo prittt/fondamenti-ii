@@ -1,16 +1,16 @@
 /** @file
-Questo file contiene la definizione di `ElemType` per il tipo `int` e la 
+Questo file contiene la definizione di `ElemType` per il tipo `char` e la 
 documentazione delle funzioni a esso associate.
 */
 
-#ifndef ELEMTYPE_INT_H_
-#define ELEMTYPE_INT_H_
+#ifndef ELEMTYPE_CHAR_H_
+#define ELEMTYPE_CHAR_H_
 
 #include <stdbool.h>
 #include <stdio.h>
 
 /** @brief Definizione di `struct ElemType`. */
-typedef int ElemType;
+typedef char ElemType;
 
 /** @brief La funzione `ElemCompare()` confronta due elementi.
 
@@ -81,5 +81,5 @@ void ElemWrite(const ElemType *e, FILE *f);
 */
 void ElemWriteStdout(const ElemType *e);
 
-#endif // ELEMTYPE_INT_H_
+#endif // ELEMTYPE_CHAR_H_
 

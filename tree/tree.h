@@ -191,7 +191,7 @@ void TreeWriteStdoutInOrder(const Node *n);
 void TreeWritePostOrder(const Node *n, FILE *f);
 
 /** @brief La funzione `TreeWriteStdoutPostOrder()` stampa l'albero specificato su
-           standard output, visitandolo in post-ordine. Nello specifico, la funzione stampa la
+           `stdout`, visitandolo in post-ordine. Nello specifico, la funzione stampa la
            sequenza di caratteri "Albero in PostOrdine: " seguita dagli elementi
            in ordine di visita e separati dal carattere <tab>. La stampa degli 
            elementi dipende dalla definizione di `ElemType`. Se l'albero è vuoto

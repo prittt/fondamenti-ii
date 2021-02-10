@@ -67,13 +67,13 @@ void ElemDelete(ElemType *e);
 */
 int ElemRead(FILE *f, ElemType *e);
 
-/** @brief La funzione `ElemReadStdin()` legge un elemento da standard input, 
+/** @brief La funzione `ElemReadStdin()` legge un elemento da `stdin`, 
            ovvero legge la sua `size` e, dopo aver alloca spazio a sufficienza, 
            legge `size` interi scrivendoli nel vettore puntato da `data`.
            Se la lettura di anche solo uno dei valori fallisce la funzione 
            ritorna `0`, altrimenti ritorna `1`.
 
-@param[out] e Elemento letto da standard input.
+@param[out] e Elemento letto da `stdin`.
 
 @return Numero di elementi effettivamente letti (`0` o `1`).
 */
@@ -91,7 +91,7 @@ void ElemWrite(const ElemType *e, FILE *f);
 
 /** @brief La funzione `ElemWriteStdout()` stampa un elemento su `stdout`.
 
-@param[in] e Puntatore all'elemento da stampare su standard output. Il valore
+@param[in] e Puntatore all'elemento da stampare su `stdout`. Il valore
              contenuto in e non viene modificato.
 
 @return Non ci sono valori di ritorno.
