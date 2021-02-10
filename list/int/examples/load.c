@@ -1,3 +1,6 @@
+/** @example load.c
+* In questo esempio si mostra come creare una lista con elementi letti da file.
+*/
 #define _CRT_SECURE_NO_WARNINGS
 #include "list.h"
 

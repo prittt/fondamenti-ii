@@ -1,3 +1,7 @@
+/** @example insert_ord.c
+* In questo esempio si mostra come inserire un nuovo elemento in una lista esistente
+* rispettando l'ordinamento crescente.
+*/
 #include "list.h"
 
 #include <stdlib.h>

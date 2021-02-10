@@ -1,3 +1,8 @@
+/** @example iterate.c
+* In questo esempio si mostra come creare una lista a partire da un vettore di 
+* `ElemType` e come iterare gli elementi di una lista esistente utilizzando i 
+* ciclo `for` e `while` facendo o meno uso delle funzioni primitive.
+*/
 #include "list.h"
 
 #include <stdlib.h>

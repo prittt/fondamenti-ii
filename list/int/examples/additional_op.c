@@ -1,8 +1,11 @@
+/** @example load.c
+* In questo esempio si illustrano implementazioni di diverse operazioni su liste, 
+* come ad esempio il calcolo della sua lunghezza, la rimozione di un elemento, ecc.
+*/
 // Per controllare eventuali memory leak
 //#define _CRTDBG_MAP_ALLOC
 //#include <stdlib.h>
 //#include <crtdbg.h>
-
 #include "list.h"
 
 #include <stdlib.h>
