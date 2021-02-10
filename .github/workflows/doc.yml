@@ -15,6 +15,7 @@ jobs:
       run: | 
         sudo apt update 
         sudo apt install -y zip doxygen graphviz
+        doxygen --version
     
     # Build the HTML documentation
     - name: Doxygen
