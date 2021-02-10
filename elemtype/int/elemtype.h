@@ -1,4 +1,4 @@
-/** @file
+/** @file elemtype_int
 Definizione di ElemType e dichiarazione delle funzioni a esso associate per il 
 tipo 'int'.
 */

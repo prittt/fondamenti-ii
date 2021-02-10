@@ -1,4 +1,4 @@
-/** @file
+/** @file list
 Definizione del tipo Item e delle funzioni primitive (e non) sulle liste. La 
 dichiarazione e la definizione di queste funzioni non varia al variare di 
 ElemType.

@@ -57,17 +57,17 @@ Il restante materiale è utilizzato per la gestione del repository: generazione 
 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
-| `int`        | <a href="https://prittt.github.io/fondamenti-ii/list/int/html/list__int_8h.html">list_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/int/list_int.zip">list_int.zip</a> |
-| `int_vector` | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/html/list__int__vector_8h.html">list_int_vector.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/list_int_vector.zip">list_int_vector.zip</a> |
+| `int`        | <a href="https://prittt.github.io/fondamenti-ii/list/int/html/index.html">list_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/int/list_int.zip">list_int.zip</a> |
+| `int_vector` | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/html/index.html">list_int_vector.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/list_int_vector.zip">list_int_vector.zip</a> |
 
 ### Alberi (Binary Tree)
 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
-| `int`        | <a href="https://prittt.github.io/fondamenti-ii/tree/int/html/tree__int_8h.html">tree_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/tree/int/tree_int.zip">tree_int.zip</a> |
+| `int`        | <a href="https://prittt.github.io/fondamenti-ii/tree/int/html/index.html">tree_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/tree/int/tree_int.zip">tree_int.zip</a> |
 
 ### Min-Heap (Array-Based Binary Min-Heap)
 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
-| `int`        | <a href="https://prittt.github.io/fondamenti-ii/min-heap/int/html/minheap__int_8h.html">minheap_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/min-heap/int/min-heap_int.zip">minheap_int.zip</a> |
+| `int`        | <a href="https://prittt.github.io/fondamenti-ii/min-heap/int/html/index.html">minheap_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/min-heap/int/min-heap_int.zip">minheap_int.zip</a> |

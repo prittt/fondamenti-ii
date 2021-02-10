@@ -1,3 +1,7 @@
+/** @example copy.c
+* In questo esempio si mostra come creare una lista a partire da un vettore di
+* `ElemType` e successivamente crearne una copia.
+*/
 #include "list.h"
 
 #include <stdlib.h>
