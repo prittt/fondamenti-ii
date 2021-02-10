@@ -4,78 +4,33 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define _unused(x) ((void)(x))
-
-/*****************************************************************************/
-/*                                 Element                                   */
-/*****************************************************************************/
-
-int ElemCompare(const ElemType *e1, const ElemType *e2)
-{
-    return (*e1 > *e2) - (*e1 < *e2);
-}
-
-ElemType ElemCopy(const ElemType *e)
-{
-    return *e;
-}
-
-void ElemDelete(ElemType *e)
-{
-    // In questo caso la funzione ElemDelete non deve fare nulla, ma il 
-    // compilatore potrebbe segnalare il mancato utilizzo di e come warning
-    // o come errore. Utilizzando la macro _unused sopra definita eliminiamo
-    // questo il problema.
-    _unused(e);
-}
-
-int ReadElem(FILE *f, ElemType *e)
-{
-    return fscanf(f, "%d", e);
-}
-
-int ReadStdinElem(ElemType *e)
-{
-    return ReadElem(stdin, e);
-}
-
-void WriteElem(const ElemType *e, FILE *f)
-{
-    fprintf(f, "%d", *e);
-}
-
-void WriteStdoutElem(const ElemType *e)
-{
-    WriteElem(e, stdout);
-}
-
 /*****************************************************************************/
 /*                          Node & Primitives                                */
 /*****************************************************************************/
 
-Node* CreateEmptyTree(void)
+Node *TreeCreateEmpty(void)
 {
     return NULL;
 }
 
-Node* CreateRootTree(const ElemType *e, Node *l, Node *r)
+Node *TreeCreateRoot(const ElemType *e, Node *l, Node *r)
 {
-    Node* t = malloc(sizeof(Node));
+    Node *t = malloc(sizeof(Node));
     t->value = ElemCopy(e);
     t->left = l;
     t->right = r;
     return t;
 }
 
-bool IsEmptyTree(const Node *n)
+bool TreeIsEmpty(const Node *n)
 {
     return n == NULL;
 }
 
-const ElemType* GetRootValueTree(const Node *n)
+const ElemType *TreeGetRootValue(const Node *n)
 {
-    if (IsEmptyTree(n)) {
-        printf("ERROR: Alla funzione 'GetRootValueTree()' e' stato passato un albero vuoto (NULL pointer).\n");
+    if (TreeIsEmpty(n)) {
+        printf("ERROR: Alla funzione 'GetRootValueTree()' e' stato passato un albero vuoto (NULL).\n");
         exit(1);
     }
     else {
@@ -83,9 +38,9 @@ const ElemType* GetRootValueTree(const Node *n)
     }
 }
 
-Node* LeftTree(const Node *n)
+Node *TreeLeft(const Node *n)
 {
-    if (IsEmptyTree(n)) {
+    if (TreeIsEmpty(n)) {
         return NULL;
     }
     else {
@@ -93,9 +48,9 @@ Node* LeftTree(const Node *n)
     }
 }
 
-Node* RightTree(const Node *n)
+Node *TreeRight(const Node *n)
 {
-    if (IsEmptyTree(n)) {
+    if (TreeIsEmpty(n)) {
         return NULL;
     }
     else {
@@ -103,116 +58,116 @@ Node* RightTree(const Node *n)
     }
 }
 
-bool IsLeafTree(const Node *n)
+bool TreeIsLeaf(const Node *n)
 {
-    return LeftTree(n) == NULL && RightTree(n) == NULL;
+    return TreeLeft(n) == NULL && TreeRight(n) == NULL;
 }
 
-void DeleteTree(Node *n)
+void TreeDelete(Node *n)
 {
-    if (IsEmptyTree(n)) {
+    if (TreeIsEmpty(n)) {
         return;
     }
 
-    Node *l = LeftTree(n);
-    Node *r = RightTree(n);
+    Node *l = TreeLeft(n);
+    Node *r = TreeRight(n);
 
     ElemDelete(&n->value);
     
     free(n);
 
-    DeleteTree(l);
-    DeleteTree(r);
+    TreeDelete(l);
+    TreeDelete(r);
 }
 
 /*****************************************************************************/
 /*                            Non Primitives                                 */
 /*****************************************************************************/
 
-static void WritePreOrderTreeRec(const Node *n, FILE *f)
+static void TreeWritePreOrderRec(const Node *n, FILE *f)
 {
-    if (IsEmptyTree(n)) {
+    if (TreeIsEmpty(n)) {
         return;
     }
 
-    printf("\t"); WriteElem(GetRootValueTree(n), f);
-    WritePreOrderTreeRec(LeftTree(n), f);
-    WritePreOrderTreeRec(RightTree(n), f);
+    printf("\t"); ElemWrite(TreeGetRootValue(n), f);
+    TreeWritePreOrderRec(TreeLeft(n), f);
+    TreeWritePreOrderRec(TreeRight(n), f);
 }
 
-void WritePreOrderTree(const Node *n, FILE *f)
+void TreeWritePreOrder(const Node *n, FILE *f)
 {
     fprintf(f, "Albero in PreOrdine: ");
-    if (IsEmptyTree(n)) {
+    if (TreeIsEmpty(n)) {
         fprintf(f, "vuoto!");
     }
     else {
-        WritePreOrderTreeRec(n, f);
+        TreeWritePreOrderRec(n, f);
     }
     fprintf(f, "\n");
 }
 
-void WriteStdoutPreOrderTree(const Node *n) 
+void TreeWriteStdoutPreOrder(const Node *n)
 {
-    WritePreOrderTree(n, stdout);
+    TreeWritePreOrder(n, stdout);
 }
 
-static void WriteInOrderTreeRec(const Node *n, FILE *f)
+static void TreeWriteInOrderRec(const Node *n, FILE *f)
 {
-    if (IsEmptyTree(n)) {
+    if (TreeIsEmpty(n)) {
         return;
     }
 
-    WriteInOrderTreeRec(LeftTree(n), f);
+    TreeWriteInOrderRec(TreeLeft(n), f);
 
-    printf("\t"); WriteElem(GetRootValueTree(n), f);
+    printf("\t"); ElemWrite(TreeGetRootValue(n), f);
 
-    WriteInOrderTreeRec(RightTree(n), f);
+    TreeWriteInOrderRec(TreeRight(n), f);
     
 }
 
-void WriteInOrderTree(const Node *n, FILE *f)
+void TreeWriteInOrder(const Node *n, FILE *f)
 {
     fprintf(f, "Albero in Ordine: ");
-    if (IsEmptyTree(n)) {
+    if (TreeIsEmpty(n)) {
         fprintf(f, "vuoto!");
     }
     else {
-        WriteInOrderTreeRec(n, f);
+        TreeWriteInOrderRec(n, f);
     }
     fprintf(f, "\n");
 }
 
-void WriteStdoutInOrderTree(const Node *n) 
+void TreeWriteStdoutInOrder(const Node *n)
 {
-    WriteInOrderTree(n, stdout);
+    TreeWriteInOrder(n, stdout);
 }
 
-static void WritePostOrderTreeRec(const Node *n, FILE *f)
+static void TreeWritePostOrderRec(const Node *n, FILE *f)
 {
-    if (IsEmptyTree(n)) {
+    if (TreeIsEmpty(n)) {
         return;
     }
 
-    WritePostOrderTreeRec(LeftTree(n), f);
-    WritePostOrderTreeRec(RightTree(n), f);
+    TreeWritePostOrderRec(TreeLeft(n), f);
+    TreeWritePostOrderRec(TreeRight(n), f);
 
-    printf("\t"); WriteElem(GetRootValueTree(n), f);
+    printf("\t"); ElemWrite(TreeGetRootValue(n), f);
 }
 
-void WritePostOrderTree(const Node *n, FILE *f)
+void TreeWritePostOrder(const Node *n, FILE *f)
 {
     fprintf(f, "Albero in PostOrdine: ");
-    if (IsEmptyTree(n)) {
+    if (TreeIsEmpty(n)) {
         fprintf(f, "vuoto!");
     }
     else {
-        WritePostOrderTreeRec(n, f);
+        TreeWritePostOrderRec(n, f);
     }
     fprintf(f, "\n");
 }
 
-void WriteStdoutPostOrderTree(const Node *n)
+void TreeWriteStdoutPostOrder(const Node *n)
 {
-    WritePostOrderTree(n, stdout);
+    TreeWritePostOrder(n, stdout);
 }

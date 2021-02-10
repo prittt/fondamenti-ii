@@ -1,31 +1,36 @@
+/** @example insert_ord.c
+* In questo esempio si mostra come inserire elementi in maniera ordinata
+* in un albero binario. L'albero risultante sarà un BST.
+*/
+
 #include <stdlib.h>
 
-#include "tree_int.h"
+#include "tree.h"
 
-Node* InsertBinOrd(const ElemType *e, Node* n)
+Node *TreeInsertBinOrd(const ElemType *e, Node* n)
 {
-    if (IsEmptyTree(n)) {
-        return CreateRootTree(e, CreateEmptyTree(), CreateEmptyTree());
+    if (TreeIsEmpty(n)) {
+        return TreeCreateRoot(e, TreeCreateEmpty(), TreeCreateEmpty());
     }
     Node *root = n;
 
     while (true) {
-        if (ElemCompare(e, GetRootValueTree(n)) < 0) {
-            if (IsEmptyTree(LeftTree(n))) {
-                n->left = CreateRootTree(e, CreateEmptyTree(), CreateEmptyTree());
+        if (ElemCompare(e, TreeGetRootValue(n)) < 0) {
+            if (TreeIsEmpty(TreeLeft(n))) {
+                n->left = TreeCreateRoot(e, TreeCreateEmpty(), TreeCreateEmpty());
                 break;
             }
             else {
-                n = LeftTree(n);
+                n = TreeLeft(n);
             }
         }
         else {
-            if (IsEmptyTree(RightTree(n))) {
-                n->right = CreateRootTree(e, CreateEmptyTree(), CreateEmptyTree());
+            if (TreeIsEmpty(TreeRight(n))) {
+                n->right = TreeCreateRoot(e, TreeCreateEmpty(), TreeCreateEmpty());
                 break;
             }
             else {
-                n = RightTree(n);
+                n = TreeRight(n);
             }
         }
     }
@@ -37,12 +42,15 @@ int main(void) {
     int v[] = { 0, 12, 4, 21, 2, 5, 18, 77, 8, 9 };
     size_t v_size = sizeof(v) / sizeof(int);
 
-    Node *tree = CreateEmptyTree();
+    Node *tree = TreeCreateEmpty();
     for (unsigned i = 0; i < v_size; ++i) {
-        tree = InsertBinOrd(&v[i], tree);
+        tree = TreeInsertBinOrd(&v[i], tree);
     }
 
-    DeleteTree(tree);
+    TreeWriteStdoutPreOrder(tree);
+    TreeWriteStdoutInOrder(tree);
+    TreeWriteStdoutPostOrder(tree);
+    TreeDelete(tree);
 
     return EXIT_SUCCESS;
 }

@@ -22,6 +22,7 @@ struct Item
     ElemType value; /*!< Valore associato all'`Item`. */
     struct Item *next; /*!< Puntatore all'`Item` successivo. */
 };
+/** @brief Definizione di un nome alternativo per `struct Item`. */
 typedef struct Item Item;
 
 /** @brief La funzione `ListCreateEmpty()` crea e ritorna una lista vuota, ovvero
@@ -57,7 +58,7 @@ bool ListIsEmpty(const Item *i);
          essere vuota, nel caso in cui lo sia la funzione termina il programma 
          con codice di errore `1`.
 
-@returns Puntatore costante all'elemento in testa alla lista.
+@returns Puntatore all'elemento (costante) in testa alla lista.
 */
 const ElemType *ListGetHeadValue(const Item *i);
 

@@ -16,7 +16,7 @@ if(DEFINED CMAKE_BUILD_TYPE)
 endif()
 
 # set(SUB_DIRS "list" "tree" "min-heap")
-set(SUB_DIRS "list")
+set(SUB_DIRS "list" "tree")
 # message(STATUS ${SUB_DIRS})
 
 FOREACH(cur_dir ${SUB_DIRS})
