@@ -1,7 +1,12 @@
+/** @example load.c
+* In questo esempio si mostra come creare una lista con elementi letti da file.
+*/
 #define _CRT_SECURE_NO_WARNINGS
-#include "list_int.h"
+#include "list.h"
 
-Item* LoadList(const char *filename)
+#include <stdlib.h>
+
+Item *ListLoad(const char *filename)
 {
     FILE *f;
     f = fopen(filename, "r");
@@ -10,13 +15,13 @@ Item* LoadList(const char *filename)
         return NULL;
     }
 
-    Item* i = CreateEmptyList();
+    Item *i = ListCreateEmpty();
     while (1) {
         ElemType tmp;
-        if (1 != ReadElem(f, &tmp)) {
+        if (1 != ElemRead(f, &tmp)) {
             break;
         }
-        i = InsertHeadList(&tmp, i);
+        i = ListInsertHead(&tmp, i);
     }
 
     fclose(f);
@@ -24,10 +29,12 @@ Item* LoadList(const char *filename)
 }
 
 int main(void) {
-    Item* list = LoadList("load_example_01.txt");
+    Item *list = ListLoad("load_example_01.txt");
 
-    WriteStdoutList(list);
+    ListWriteStdout(list);
 
-    DeleteList(list);
+    ListDelete(list);
+
+    return EXIT_SUCCESS;
 }
 

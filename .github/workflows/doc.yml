@@ -4,17 +4,18 @@ on: [push]
 
 jobs:
   docs:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
-    #  with: 
-    #    ref: development
+      #with: 
+      #  ref: master
     
     #Install dependencies
     - name: Dependencies
       run: | 
         sudo apt update 
         sudo apt install -y zip doxygen graphviz
+        doxygen --version
     
     # Build the HTML documentation
     - name: Doxygen
