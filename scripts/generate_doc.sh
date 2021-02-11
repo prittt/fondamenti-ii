@@ -44,8 +44,8 @@ for i in $doxyfiles; do
 	################################################################################
 	##### Creation of the zip file for the download.                           #####
 	cd $i
-	headers=`ls *.h -I homepage.h`
-	sources=`ls *.c`
+	headers=$(ls -I homepage.h | egrep '*.h$')
+	sources=$(ls *.c)
 
 	zip_name="${i//\//_}.zip"
 	echo ${zip_name}
