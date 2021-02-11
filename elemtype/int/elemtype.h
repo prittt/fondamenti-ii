@@ -36,7 +36,6 @@ int ElemCompare(const ElemType *e1, const ElemType *e2);
 */
 ElemType ElemCopy(const ElemType *e);
 
-
 /** @brief La funzione `ElemSwap()` scambia i due elementi specificati.
 
 @param[in] e1 Puntatore al primo elemento da scambiare.

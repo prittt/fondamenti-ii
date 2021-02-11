@@ -22,6 +22,13 @@ ElemType ElemCopy(const ElemType *e)
     return copy;
 }
 
+void ElemSwap(ElemType *e1, ElemType *e2)
+{
+    ElemType tmp = *e1;
+    *e1 = *e2;
+    *e2 = tmp;
+}
+
 void ElemDelete(ElemType *e)
 {
     free(e->data);
