@@ -1,7 +1,7 @@
 /**
 @mainpage Alberi di `char`
 
-In questa pagina trovi la documentazione alberi binari di `char`. In particolare:
+In questa pagina trovi la documentazione per alberi binari di `char`. In particolare:
 
 - \ref elemtype.h contiene la definizione di `ElemType` per il tipo `char`
 e la documentazione delle funzioni a esso associate;

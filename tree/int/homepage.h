@@ -1,7 +1,7 @@
 /**
 @mainpage Alberi di `int`
 
-In questa pagina trovi la documentazione alberi binari di `int`. In particolare:
+In questa pagina trovi la documentazione per alberi binari di `int`. In particolare:
 
 - \ref elemtype.h contiene la definizione di `ElemType` per il tipo `int`
 e la documentazione delle funzioni a esso associate;
