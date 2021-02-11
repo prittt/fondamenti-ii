@@ -16,6 +16,13 @@ ElemType ElemCopy(const ElemType *e)
     return *e;
 }
 
+void ElemSwap(ElemType *e1, ElemType *e2)
+{
+    ElemType tmp = *e1;
+    *e1 = *e2;
+    *e2 = tmp;
+}
+
 void ElemDelete(ElemType *e)
 {
     // In questo caso la funzione ElemDelete non deve fare nulla, ma il 

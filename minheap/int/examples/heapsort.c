@@ -1,12 +1,16 @@
+/** @example heapsort.c
+* In questo esempio si mostra come ordinare in senso decrescente i dati contenuti 
+* in una coda di priorità, sfruttando le proprietà (min-)heap.
+*/
 #include <stdlib.h>
 #include <string.h>
 
-#include "minheap_int.h"
+#include "minheap.h"
 
-/** @brief Dato un Heap, la funzione Heapsort ordina il vettore dei dati
-           sfruttando le proprieta' (min-)heap. Si noti che al termine 
-           dell'operazione il vetttore dei dati sara' ordinato, e NON 
-           rispettera' piu' le proprietà (min-)heap.
+/** @brief Data una coda di priorità, la funzione `Heapsort()` ordina il vettore
+           dei dati sfruttando le proprietà (min-)heap. Si noti che al termine 
+           dell'operazione il vettore dei dati sarò ordinato (in senso decrescente), 
+           ma NON rispetterà più le proprietà (min-)heap.
            
 
 @param[in] h Heap da ordinare.
@@ -19,24 +23,24 @@ void HeapsortMinHeap(Heap *h)
                                   // ripristinarla al termine. 
 
     while(h->size >= 2) {
-        ElemSwap(GetNodeValueHeap(h, 0), GetNodeValueHeap(h, h->size - 1));
+        ElemSwap(HeapGetNodeValue(h, 0), HeapGetNodeValue(h, h->size - 1));
         h->size--;
-        MoveDownMinHeap(h, 0);
+        HeapMinMoveDown(h, 0);
     }
     h->size = origin_size; // Ripristiniamo la dimensione originaria altrimenti
-                           // il distruttore della heap (DeleteHeap) non può
+                           // il distruttore della heap (HeapDelete) non può
                            // fare il suo dovere. 
 }
 
 Heap* HeapifyMinHeap(ElemType *v, size_t v_size)
 {
-    Heap *h = CreateEmptyHeap();
+    Heap *h = HeapCreateEmpty();
     h->size = v_size;
     h->data = malloc(sizeof(ElemType)*(v_size));
     memcpy(h->data, v, v_size * sizeof(ElemType));
 
     for (int i = (int)h->size / 2 - 1; i >= 0; i--) {
-        MoveDownMinHeap(h, i);
+        HeapMinMoveDown(h, i);
     }
     return h;
 }
@@ -46,12 +50,12 @@ int main(void) {
     size_t v_size = sizeof(v) / sizeof(ElemType);
     
     Heap* h = HeapifyMinHeap(v, v_size);
-    WriteStdoutHeap(h);
+    HeapWriteStdout(h);
 
     HeapsortMinHeap(h);
-    WriteStdoutHeap(h);
+    HeapWriteStdout(h);
 
-    DeleteHeap(h);
+    HeapDelete(h);
 
     return EXIT_SUCCESS;
 }

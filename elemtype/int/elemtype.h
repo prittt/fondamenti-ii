@@ -36,6 +36,16 @@ int ElemCompare(const ElemType *e1, const ElemType *e2);
 */
 ElemType ElemCopy(const ElemType *e);
 
+
+/** @brief La funzione `ElemSwap()` scambia i due elementi specificati.
+
+@param[in] e1 Puntatore al primo elemento da scambiare.
+@param[in] e2 Puntatore al secondo elemento da scambiare.
+
+@return Non ci sono valori di ritorno.
+*/
+void ElemSwap(ElemType *e1, ElemType *e2);
+
 /** @brief La funzione `ElemDelete()` libera la memoria occupata dall'elemento
            specificato.
 

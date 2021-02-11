@@ -39,13 +39,13 @@ La struttura del progetto è la seguente:
 |   ├── list.h
 |   ├── list.c
 ├── tree
-├── min-heap
+├── minheap
 ├── ...
 
 ```
 
 <p align="justify">
-Come potete notare, il codice relativo ad una specifica struttura dati si trova in una sottocartella con lo stesso nome: <code>list</code>, <code>tree</code>, <code>min-heap</code>. Per ognuna di queste viene fornita un'unica implementazione generica che non dipende dal tipo di dato. Le dichiarazioni e le definizioni di <code>ElemType</code> per uno specifico tipo di dato le trovate in sottocartelle di <code>elemtype</code>, rispettivamente nei file <code>.h</code> e <code>.c</code>. Le implementazioni di liste, alberi, e heap devono essere accompagnate da un'implementazione specifica di <code>ElemType</code> per funzionare correttamente.
+Come potete notare, il codice relativo ad una specifica struttura dati si trova in una sottocartella con lo stesso nome: <code>list</code>, <code>tree</code>, <code>minheap</code>. Per ognuna di queste viene fornita un'unica implementazione generica che non dipende dal tipo di dato. Le dichiarazioni e le definizioni di <code>ElemType</code> per uno specifico tipo di dato le trovate in sottocartelle di <code>elemtype</code>, rispettivamente nei file <code>.h</code> e <code>.c</code>. Le implementazioni di liste, alberi, e heap devono essere accompagnate da un'implementazione specifica di <code>ElemType</code> per funzionare correttamente.
 </p>
 
 <p align="justify">
@@ -80,4 +80,4 @@ Il restante materiale è utilizzato per la gestione del repository: generazione 
 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
-| `int`        | <a href="https://prittt.github.io/fondamenti-ii/min-heap/int/html/index.html">minheap_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/min-heap/int/min-heap_int.zip">minheap_int.zip</a> |
+| `int`        | <a href="https://prittt.github.io/fondamenti-ii/minheap/int/html/index.html">minheap_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/minheap/int/minheap_int.zip">minheap_int.zip</a> |

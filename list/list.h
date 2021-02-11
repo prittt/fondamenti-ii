@@ -16,7 +16,7 @@ queste funzioni è indipendente dalla definizione di `ElemType`.
 /*                           Item & Primitives                               */
 /*****************************************************************************/
 
-/** @brief Definizione del tipo Item. */
+/** @brief Definizione del tipo `struct Item`. */
 struct Item
 {
     ElemType value; /*!< Valore associato all'`Item`. */
@@ -101,7 +101,10 @@ void ListDelete(Item *i);
 /*                             Non Primitives                                */
 /*****************************************************************************/
 
-/** @brief La funzione `ListWrite()` stampa la lista specificata su file.
+/** @brief La funzione `ListWrite()` stampa la lista specificata su file. 
+           Nello specifico, la funzione stampa il carattere "[" seguito dagli 
+           elementi della lista, separati dai caratter ", ", e dal carattere "]". 
+           La stampa degli elementi dipende dalla definizione di `ElemType`. 
 
 @param[in] i Lista da stampare su file: può essere vuota e non viene modificata.
 @param[in] f `FILE *` su cui stampare la lista.
@@ -110,8 +113,10 @@ void ListDelete(Item *i);
 */
 void ListWrite(const Item *i, FILE *f);
 
-/** @brief La funzione `ListWriteStdout()` stampa la lista specificata su standard
-           output (`stdout`).
+/** @brief La funzione `ListWriteStdout()` stampa la lista specificata su `stdout`.
+           Nello specifico, la funzione stampa il carattere "[" seguito dagli
+           elementi della lista, separati dai caratter ", ", e dal carattere "]".
+           La stampa degli elementi dipende dalla definizione di `ElemType`.
 
 @param[in] i Lista da stampare su `stdout`: può essere vuota e non viene modificata.
 
