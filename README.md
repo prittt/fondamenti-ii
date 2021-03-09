@@ -60,7 +60,7 @@ Nelle sottocartelle <code>examples</code> sono disponibili dei file <code>.c</co
 Il restante materiale è utilizzato per la gestione del repository: generazione automatica della documentazione, generazione del progetto, ecc e può essere pertanto ignorato. Nel seguito di questa pagina troverete i link alla documentazione delle primitive e i link per il download diretto di primitive specifiche, ovvero primitive accompagnare ad una specifica implementazione di <code>ElemType</code>. 
 </p>
 
-<h2><a name="doc">Documentazione</a></h2>
+<h2><a name="doc">Documentazione</a> e Funzioni Primitive</h2>
 
 ### Liste (Singly Linked List)
 
