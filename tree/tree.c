@@ -90,7 +90,7 @@ static void TreeWritePreOrderRec(const Node *n, FILE *f)
         return;
     }
 
-    printf("\t"); ElemWrite(TreeGetRootValue(n), f);
+    fprintf(f, "\t"); ElemWrite(TreeGetRootValue(n), f);
     TreeWritePreOrderRec(TreeLeft(n), f);
     TreeWritePreOrderRec(TreeRight(n), f);
 }
@@ -120,7 +120,7 @@ static void TreeWriteInOrderRec(const Node *n, FILE *f)
 
     TreeWriteInOrderRec(TreeLeft(n), f);
 
-    printf("\t"); ElemWrite(TreeGetRootValue(n), f);
+    fprintf(f, "\t"); ElemWrite(TreeGetRootValue(n), f);
 
     TreeWriteInOrderRec(TreeRight(n), f);
     
@@ -152,7 +152,7 @@ static void TreeWritePostOrderRec(const Node *n, FILE *f)
     TreeWritePostOrderRec(TreeLeft(n), f);
     TreeWritePostOrderRec(TreeRight(n), f);
 
-    printf("\t"); ElemWrite(TreeGetRootValue(n), f);
+    fprintf(f, "\t"); ElemWrite(TreeGetRootValue(n), f);
 }
 
 void TreeWritePostOrder(const Node *n, FILE *f)
