@@ -60,7 +60,7 @@ Nelle sottocartelle <code>examples</code> sono disponibili dei file <code>.c</co
 Il restante materiale è utilizzato per la gestione del repository: generazione automatica della documentazione, generazione del progetto, ecc e può essere pertanto ignorato. Nel seguito di questa pagina troverete i link alla documentazione delle primitive e i link per il download diretto di primitive specifiche, ovvero primitive accompagnare ad una specifica implementazione di <code>ElemType</code>. 
 </p>
 
-<h2><a name="doc">Documentazione</a></h2>
+<h2>Funzioni Primitive e <a name="doc">Documentazione</a></h2>
 
 ### Liste (Singly Linked List)
 
@@ -74,7 +74,7 @@ Il restante materiale è utilizzato per la gestione del repository: generazione 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
 | `int`        | <a href="https://prittt.github.io/fondamenti-ii/tree/int/html/index.html">tree_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/tree/int/tree_int.zip">tree_int.zip</a> |
-| `char`        | <a href="https://prittt.github.io/fondamenti-ii/tree/char/html/index.html">tree_char.html</a> | <a href="https://prittt.github.io/fondamenti-ii/tree/int/tree_char.zip">tree_char.zip</a> |
+| `char`        | <a href="https://prittt.github.io/fondamenti-ii/tree/char/html/index.html">tree_char.html</a> | <a href="https://prittt.github.io/fondamenti-ii/tree/char/tree_char.zip">tree_char.zip</a> |
 
 ### Min-Heap (Array-Based Binary Min-Heap)
 
