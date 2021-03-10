@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0.0)
 
-project ("Fondamenti-II")
+project ("fondamenti-ii")
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
