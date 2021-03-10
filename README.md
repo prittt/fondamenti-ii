@@ -76,19 +76,21 @@ In questa sezione vengono forniti i link per il download diretto delle funzioni 
 
 ### Alberi (Binary Tree)
 
-| Tipo di Dato | Documentazione | Sorgente | 
-|--------------|----------------|--------------------|
+| Tipo di Dato | Documentazione | Sorgente           |       
+|:------------:|:--------------:|:------------------:|
+| no elemtype <br/> (solo alberi) | <a href="https://prittt.github.io/fondamenti-ii/tree/html/tree_8h.html">tree.html</a> | <a href="https://prittt.github.io/fondamenti-ii/tree/tree.zip">tree.zip</a> |
 | `int`        | <a href="https://prittt.github.io/fondamenti-ii/tree/int/html/index.html">tree_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/tree/int/tree_int.zip">tree_int.zip</a> |
 | `char`        | <a href="https://prittt.github.io/fondamenti-ii/tree/char/html/index.html">tree_char.html</a> | <a href="https://prittt.github.io/fondamenti-ii/tree/char/tree_char.zip">tree_char.zip</a> |
 
 ### Min-Heap (Array-Based Binary Min-Heap)
 
-| Tipo di Dato | Documentazione | Sorgente | 
-|--------------|----------------|--------------------|
+| Tipo di Dato | Documentazione | Sorgente           |       
+|:------------:|:--------------:|:------------------:|
+| no elemtype <br/> (solo heap) | <a href="https://prittt.github.io/fondamenti-ii/minheap/html/heap_8h.html">minheap_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/minheap/minheap.zip">minheap_int.zip</a> |
 | `int`        | <a href="https://prittt.github.io/fondamenti-ii/minheap/int/html/index.html">minheap_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/minheap/int/minheap_int.zip">minheap_int.zip</a> |
 
 
-### Elemtype
+### ElemType
 
 | Tipo di Dato | Documentazione | Sorgente Primitive | 
 |--------------|----------------|--------------------|
