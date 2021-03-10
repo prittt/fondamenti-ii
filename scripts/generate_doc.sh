@@ -5,8 +5,8 @@ echo 'Setting up the script...'
 mkdir gh-pages
 echo $(pwd)
 
-# Load the list of things to be documented from conf.txt
-doxyfiles=$(cat scripts/conf.txt)
+# Load the list of things to be documented: data structure + elemtype
+doxyfiles=$(cat scripts/conf_complete.txt)
 echo '******'
 echo $doxyfiles
 echo '******'
@@ -56,4 +56,46 @@ for i in $doxyfiles; do
 	mv ${zip_name} ${file}
 	cd $cwd
 done
+
+# Load the list of things to be documented: only data structures
+doxyfiles=$(cat scripts/conf_datastruct.txt)
+echo '******'
+echo $doxyfiles
+echo '******'
+
+cwd=$(pwd)
+for i in $doxyfiles; do
+    echo "****************************************************"
+	echo "* $i"
+    echo "****************************************************"
+
+	# Redirect both stderr and stdout to the log file and the console.
+	cd $i/doxygen
+	doxygen 2>&1 | tee doxygen.log
+	echo $(ls -l)
+	cd $cwd
+
+	################################################################################
+	##### Copy generated doc from master folder to gh-pages one.               #####
+	dir=gh-pages/$i/html
+	if [ -d "$dir" ]; then rm -Rf $dir; fi
+	mkdir -p $dir
+	mv $i/doxygen/html gh-pages/$i
+
+	################################################################################
+	##### Creation of the zip file for the download.                           #####
+	cd $i
+	headers=$(ls *.h)
+	sources=$(ls *.c)
+
+	zip_name="${i}.zip"
+	echo ${zip_name}
+	zip ${zip_name} -r ${headers} ${sources}
+
+	file=../../gh-pages/$i/${zip_name}
+	if [ -f "$file" ]; then rm $file; fi
+	mv ${zip_name} ${file}
+	cd $cwd
+done
+
 echo $(ls -l gh-pages)
