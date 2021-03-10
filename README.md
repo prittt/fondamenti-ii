@@ -86,13 +86,13 @@ In questa sezione vengono forniti i link per il download diretto delle funzioni 
 
 | Tipo di Dato | Documentazione | Sorgente           |       
 |:------------:|:--------------:|:------------------:|
-| no elemtype <br/> (solo heap) | <a href="https://prittt.github.io/fondamenti-ii/minheap/html/heap_8h.html">minheap_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/minheap/minheap.zip">minheap_int.zip</a> |
+| no elemtype <br/> (solo heap) | <a href="https://prittt.github.io/fondamenti-ii/minheap/html/minheap_8h.html">minheap.html</a> | <a href="https://prittt.github.io/fondamenti-ii/minheap/minheap.zip">minheap.zip</a> |
 | `int`        | <a href="https://prittt.github.io/fondamenti-ii/minheap/int/html/index.html">minheap_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/minheap/int/minheap_int.zip">minheap_int.zip</a> |
 
 
 ### ElemType
 
-| Tipo di Dato | Documentazione | Sorgente Primitive | 
-|--------------|----------------|--------------------|
-| `int`        | <a href="https://prittt.github.io/fondamenti-ii/minheap/int/html/index.html">minheap_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/minheap/int/minheap_int.zip">minheap_int.zip</a> |
+| Tipo di Dato | Documentazione | Sorgente           |       
+|:------------:|:--------------:|:------------------:|
+| `int`        | <a href="https://prittt.github.io/fondamenti-ii/elemtype/int/html/int_8h.html">elemtype_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/elemtype/int/elemtype_int.zip">elemtype_int.zip</a> |
 

@@ -98,4 +98,45 @@ for i in $doxyfiles; do
 	cd $cwd
 done
 
+# Load the list of things to be documented: only elemtypes
+doxyfiles=$(cat scripts/conf_elemtype.txt)
+echo '******'
+echo $doxyfiles
+echo '******'
+
+cwd=$(pwd)
+for i in $doxyfiles; do
+    echo "****************************************************"
+	echo "* $i"
+    echo "****************************************************"
+
+	# Redirect both stderr and stdout to the log file and the console.
+	cd elemtype/$i/doxygen
+	doxygen 2>&1 | tee doxygen.log
+	echo $(ls -l)
+	cd $cwd
+
+	################################################################################
+	##### Copy generated doc from master folder to gh-pages one.               #####
+	dir=gh-pages/elemtype/$i/html
+	if [ -d "$dir" ]; then rm -Rf $dir; fi
+	mkdir -p $dir
+	mv elemtype/$i/doxygen/html gh-pages/elemtype/$i
+
+	################################################################################
+	##### Creation of the zip file for the download.                           #####
+	cd elemtype/$i
+	headers=$(ls *.h)
+	sources=$(ls *.c)
+
+	zip_name="elemtype_${i}.zip"
+	echo ${zip_name}
+	zip ${zip_name} -r ${headers} ${sources}
+
+	file=../../gh-pages/elemtype/$i/${zip_name}
+	if [ -f "$file" ]; then rm $file; fi
+	mv ${zip_name} ${file}
+	cd $cwd
+done
+
 echo $(ls -l gh-pages)
