@@ -72,7 +72,7 @@ In questa sezione vengono forniti i link per il download diretto delle funzioni 
 |:------------:|:--------------:|:------------------:|
 | no elemtype <br/> (solo liste)  | <a href="https://prittt.github.io/fondamenti-ii/list/html/list_8h.html">list.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/list.zip">list.zip</a> |
 | `int`        | <a href="https://prittt.github.io/fondamenti-ii/list/int/html/index.html">list_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/int/list_int.zip">list_int.zip</a> |
-| `int_vector` | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/html/index.html">list_int_vector.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/list_int_vector.zip">list_int_vector.zip</a> |
+| `int-vector` | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/html/index.html">list_int_vector.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/list_int_vector.zip">list_int_vector.zip</a> |
 
 ### Alberi (Binary Tree)
 
@@ -90,9 +90,11 @@ In questa sezione vengono forniti i link per il download diretto delle funzioni 
 | `int`        | <a href="https://prittt.github.io/fondamenti-ii/minheap/int/html/index.html">minheap_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/minheap/int/minheap_int.zip">minheap_int.zip</a> |
 
 
-### ElemType
+### ElemType Only
 
 | Tipo di Dato | Documentazione | Sorgente           |       
 |:------------:|:--------------:|:------------------:|
-| `int`        | <a href="https://prittt.github.io/fondamenti-ii/elemtype/int/html/int_8h.html">elemtype_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/elemtype/int/elemtype_int.zip">elemtype_int.zip</a> |
+| `int`        | <a href="https://prittt.github.io/fondamenti-ii/elemtype/int/html/elemtype_8h.html">elemtype_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/elemtype/int/elemtype_int.zip">elemtype_int.zip</a> |
+| `char`       | <a href="https://prittt.github.io/fondamenti-ii/elemtype/char/html/elemtype_8h.html">elemtype_char.html</a> | <a href="https://prittt.github.io/fondamenti-ii/elemtype/char/elemtype_char.zip">elemtype_char.zip</a> |
+| `int-vector` | <a href="https://prittt.github.io/fondamenti-ii/elemtype/int_vector/html/elemtype_8h.html">elemtype_int_vector.html</a> | <a href="https://prittt.github.io/fondamenti-ii/elemtype/int_vector/elemtype_int_vector.zip">elemtype_int_vector.zip</a> |
 
