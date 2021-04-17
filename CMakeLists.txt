@@ -22,11 +22,13 @@ FOREACH(cur_dir ${SUB_DIRS})
 	# message(STATUS "cur_dir: ${cur_dir}")
     file(GLOB sub_sub_dirs "${cur_dir}/*")
     FOREACH(cur_sub_dir ${sub_sub_dirs})
-			
-		if(IS_DIRECTORY ${cur_sub_dir})
+		
+		get_filename_component(dir_name "${cur_sub_dir}" NAME)
+		# message(STATUS "dir_name: ${dir_name}")		
+		if(IS_DIRECTORY ${cur_sub_dir} AND NOT ${dir_name} STREQUAL "doxygen")
 			# message(STATUS "cur_sub_dir: ${cur_sub_dir}")		
 			
-			get_filename_component(dir_name "${cur_sub_dir}" NAME)
+			# get_filename_component(dir_name "${cur_sub_dir}" NAME)
 			set(target_name "${cur_dir}_${dir_name}")
 			string(TOUPPER ${target_name} target_name_uppercase)
 			
