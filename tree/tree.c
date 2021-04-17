@@ -8,13 +8,11 @@
 /*                          Node & Primitives                                */
 /*****************************************************************************/
 
-Node *TreeCreateEmpty(void)
-{
+Node *TreeCreateEmpty(void) {
     return NULL;
 }
 
-Node *TreeCreateRoot(const ElemType *e, Node *l, Node *r)
-{
+Node *TreeCreateRoot(const ElemType *e, Node *l, Node *r) {
     Node *t = malloc(sizeof(Node));
     t->value = ElemCopy(e);
     t->left = l;
@@ -22,13 +20,11 @@ Node *TreeCreateRoot(const ElemType *e, Node *l, Node *r)
     return t;
 }
 
-bool TreeIsEmpty(const Node *n)
-{
+bool TreeIsEmpty(const Node *n) {
     return n == NULL;
 }
 
-const ElemType *TreeGetRootValue(const Node *n)
-{
+const ElemType *TreeGetRootValue(const Node *n) {
     if (TreeIsEmpty(n)) {
         printf("ERROR: Alla funzione 'GetRootValueTree()' e' stato passato un albero vuoto (NULL).\n");
         exit(1);
@@ -38,8 +34,7 @@ const ElemType *TreeGetRootValue(const Node *n)
     }
 }
 
-Node *TreeLeft(const Node *n)
-{
+Node *TreeLeft(const Node *n) {
     if (TreeIsEmpty(n)) {
         return NULL;
     }
@@ -48,8 +43,7 @@ Node *TreeLeft(const Node *n)
     }
 }
 
-Node *TreeRight(const Node *n)
-{
+Node *TreeRight(const Node *n) {
     if (TreeIsEmpty(n)) {
         return NULL;
     }
@@ -58,13 +52,11 @@ Node *TreeRight(const Node *n)
     }
 }
 
-bool TreeIsLeaf(const Node *n)
-{
+bool TreeIsLeaf(const Node *n) {
     return TreeLeft(n) == NULL && TreeRight(n) == NULL;
 }
 
-void TreeDelete(Node *n)
-{
+void TreeDelete(Node *n) {
     if (TreeIsEmpty(n)) {
         return;
     }
@@ -73,7 +65,7 @@ void TreeDelete(Node *n)
     Node *r = TreeRight(n);
 
     ElemDelete(&n->value);
-    
+
     free(n);
 
     TreeDelete(l);
@@ -84,8 +76,7 @@ void TreeDelete(Node *n)
 /*                            Non Primitives                                 */
 /*****************************************************************************/
 
-static void TreeWritePreOrderRec(const Node *n, FILE *f)
-{
+static void TreeWritePreOrderRec(const Node *n, FILE *f) {
     if (TreeIsEmpty(n)) {
         return;
     }
@@ -95,8 +86,7 @@ static void TreeWritePreOrderRec(const Node *n, FILE *f)
     TreeWritePreOrderRec(TreeRight(n), f);
 }
 
-void TreeWritePreOrder(const Node *n, FILE *f)
-{
+void TreeWritePreOrder(const Node *n, FILE *f) {
     fprintf(f, "Albero in PreOrdine: ");
     if (TreeIsEmpty(n)) {
         fprintf(f, "vuoto!");
@@ -107,13 +97,11 @@ void TreeWritePreOrder(const Node *n, FILE *f)
     fprintf(f, "\n");
 }
 
-void TreeWriteStdoutPreOrder(const Node *n)
-{
+void TreeWriteStdoutPreOrder(const Node *n) {
     TreeWritePreOrder(n, stdout);
 }
 
-static void TreeWriteInOrderRec(const Node *n, FILE *f)
-{
+static void TreeWriteInOrderRec(const Node *n, FILE *f) {
     if (TreeIsEmpty(n)) {
         return;
     }
@@ -123,11 +111,10 @@ static void TreeWriteInOrderRec(const Node *n, FILE *f)
     fprintf(f, "\t"); ElemWrite(TreeGetRootValue(n), f);
 
     TreeWriteInOrderRec(TreeRight(n), f);
-    
+
 }
 
-void TreeWriteInOrder(const Node *n, FILE *f)
-{
+void TreeWriteInOrder(const Node *n, FILE *f) {
     fprintf(f, "Albero in Ordine: ");
     if (TreeIsEmpty(n)) {
         fprintf(f, "vuoto!");
@@ -138,13 +125,11 @@ void TreeWriteInOrder(const Node *n, FILE *f)
     fprintf(f, "\n");
 }
 
-void TreeWriteStdoutInOrder(const Node *n)
-{
+void TreeWriteStdoutInOrder(const Node *n) {
     TreeWriteInOrder(n, stdout);
 }
 
-static void TreeWritePostOrderRec(const Node *n, FILE *f)
-{
+static void TreeWritePostOrderRec(const Node *n, FILE *f) {
     if (TreeIsEmpty(n)) {
         return;
     }
@@ -155,8 +140,7 @@ static void TreeWritePostOrderRec(const Node *n, FILE *f)
     fprintf(f, "\t"); ElemWrite(TreeGetRootValue(n), f);
 }
 
-void TreeWritePostOrder(const Node *n, FILE *f)
-{
+void TreeWritePostOrder(const Node *n, FILE *f) {
     fprintf(f, "Albero in PostOrdine: ");
     if (TreeIsEmpty(n)) {
         fprintf(f, "vuoto!");
@@ -167,7 +151,6 @@ void TreeWritePostOrder(const Node *n, FILE *f)
     fprintf(f, "\n");
 }
 
-void TreeWriteStdoutPostOrder(const Node *n)
-{
+void TreeWriteStdoutPostOrder(const Node *n) {
     TreeWritePostOrder(n, stdout);
 }

@@ -8,36 +8,30 @@
 /*                          Node & Primitives                                */
 /*****************************************************************************/
 
-int HeapLeft(int i)
-{
+int HeapLeft(int i) {
     return 2 * i + 1;
 }
 
-int HeapRight(int i)
-{
+int HeapRight(int i) {
     return 2 * i + 2;
 }
 
-int HeapParent(int i)
-{
+int HeapParent(int i) {
     return (i - 1) / 2;
 }
 
-bool HeapIsEmpty(const Heap *h)
-{
+bool HeapIsEmpty(const Heap *h) {
     return h->size == 0;
 }
 
-Heap *HeapCreateEmpty()
-{
+Heap *HeapCreateEmpty() {
     Heap *h = malloc(1 * sizeof(Heap));
     h->size = 0;
     h->data = NULL;
     return h;
 }
 
-void HeapMinInsertNode(Heap *h, const ElemType *e)
-{
+void HeapMinInsertNode(Heap *h, const ElemType *e) {
     h->size++;
     h->data = realloc(h->data, sizeof(ElemType)*h->size);
 
@@ -46,8 +40,7 @@ void HeapMinInsertNode(Heap *h, const ElemType *e)
     HeapMinMoveUp(h, h->size - 1);
 }
 
-ElemType *HeapGetNodeValue(const Heap *h, int i)
-{
+ElemType *HeapGetNodeValue(const Heap *h, int i) {
     if (!h || i >= (int)h->size) {
         printf("ERROR: 'HeapGetNodeValue()' si sta provando ad accedere ad un nodo che non fa parte dello heap.\n");
         exit(1);
@@ -57,16 +50,14 @@ ElemType *HeapGetNodeValue(const Heap *h, int i)
     }
 }
 
-void HeapMinMoveUp(Heap *h, int i)
-{
-    while (i != 0 && ElemCompare(HeapGetNodeValue(h,i), HeapGetNodeValue(h,HeapParent(i))) < 0) {
-        ElemSwap(HeapGetNodeValue(h,i), HeapGetNodeValue(h,HeapParent(i)));
+void HeapMinMoveUp(Heap *h, int i) {
+    while (i != 0 && ElemCompare(HeapGetNodeValue(h, i), HeapGetNodeValue(h, HeapParent(i))) < 0) {
+        ElemSwap(HeapGetNodeValue(h, i), HeapGetNodeValue(h, HeapParent(i)));
         i = HeapParent(i);
     }
 }
 
-void HeapMinMoveDown(Heap *h, int i)
-{
+void HeapMinMoveDown(Heap *h, int i) {
     int l, r, largest = i;
     bool done;
     do {
@@ -91,8 +82,7 @@ void HeapMinMoveDown(Heap *h, int i)
     } while (!done);
 }
 
-void HeapDelete(Heap *h)
-{
+void HeapDelete(Heap *h) {
     for (size_t i = 0; i < h->size; ++i) {
         ElemDelete(&h->data[i]);
     }
@@ -104,11 +94,10 @@ void HeapDelete(Heap *h)
 /*                            Non Primitives                                 */
 /*****************************************************************************/
 
-void HeapWrite(const Heap *h, FILE *f)
-{
+void HeapWrite(const Heap *h, FILE *f) {
     fprintf(f, "[");
     for (size_t i = 0; i < h->size; ++i) {
-        ElemWrite(HeapGetNodeValue(h,i), f);
+        ElemWrite(HeapGetNodeValue(h, i), f);
         if (i != h->size - 1) {
             fprintf(f, ", ");
         }
@@ -116,7 +105,6 @@ void HeapWrite(const Heap *h, FILE *f)
     fprintf(f, "]\n");
 }
 
-void HeapWriteStdout(const Heap *h)
-{
+void HeapWriteStdout(const Heap *h) {
     HeapWrite(h, stdout);
 }

@@ -17,8 +17,7 @@ queste funzioni è indipendente dalla definizione di `ElemType`.
 /*****************************************************************************/
 
 /** @brief Definizione del tipo `struct Item`. */
-struct Item
-{
+struct Item {
     ElemType value; /*!< Valore associato all'`Item`. */
     struct Item *next; /*!< Puntatore all'`Item` successivo. */
 };

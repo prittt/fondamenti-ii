@@ -8,26 +8,22 @@
 /*                           Item & Primitives                               */
 /*****************************************************************************/
 
-Item *ListCreateEmpty(void)
-{
+Item *ListCreateEmpty(void) {
     return NULL;
 }
 
-Item *ListInsertHead(const ElemType *e, Item *i)
-{
+Item *ListInsertHead(const ElemType *e, Item *i) {
     Item *n = malloc(sizeof(Item));
     n->value = ElemCopy(e);
     n->next = i;
     return n;
 }
 
-bool ListIsEmpty(const Item *i)
-{
+bool ListIsEmpty(const Item *i) {
     return i == NULL;
 }
 
-const ElemType *ListGetHeadValue(const Item *i)
-{
+const ElemType *ListGetHeadValue(const Item *i) {
     if (ListIsEmpty(i)) {
         printf("ERROR: Alla funzione 'ListGetHead()' e' stata passata una lista vuota (NULL).\n");
         exit(1);
@@ -37,8 +33,7 @@ const ElemType *ListGetHeadValue(const Item *i)
     }
 }
 
-Item *ListGetTail(const Item *i)
-{
+Item *ListGetTail(const Item *i) {
     if (ListIsEmpty(i)) {
         printf("ERROR: Alla funzione 'ListGetTail()' e' stata passata una lista vuota (NULL).\n");
         exit(2);
@@ -48,8 +43,7 @@ Item *ListGetTail(const Item *i)
     }
 }
 
-Item *ListInsertBack(Item *i, const ElemType *e)
-{
+Item *ListInsertBack(Item *i, const ElemType *e) {
 
     Item *n = ListInsertHead(e, ListCreateEmpty());
 
@@ -66,8 +60,7 @@ Item *ListInsertBack(Item *i, const ElemType *e)
     return i;
 }
 
-void ListDelete(Item *i)
-{
+void ListDelete(Item *i) {
     while (!ListIsEmpty(i)) {
         Item *tmp = i;
         i = i->next;
@@ -80,8 +73,7 @@ void ListDelete(Item *i)
 /*                            Non Primitives                                 */
 /*****************************************************************************/
 
-void ListWrite(const Item *i, FILE *f)
-{
+void ListWrite(const Item *i, FILE *f) {
     fprintf(f, "[");
     while (!ListIsEmpty(i)) {
         ElemWrite(&i->value, f);
@@ -93,7 +85,6 @@ void ListWrite(const Item *i, FILE *f)
     fprintf(f, "]\n");
 }
 
-void ListWriteStdout(const Item *i)
-{
+void ListWriteStdout(const Item *i) {
     ListWrite(i, stdout);
 }

@@ -1,7 +1,7 @@
 /** @file
 Questo file contiene la definizione del tipo `Node` e la documentazione delle
-funzioni primitive (e non) relative agli alberi binari. Si noti che il comportamento di
-queste funzioni è indipendente dalla definizione di `ElemType`.
+funzioni primitive (e non) relative agli alberi binari. Si noti che il 
+comportamento di queste funzioni è indipendente dalla definizione di `ElemType`.
 */
 
 #ifndef TREE_H_
@@ -17,8 +17,7 @@ queste funzioni è indipendente dalla definizione di `ElemType`.
 /*****************************************************************************/
 
 /** @brief Definizione del tipo `struct Node`. */
-struct Node
-{
+struct Node {
     ElemType value; /*!< Valore associato al `Node`. */
     struct Node *left; /*!< Puntatore al figlio sinistro. */
     struct Node *right; /*!< Puntatore al figlio destro. */

@@ -17,7 +17,7 @@ comportamento di queste funzioni è indipendente dalla definizione di `ElemType`
 /*****************************************************************************/
 
 /** @brief Definizione del tipo `struct Heap`. */
-struct Heap{
+struct Heap {
     ElemType *data; /*!< Vettore dei dati. */
     size_t size; /*!< Dimensione del vettore dei dati, ovvero numero di `ElemType` che questo contiene. */
 };
