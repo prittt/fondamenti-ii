@@ -58,24 +58,24 @@ void HeapMinMoveUp(Heap *h, int i) {
 }
 
 void HeapMinMoveDown(Heap *h, int i) {
-    int l, r, largest = i;
+    int l, r, smallest = i;
     bool done;
     do {
         done = true;
         l = HeapLeft(i);
         r = HeapRight(i);
 
-        if ((l < (int)h->size) && ElemCompare(HeapGetNodeValue(h, l), HeapGetNodeValue(h, largest)) < 0) {
-            largest = l;
+        if ((l < (int)h->size) && ElemCompare(HeapGetNodeValue(h, l), HeapGetNodeValue(h, smallest)) < 0) {
+            smallest = l;
         }
 
-        if ((r < (int)h->size) && ElemCompare(HeapGetNodeValue(h, r), HeapGetNodeValue(h, largest)) < 0) {
-            largest = r;
+        if ((r < (int)h->size) && ElemCompare(HeapGetNodeValue(h, r), HeapGetNodeValue(h, smallest)) < 0) {
+            smallest = r;
         }
 
-        if (largest != i) {
-            ElemSwap(HeapGetNodeValue(h, i), HeapGetNodeValue(h, largest));
-            i = largest;
+        if (smallest != i) {
+            ElemSwap(HeapGetNodeValue(h, i), HeapGetNodeValue(h, smallest));
+            i = smallest;
             done = false;
         }
 
