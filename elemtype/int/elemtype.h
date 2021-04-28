@@ -59,7 +59,8 @@ void ElemDelete(ElemType *e);
 @param[in] f `FILE *` da cui leggere un elemento.
 @param[out] e Elemento letto da file.
 
-@return Numero di elementi effettivamente letti (`0` o `1`).
+@return Numero di elementi effettivamente letti (`0` o `1`) o EOF (`< 0`) se si 
+è verificato un errore di input.
 */
 int ElemRead(FILE *f, ElemType *e);
 

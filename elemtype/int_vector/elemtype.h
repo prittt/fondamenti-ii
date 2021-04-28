@@ -84,7 +84,8 @@ int ElemRead(FILE *f, ElemType *e);
 
 @param[out] e Elemento letto da `stdin`.
 
-@return Numero di elementi effettivamente letti (`0` o `1`).
+@return Numero di elementi effettivamente letti (`0` o `1`) o EOF (`< 0`) se si
+è verificato un errore di input.
 */
 int ElemReadStdin(ElemType *e);
 
