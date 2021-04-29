@@ -17,8 +17,7 @@
 
 @return Non ci sono valori di ritorno.
 */
-void HeapsortMinHeap(Heap *h)
-{
+void HeapsortMinHeap(Heap *h) {
     size_t origin_size = h->size; // Ci salviamo la dimensione originaria per
                                   // ripristinarla al termine. 
 
@@ -32,8 +31,7 @@ void HeapsortMinHeap(Heap *h)
                            // fare il suo dovere. 
 }
 
-Heap* HeapifyMinHeap(ElemType *v, size_t v_size)
-{
+Heap* HeapifyMinHeap(ElemType *v, size_t v_size) {
     Heap *h = HeapCreateEmpty();
     h->size = v_size;
     h->data = malloc(sizeof(ElemType)*(v_size));

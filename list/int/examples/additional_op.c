@@ -14,8 +14,7 @@
 /*                               IS MEMBER                                   */
 /*****************************************************************************/
 
-bool ListIsMember(const ElemType *e, Item* i)
-{
+bool ListIsMember(const ElemType *e, Item* i) {
     while (!ListIsEmpty(i)) {
         if (ElemCompare(e, ListGetHeadValue(i)) == 0) {
             return true;
@@ -26,8 +25,7 @@ bool ListIsMember(const ElemType *e, Item* i)
     return false;
 }
 
-bool ListIsMemberRec(const ElemType *e, Item* i)
-{
+bool ListIsMemberRec(const ElemType *e, Item* i) {
     if (ListIsEmpty(i)) {
         return false;
     }
@@ -42,8 +40,7 @@ bool ListIsMemberRec(const ElemType *e, Item* i)
 /*****************************************************************************/
 /*                                 LENGHT                                    */
 /*****************************************************************************/
-int ListLength(Item *i)
-{
+int ListLength(Item *i) {
     int n = 0;
     while (!ListIsEmpty(i)) {
         n++;
@@ -52,8 +49,7 @@ int ListLength(Item *i)
     return n;
 }
 
-int ListLengthRec(Item *i)
-{
+int ListLengthRec(Item *i) {
     if (ListIsEmpty(i)) {
         return 0;
     }
@@ -64,8 +60,7 @@ int ListLengthRec(Item *i)
 /*****************************************************************************/
 /*                                 APPEND                                    */
 /*****************************************************************************/
-Item *ListAppendRec(Item *i1, Item *i2)
-{
+Item *ListAppendRec(Item *i1, Item *i2) {
     if (ListIsEmpty(i1)) {
         return i2;
     }
@@ -78,8 +73,7 @@ Item *ListAppendRec(Item *i1, Item *i2)
 /*****************************************************************************/
 /*                                  COPY                                     */
 /*****************************************************************************/
-Item *ListCopyRec(Item *i)
-{
+Item *ListCopyRec(Item *i) {
     if (ListIsEmpty(i)) {
         return i;
     }
@@ -89,8 +83,7 @@ Item *ListCopyRec(Item *i)
 /*****************************************************************************/
 /*                                 REMOVE                                    */
 /*****************************************************************************/
-Item *ListRemoveRec(const ElemType *e, Item *i)
-{
+Item *ListRemoveRec(const ElemType *e, Item *i) {
     if (ListIsEmpty(i)) {
         return i;
     }
@@ -106,8 +99,7 @@ Item *ListRemoveRec(const ElemType *e, Item *i)
     return tmp;
 }
 
-Item *ListCreateFromVector(const int *v, size_t v_size)
-{
+Item *ListCreateFromVector(const int *v, size_t v_size) {
     Item *list = ListCreateEmpty();
     for (size_t i = 0; i < v_size; ++i) {
         list = ListInsertBack(list, &v[i]);
@@ -115,9 +107,7 @@ Item *ListCreateFromVector(const int *v, size_t v_size)
     return list;
 }
 
-int main(void)
-{
-
+int main(void) {
     int v[] = { 1,2,3,4,5,6,7,8,9 };
     size_t v_size = sizeof(v) / sizeof(int);
     Item *list = ListCreateFromVector(v, v_size);

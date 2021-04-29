@@ -6,8 +6,7 @@
 
 #include <stdlib.h>
 
-Item *ListInsOrdRec(const ElemType *e, Item *i)
-{
+Item *ListInsOrdRec(const ElemType *e, Item *i) {
     if (ListIsEmpty(i) || ElemCompare(ListGetHeadValue(i), e) >= 0) {
         return ListInsertHead(e, i);
     }
@@ -16,8 +15,7 @@ Item *ListInsOrdRec(const ElemType *e, Item *i)
     return tmp;
 }
 
-Item *ListInsOrd(const ElemType *e, Item *i)
-{
+Item *ListInsOrd(const ElemType *e, Item *i) {
     if (ListIsEmpty(i) || ElemCompare(ListGetHeadValue(i), e) >= 0) {
         return ListInsertHead(e, i);
     }
@@ -35,8 +33,7 @@ Item *ListInsOrd(const ElemType *e, Item *i)
     return root;
 }
 
-int main(void)
-{
+int main(void) {
     Item *i = ListCreateEmpty();
     Item *i_rec = ListCreateEmpty();
     ElemType e;

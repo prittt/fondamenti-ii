@@ -7,8 +7,7 @@
 
 #include "tree.h"
 
-Node *TreeInsertBinOrd(const ElemType *e, Node* n)
-{
+Node *TreeInsertBinOrd(const ElemType *e, Node* n) {
     if (TreeIsEmpty(n)) {
         return TreeCreateRoot(e, TreeCreateEmpty(), TreeCreateEmpty());
     }

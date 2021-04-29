@@ -6,8 +6,7 @@
 
 #include <stdlib.h>
 
-Item *ListLoad(const char *filename)
-{
+Item *ListLoad(const char *filename) {
     FILE *f;
     f = fopen(filename, "r");
 

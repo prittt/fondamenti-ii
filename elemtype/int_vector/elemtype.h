@@ -64,28 +64,32 @@ void ElemSwap(ElemType *e1, ElemType *e2);
 void ElemDelete(ElemType *e);
 
 /** @brief La funzione `ElemRead()` legge un elemento da file, ovvero legge la sua
-           `size` e, dopo aver alloca spazio a sufficienza, legge `size` interi 
-           scrivendoli nel vettore puntato da `data`. Se la lettura di 
-           anche solo uno dei valori fallisce la funzione ritorna `0`, altrimenti 
-           ritorna `1`.
+           `size` e, dopo aver allocato spazio a sufficienza, legge `size` interi 
+           scrivendoli nel vettore puntato da `data`. 
 
 @param[in] f `FILE *` da cui leggere un elemento.
 @param[out] e Elemento letto da file.
 
-@return Numero di elementi effettivamente letti (`0` o `1`).
+@return Se la lettura va a buon fine la funzione ritorna `1`, altrimenti ritorna `0`
+        in caso di errore di corrispondenza, errore di lettura o fine del file. Se 
+        si verifica un errore di lettura o si raggiunge la fine del file prima che 
+        qualunque dato possa essere letto correttamente la funzione ritorna EOF, 
+        ovvero un numero negativo.
 */
 int ElemRead(FILE *f, ElemType *e);
 
 /** @brief La funzione `ElemReadStdin()` legge un elemento da `stdin`, 
            ovvero legge la sua `size` e, dopo aver alloca spazio a sufficienza, 
            legge `size` interi scrivendoli nel vettore puntato da `data`.
-           Se la lettura di anche solo uno dei valori fallisce la funzione 
-           ritorna `0`, altrimenti ritorna `1`.
+
 
 @param[out] e Elemento letto da `stdin`.
 
-@return Numero di elementi effettivamente letti (`0` o `1`) o EOF (`< 0`) se si
-è verificato un errore di input.
+@return Se la lettura va a buon fine la funzione ritorna `1`, altrimenti ritorna `0`
+        in caso di errore di corrispondenza, errore di lettura o fine del file. Se 
+        si verifica un errore di lettura o si raggiunge la fine del file prima che 
+        qualunque dato possa essere letto correttamente la funzione ritorna EOF, 
+        ovvero un numero negativo.
 */
 int ElemReadStdin(ElemType *e);
 

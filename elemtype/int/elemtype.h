@@ -59,8 +59,11 @@ void ElemDelete(ElemType *e);
 @param[in] f `FILE *` da cui leggere un elemento.
 @param[out] e Elemento letto da file.
 
-@return Numero di elementi effettivamente letti (`0` o `1`) o EOF (`< 0`) se si 
-è verificato un errore di input.
+@return Se la lettura va a buon fine la funzione ritorna `1`, altrimenti ritorna `0`
+        in caso di errore di corrispondenza, errore di lettura o fine del file. Se 
+        si verifica un errore di lettura o si raggiunge la fine del file prima che 
+        qualunque dato possa essere letto correttamente la funzione ritorna EOF, 
+        ovvero un numero negativo.
 */
 int ElemRead(FILE *f, ElemType *e);
 
@@ -68,7 +71,11 @@ int ElemRead(FILE *f, ElemType *e);
 
 @param[out] e Elemento letto da `stdin`.
 
-@return Numero di elementi effettivamente letti (`0` o `1`).
+@return Se la lettura va a buon fine la funzione ritorna `1`, altrimenti ritorna `0`
+        in caso di errore di corrispondenza, errore di lettura o fine del file. Se 
+        si verifica un errore di lettura o si raggiunge la fine del file prima che 
+        qualunque dato possa essere letto correttamente la funzione ritorna EOF, 
+        ovvero un numero negativo.
 */
 int ElemReadStdin(ElemType *e);
 
