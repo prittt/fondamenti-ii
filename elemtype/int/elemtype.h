@@ -21,9 +21,9 @@ typedef int ElemType;
 
 @return La funzione ritorna un valore intero che indica la relazione tra i due
         elementi, ovvero:
-         - "-1" se il contenuto del primo è minore di quello del secondo;
-         - "0" se i contenuti dei due elementi sono uguali;
-         - "1" se il contenuto del primo è maggiore di quello del secondo.
+         - `< 0` (ad esempio `-1`) se il contenuto del primo è minore di quello del secondo;
+         - `0` se i contenuti dei due elementi sono uguali;
+         - `> 0` (ad esempio `1`) se il contenuto del primo è maggiore di quello del secondo.
 */
 int ElemCompare(const ElemType *e1, const ElemType *e2);
 

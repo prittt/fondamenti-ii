@@ -28,10 +28,10 @@ typedef struct ElemType ElemType;
 
 @return La funzione ritorna un valore intero che indica la relazione tra i due
         elementi, ovvero:
-         - "-1" se il contenuto del primo è minore di quello del secondo, ovvero 
+         - `< 0` (ad esempio `-1`) se il contenuto del primo è minore di quello del secondo, ovvero 
             se il primo valore che non corrisponde è più piccolo in `e1` che in `e2`;
-         - "0" se i contenuti dei due vettori sono uguali;
-         - "1" se il contenuto del primo è maggiore di quello del secondo, ovvero 
+         - `0` se i contenuti dei due vettori sono uguali;
+         - `> 0` (ad esempio `1`) se il contenuto del primo è maggiore di quello del secondo, ovvero 
             se il primo valore che non corrisponde è più grande in `e1` che in `e2`.
 */
 int ElemCompare(const ElemType *e1, const ElemType *e2);
