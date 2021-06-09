@@ -73,7 +73,7 @@ In questa sezione vengono forniti i link per il download diretto delle funzioni 
 | no elemtype <br/> (solo liste)  | <a href="https://prittt.github.io/fondamenti-ii/list/html/list_8h.html">list.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/list.zip">list.zip</a> |
 | `int`        | <a href="https://prittt.github.io/fondamenti-ii/list/int/html/index.html">list_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/int/list_int.zip">list_int.zip</a> |
 | `int-vector` | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/html/index.html">list_int_vector.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/list_int_vector.zip">list_int_vector.zip</a> |
-| `point2d` | <a href="https://prittt.github.io/fondamenti-ii/list/point2d/html/index.html">list_point2d.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/list_point2d.zip">list_point2d.zip</a> |
+| `point2d` | <a href="https://prittt.github.io/fondamenti-ii/list/point2d/html/index.html">list_point2d.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/point2d/list_point2d.zip">list_point2d.zip</a> |
 
 ### Alberi (Binary Tree)
 
