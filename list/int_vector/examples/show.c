@@ -1,7 +1,7 @@
 /** @example show.c
 * In questo esempio si mostra come creare una lista di `int vector` a partire da
 * un vettore di `ElemType` e stamparla su `stdout`. Il modo in cui viene popolata
-* la lista è puramente esemplificativo.
+* la lista Ã¨ puramente esemplificativo.
 */
 #include "list.h"
 

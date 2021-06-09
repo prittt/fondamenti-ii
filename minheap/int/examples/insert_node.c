@@ -1,6 +1,6 @@
 /** @example insert_node.c
 * In questo esempio si mostra come aggiungere un nuovo elemento a una coda di 
-* priorit‡, garantendo che le propriet‡ (min-)heap siano rispettate.
+* priorit√†, garantendo che le propriet√† (min-)heap siano rispettate.
 */
 #include <stdlib.h>
 

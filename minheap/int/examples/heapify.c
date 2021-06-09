@@ -1,6 +1,6 @@
 /** @example heapify.c
 * In questo esempio si mostra come convertire un vettore di `ElemType` in una 
-* coda di priorit‡ (min-)heap, mediante la funzione `HeapMinMoveDown()`. Questo
+* coda di priorit√† (min-)heap, mediante la funzione `HeapMinMoveDown()`. Questo
 * procedimento prende il nome di `HeapifyMinHeap()`
 */
 #include <stdlib.h>
@@ -25,8 +25,8 @@ Heap *HeapifyMinHeap(const ElemType *v, size_t v_size) {
 
     // Chiamo la HeapMinMoveDown a partire dai nodi nel penultimo livello
     // dell'albero fino alla radice, per garantire che tutti i nodi rispettino 
-    // le propriet‡ (min-)heap. Non serve chiamare la HeapMinMoveDown sulle
-    // foglie perchÈ non avrebbe alcun effetto.
+    // le propriet√† (min-)heap. Non serve chiamare la HeapMinMoveDown sulle
+    // foglie perch√© non avrebbe alcun effetto.
     for (int i = (int)h->size / 2 - 1; i >= 0; i--) {
         HeapMinMoveDown(h, i);
     }

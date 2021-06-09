@@ -1,16 +1,16 @@
 /** @example heapsort.c
 * In questo esempio si mostra come ordinare in senso decrescente i dati contenuti 
-* in una coda di priorit‡, sfruttando le propriet‡ (min-)heap.
+* in una coda di priorit√†, sfruttando le propriet√† (min-)heap.
 */
 #include <stdlib.h>
 #include <string.h>
 
 #include "minheap.h"
 
-/** @brief Data una coda di priorit‡, la funzione `Heapsort()` ordina il vettore
-           dei dati sfruttando le propriet‡ (min-)heap. Si noti che al termine 
-           dell'operazione il vettore dei dati sarÚ ordinato (in senso decrescente), 
-           ma NON rispetter‡ pi˘ le propriet‡ (min-)heap.
+/** @brief Data una coda di priorit√†, la funzione `Heapsort()` ordina il vettore
+           dei dati sfruttando le propriet√† (min-)heap. Si noti che al termine 
+           dell'operazione il vettore dei dati sar√† ordinato (in senso decrescente), 
+           ma NON rispetter√† pi√π le propriet√† (min-)heap.
            
 
 @param[in] h Heap da ordinare.
@@ -27,7 +27,7 @@ void HeapsortMinHeap(Heap *h) {
         HeapMinMoveDown(h, 0);
     }
     h->size = origin_size; // Ripristiniamo la dimensione originaria altrimenti
-                           // il distruttore della heap (HeapDelete) non puÚ
+                           // il distruttore della heap (HeapDelete) non pu√≤
                            // fare il suo dovere. 
 }
 

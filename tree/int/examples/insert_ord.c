@@ -1,6 +1,6 @@
 /** @example insert_ord.c
 * In questo esempio si mostra come inserire elementi in maniera ordinata
-* in un albero binario. L'albero risultante sar‡ un BST.
+* in un albero binario. L'albero risultante sar√† un BST.
 */
 
 #include <stdlib.h>
