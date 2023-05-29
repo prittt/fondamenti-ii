@@ -66,13 +66,6 @@ Il restante materiale è utilizzato per la gestione del repository: generazione 
 In questa sezione vengono forniti i link per il download diretto delle funzioni primitive di diverse strutture dati, eventualmente accompagnate dai file che definiscono e implementano l'<code>ElemType</code> per uno specifico tipo di dato. Vengono inoltre forniti i link alle pagine web contenenti la documentazione.
 </p>
 
-### Liste (Doubly Linked List) 
-
-| Tipo di Dato | Documentazione | Sorgente           | 
-|:------------:|:--------------:|:------------------:|
-| no elemtype <br/> (solo liste)  | <a href="https://federicobolelli.it/fondamenti-ii/doublelist/int/html/doublelist_8h.html">doublelist.html</a> | <a href="https://prittt.github.io/fondamenti-ii/doublelist/doublelist.zip">doublelist.zip</a> |
-| `int`        | <a href="https://prittt.github.io/fondamenti-ii/doublelist/int/html/index.html">doublelist_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/doublelist/int/doublelist_int.zip">doublelist_int.zip</a> |
-
 ### Liste (Singly Linked List) 
 
 | Tipo di Dato | Documentazione | Sorgente           | 
@@ -82,6 +75,13 @@ In questa sezione vengono forniti i link per il download diretto delle funzioni 
 | `char`        | <a href="https://prittt.github.io/fondamenti-ii/list/char/html/index.html">list_char.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/char/list_char.zip">list_char.zip</a> |
 | `int-vector` | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/html/index.html">list_int_vector.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/int_vector/list_int_vector.zip">list_int_vector.zip</a> |
 | `point2d` | <a href="https://prittt.github.io/fondamenti-ii/list/point2d/html/index.html">list_point2d.html</a> | <a href="https://prittt.github.io/fondamenti-ii/list/point2d/list_point2d.zip">list_point2d.zip</a> |
+
+### Liste (Doubly Linked List) 
+
+| Tipo di Dato | Documentazione | Sorgente           | 
+|:------------:|:--------------:|:------------------:|
+| no elemtype <br/> (solo liste)  | <a href="https://federicobolelli.it/fondamenti-ii/doublelist/int/html/doublelist_8h.html">doublelist.html</a> | <a href="https://prittt.github.io/fondamenti-ii/doublelist/doublelist.zip">doublelist.zip</a> |
+| `int`        | <a href="https://prittt.github.io/fondamenti-ii/doublelist/int/html/index.html">doublelist_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/doublelist/int/doublelist_int.zip">doublelist_int.zip</a> |
 
 ### Alberi (Binary Tree)
 
