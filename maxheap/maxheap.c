@@ -37,7 +37,7 @@ void HeapMaxInsertNode(Heap *h, const ElemType *e) {
 
     h->data[h->size - 1] = ElemCopy(e);
 
-    HeapMaxMoveUp(h, h->size - 1);
+    HeapMaxMoveUp(h, (int)h->size - 1);
 }
 
 ElemType *HeapGetNodeValue(const Heap *h, int i) {
@@ -96,7 +96,7 @@ void HeapDelete(Heap *h) {
 
 void HeapWrite(const Heap *h, FILE *f) {
     fprintf(f, "[");
-    for (size_t i = 0; i < h->size; ++i) {
+    for (int i = 0; i < h->size; ++i) {
         ElemWrite(HeapGetNodeValue(h, i), f);
         if (i != h->size - 1) {
             fprintf(f, ", ");

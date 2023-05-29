@@ -99,7 +99,7 @@ Item *ListRemoveRec(const ElemType *e, Item *i) {
     return tmp;
 }
 
-Item *ListCreateFromVector(const int *v, size_t v_size) {
+Item *ListCreateFromVector(const ElemType*v, size_t v_size) {
     Item *list = ListCreateEmpty();
     for (size_t i = 0; i < v_size; ++i) {
         list = ListInsertBack(list, &v[i]);
@@ -108,8 +108,8 @@ Item *ListCreateFromVector(const int *v, size_t v_size) {
 }
 
 int main(void) {
-    int v[] = { 1,2,3,4,5,6,7,8,9 };
-    size_t v_size = sizeof(v) / sizeof(int);
+    ElemType v[] = { 1,2,3,4,5,6,7,8,9 };
+    size_t v_size = sizeof(v) / sizeof(ElemType);
     Item *list = ListCreateFromVector(v, v_size);
     Item *other_list = ListCreateFromVector(v, v_size - 5);
 

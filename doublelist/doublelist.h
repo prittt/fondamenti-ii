@@ -1,11 +1,11 @@
 /** @file
 Questo file contiene la definizione del tipo `Item` e la documentazione delle
-funzioni primitive (e non) relative alle liste. Si noti che il comportamento di
-queste funzioni è indipendente dalla definizione di `ElemType`.
+funzioni primitive (e non) relative alle liste doppiamente concatenate. Si noti
+che il comportamento di queste funzioni è indipendente dalla definizione di `ElemType`.
 */
 
-#ifndef LIST_H_
-#define LIST_H_
+#ifndef DOUBLELIST_H_
+#define DOUBLELIST_H_
 
 #include "elemtype.h"
 
@@ -13,25 +13,26 @@ queste funzioni è indipendente dalla definizione di `ElemType`.
 #include <stdio.h>
 
 /*****************************************************************************/
-/*                           Item & Primitives                               */
+/*                           Item & Primitive                                */
 /*****************************************************************************/
 
 /** @brief Definizione del tipo `struct Item`. */
 struct Item {
     ElemType value; /*!< Valore associato all'`Item`. */
     struct Item *next; /*!< Puntatore all'`Item` successivo. */
+    struct Item *prev; /*!< Puntatore all'`Item` precedente. */
 };
 /** @brief Definizione di un nome alternativo per `struct Item`. */
 typedef struct Item Item;
 
-/** @brief La funzione `ListCreateEmpty()` crea e ritorna una lista vuota, ovvero
+/** @brief La funzione `DListCreateEmpty()` crea e ritorna una lista vuota, ovvero
            `NULL`.
 
 @return Lista vuota (`NULL`).
 */
-Item *ListCreateEmpty(void);
+Item *DListCreateEmpty(void);
 
-/** @brief La funzione `ListInsertHead()` aggiunge un nuovo elemento in testa ad 
+/** @brief La funzione `DListInsertHead()` aggiunge un nuovo elemento in testa ad 
            una lista e ritorna il puntatore alla nuova lista.
 
 @param[in] e Puntatore all'elemento da aggiugnere in testa alla lista.
@@ -40,17 +41,17 @@ Item *ListCreateEmpty(void);
 
 @return Lista risultante.
 */
-Item *ListInsertHead(const ElemType *e, Item *i);
+Item *DListInsertHead(const ElemType *e, Item *i);
 
-/** @brief La funzione `ListIsEmpty(`) verifica se una lista è vuota.
+/** @brief La funzione `DListIsEmpty(`) verifica se una lista è vuota.
 
 @param[in] i Lista su cui eseguire la verifica.
 
 @return `true` se la lista è vuota, `false` altrimenti.
 */
-bool ListIsEmpty(const Item *i);
+bool DListIsEmpty(const Item *i);
 
-/** @brief La funzione `ListGetHead()` ritorna un puntatore all'elemento in testa 
+/** @brief La funzione `DListGetHead()` ritorna un puntatore all'elemento in testa 
             alla lista, senza rimuoverlo.
 
 @param[in] i Lista da cui estrarre il valore in testa. Questa lista non può 
@@ -59,9 +60,9 @@ bool ListIsEmpty(const Item *i);
 
 @returns Puntatore all'elemento (costante) in testa alla lista.
 */
-const ElemType *ListGetHeadValue(const Item *i);
+const ElemType *DListGetHeadValue(const Item *i);
 
-/** @brief La funzione `ListGetTail()` ritorna la lista privata dell'elemento in 
+/** @brief La funzione `DListGetTail()` ritorna la lista privata dell'elemento in 
            testa. La funzione NON dealloca la memoria occupata dalla testa
            della lista.
 
@@ -72,10 +73,20 @@ const ElemType *ListGetHeadValue(const Item *i);
 @return Lista ottenuta dopo l'eliminazione della testa. Il valore di ritorno 
         potrebbe essere una lista vuota (`NULL`).
 */
-Item *ListGetTail(const Item *i);
+Item *DListGetTail(const Item *i);
 
+/** @brief La funzione `DListGetPrev()` ritorna il puntatore all'elemento precedente.
 
-/** @brief La funzione `ListInsertBack()` aggiunge un elemento in coda ad una
+@param[in] i Lista da cui ottenere l'`Item` precedente. La lista non può essere vuota,
+         nel caso in cui lo sia la funzione termina il programma con codice di
+         errore `3`.
+
+@return Puntatore alla nuova testa della lista. Il valore di ritorno potrebbe essere 
+        una lista vuota (`NULL`).
+*/
+Item* DListGetPrev(const Item* i);
+
+/** @brief La funzione `DListInsertBack()` aggiunge un elemento in coda ad una
             lista (anche vuota) e ritorna la lista risultante.
 
 @param[in] i Lista a cui aggiungere l'elemento specifciato. Questa lista può
@@ -85,43 +96,49 @@ Item *ListGetTail(const Item *i);
 
 @return  Lista ottenuta dopo l'aggiunta dell'elemento.
 */
-Item *ListInsertBack(Item *i, const ElemType *e);
+Item *DListInsertBack(Item *i, const ElemType *e);
 
-/** @brief La funzione `ListDelete()` libera la memoria occupata dagli elementi di 
-           una lista.
+/** @brief La funzione `ListDelete()` libera la memoria occupata da tutti gli elementi 
+           di una lista, indipendentemente dalla posizione dell'`Item` specificato.
 
-@param[in] i Lista di cui liberare la memoria, può essere vuota (`NULL`).
+La funzione `ListDelete()` prende in input un puntatore ad un elemento di una lista e 
+libera la memoria occupata da tutti i suoi `Item`, quelli precedenti, quelli successivi 
+e quello passato come input alla funzione.
+
+@param[in] i `Item` della lista di cui liberare la memoria, può essere `NULL`.
 
 @return Non ci sono valori di ritorno.
 */
-void ListDelete(Item *i);
+void DListDelete(Item *i);
 
 /*****************************************************************************/
-/*                             Non Primitives                                */
+/*                             Non Primitive                                 */
 /*****************************************************************************/
 
-/** @brief La funzione `ListWrite()` stampa la lista specificata su file. 
+/** @brief La funzione `DListWrite()` stampa la lista specificata su file. 
            Nello specifico, la funzione stampa il carattere "[" seguito dagli 
            elementi della lista, separati dai caratter ", ", e dal carattere "]". 
            La stampa degli elementi dipende dalla definizione di `ElemType`. 
 
-@param[in] i Lista da stampare su file: può essere vuota e non viene modificata.
+@param[in] i `Item` della lista da stampare su file: può essere NULL e non è necessario 
+           che sia l'`Item` in testa alla lista, la lista non viene modificata.
 @param[in] f `FILE *` su cui stampare la lista.
 
 @return Non ci sono valori di ritorno.
 */
-void ListWrite(const Item *i, FILE *f);
+void DListWrite(const Item *i, FILE *f);
 
-/** @brief La funzione `ListWriteStdout()` stampa la lista specificata su `stdout`.
+/** @brief La funzione `DListWriteStdout()` stampa la lista specificata su `stdout`.
            Nello specifico, la funzione stampa il carattere "[" seguito dagli
            elementi della lista, separati dai caratter ", ", e dal carattere "]".
            La stampa degli elementi dipende dalla definizione di `ElemType`.
 
-@param[in] i Lista da stampare su `stdout`: può essere vuota e non viene modificata.
+@param[in] i `Item` della lista da stampare su file: può essere NULL e non è necessario
+           che sia l'`Item` in testa alla lista, la lista non viene modificata.
 
 @return Non ci sono valori di ritorno.
 */
-void ListWriteStdout(const Item *i);
+void DListWriteStdout(const Item *i);
 
-#endif // LIST_H_
+#endif // DOUBLELIST_H_
 
