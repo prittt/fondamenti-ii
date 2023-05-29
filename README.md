@@ -66,6 +66,13 @@ Il restante materiale è utilizzato per la gestione del repository: generazione 
 In questa sezione vengono forniti i link per il download diretto delle funzioni primitive di diverse strutture dati, eventualmente accompagnate dai file che definiscono e implementano l'<code>ElemType</code> per uno specifico tipo di dato. Vengono inoltre forniti i link alle pagine web contenenti la documentazione.
 </p>
 
+### Liste (Doubly Linked List) 
+
+| Tipo di Dato | Documentazione | Sorgente           | 
+|:------------:|:--------------:|:------------------:|
+| no elemtype <br/> (solo liste)  | <a href="https://federicobolelli.it/fondamenti-ii/doublelist/int/html/doublelist_8h.html">doublelist.html</a> | <a href="https://prittt.github.io/fondamenti-ii/doublelist/doublelist.zip">doublelist.zip</a> |
+| `int`        | <a href="https://prittt.github.io/fondamenti-ii/doublelist/int/html/index.html">doublelist_int.html</a> | <a href="https://prittt.github.io/fondamenti-ii/doublelist/int/doublelist_int.zip">doublelist_int.zip</a> |
+
 ### Liste (Singly Linked List) 
 
 | Tipo di Dato | Documentazione | Sorgente           | 
