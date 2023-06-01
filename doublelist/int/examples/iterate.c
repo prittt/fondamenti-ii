@@ -54,6 +54,36 @@ int main(void) {
         tmp = tmp->next;
     }
 
+    // Esempio di uso del puntatote al precedente. Itero fino all'ultimo elemento non NULL
+    // e poi torno indietro fino al primo non NULL (la testa della lista). Implementazione 
+    // che fa uso delle primitive.
+    /*Item**/ tmp = list;
+    while (!DListIsEmpty(DListGetTail(tmp))) {
+        const ElemType e = DListGetHeadValue(tmp);
+        // Cose ...
+        tmp = DListGetTail(tmp);
+    }
+    while (!DListIsEmpty(DListGetPrev(tmp))) {
+        const ElemType e = DListGetHeadValue(tmp);
+        // Cose ...
+        tmp = DListGetPrev(tmp);
+    }
+
+    // Esempio di uso del puntatote al precedente. Itero fino all'ultimo elemento non NULL
+    // e poi torno indietro fino al primo non NULL (la testa della lista). Implementazione 
+    // senza primitive.
+    /*Item**/ tmp = list;
+    while (tmp->next) {
+        ElemType e = tmp->value;
+        // Cose ...
+        tmp = tmp->next;
+    }
+    while (tmp->prev) {
+        ElemType e = tmp->value;
+        // Cose ...
+        tmp = tmp->prev;
+    }
+
     DListDelete(list);
 
     return EXIT_SUCCESS;

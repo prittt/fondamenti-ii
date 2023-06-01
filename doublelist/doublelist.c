@@ -47,7 +47,7 @@ Item *DListGetTail(const Item *i) {
     }
 }
 
-Item* DListGetHead(const Item* i) {
+Item* DListGetPrev(const Item* i) {
     if (DListIsEmpty(i)) {
         printf("ERROR: Alla funzione 'DListGetHead()' e' stata passata una lista vuota (NULL).\n");
         exit(3);
