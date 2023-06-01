@@ -86,6 +86,16 @@ Item *DListGetTail(const Item *i);
 */
 Item* DListGetPrev(const Item* i);
 
+/** @brief La funzione `DListGetFirst()` ritorna il puntatore alla testa della lista 
+           a cui appartiene l'`Item` specificato.
+
+@param[in] i Lista da cui ottenere la testa. La lista può essere vuota, nel caso in 
+             cui lo sia la funzione ritorna una lista vuota (NULL).
+
+@return Testa della lista a cui i appartiene.
+*/
+Item* DListGetFirst(const Item* i);
+
 /** @brief La funzione `DListInsertBack()` aggiunge un elemento in coda ad una
             lista (anche vuota) e ritorna la lista risultante.
 
