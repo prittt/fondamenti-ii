@@ -11,7 +11,7 @@ int ElemCompare(const ElemType *e1, const ElemType *e2) {
         }
     } 
 
-    return e1->size - e2->size;
+    return (int)(e1->size - e2->size);
 }
 
 ElemType ElemCopy(const ElemType *e) {
