@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Heap:  File sorgente minheap.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+//<![CDATA[
+MathJax.Hub.Config(
+{
+  TeX: {
+      Macros: {
+          matTT: [ "\\[ \\left|\\begin{array}{ccc} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{array}\\right| \\]", 9],
+          fork: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ \\end{array} \\right.", 4],
+          forkthree: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ \\end{array} \\right.", 6],
+          forkfour: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ #7 & \\mbox{#8}\\\\ \\end{array} \\right.", 8],
+          vecthree: ["\\begin{bmatrix} #1\\\\ #2\\\\ #3 \\end{bmatrix}", 3],
+          vecthreethree: ["\\begin{bmatrix} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{bmatrix}", 9],
+          hdotsfor: ["\\dots", 1],
+          mathbbm: ["\\mathbb{#1}", 1],
+          bordermatrix: ["\\matrix{#1}", 1]
+      }
+  }
+}
+);
+//]]>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js" type="text/javascript"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div><!-- Generato da Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e1170e49d0c1796be68fb1b40d7499b0.html">minheap</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">minheap.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="minheap_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef MINHEAP_H_</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define MINHEAP_H_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;elemtype.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/*                          Node &amp; Primitives                                */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="struct_heap.html">   20</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_heap.html">Heap</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="struct_heap.html#a5f79f5913daef7ddddff422ffd9ec5f7">   21</a></span>&#160;    ElemType *<a class="code" href="struct_heap.html#a5f79f5913daef7ddddff422ffd9ec5f7">data</a>; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="struct_heap.html#a2ed455b269f1a100c7130d6a7eb871a9">   22</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="struct_heap.html#a2ed455b269f1a100c7130d6a7eb871a9">size</a>; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="minheap_8h.html#a705af815969c97892c0aaaa658f6c88c">   25</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_heap.html">Heap</a> <a class="code" href="struct_heap.html">Heap</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">int</span> <a class="code" href="minheap_8h.html#a670ae781a2cecc947caf652c892817aa">HeapLeft</a>(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">int</span> <a class="code" href="minheap_8h.html#a4bda232afea7bef00cda6e1ae62de72f">HeapRight</a>(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">int</span> <a class="code" href="minheap_8h.html#af4b3cabbf468dcd9c0f629fbfd9419cc">HeapParent</a>(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<a class="code" href="struct_heap.html">Heap</a>* <a class="code" href="minheap_8h.html#aa17b719fa56942e3c2f9adc9810770d9">HeapCreateEmpty</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> <a class="code" href="minheap_8h.html#a83d1463d87e435c48e2f6562a95b8da9">HeapMinInsertNode</a>(<a class="code" href="struct_heap.html">Heap</a> *h, <span class="keyword">const</span> ElemType *e);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="minheap_8h.html#a9a55009d4ea70006f58d30c3e087aecb">HeapIsEmpty</a>(<span class="keyword">const</span> <a class="code" href="struct_heap.html">Heap</a> *h);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;ElemType* <a class="code" href="minheap_8h.html#a729cad514ec152c47c37fba9852c11d1">HeapGetNodeValue</a>(<span class="keyword">const</span> <a class="code" href="struct_heap.html">Heap</a> *h, <span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordtype">void</span> <a class="code" href="minheap_8h.html#a95485157b28f07c07683f5352e54c480">HeapMinMoveUp</a>(<a class="code" href="struct_heap.html">Heap</a> *h, <span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keywordtype">void</span> <a class="code" href="minheap_8h.html#a031312bee3708b891e94825a65baa3e9">HeapMinMoveDown</a>(<a class="code" href="struct_heap.html">Heap</a> *h, <span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keywordtype">void</span> <a class="code" href="minheap_8h.html#a74eb233a90a8bcde03f823382b376f10">HeapDelete</a>(<a class="code" href="struct_heap.html">Heap</a> *h);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">/*                             Non Primitives                                */</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keywordtype">void</span> <a class="code" href="minheap_8h.html#a016f16f4fc62a0d772ffc0ad61a72999">HeapWrite</a>(<span class="keyword">const</span> <a class="code" href="struct_heap.html">Heap</a> *h, FILE *f);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="keywordtype">void</span> <a class="code" href="minheap_8h.html#a35cc73ce571493c30c3dead54e6a4020">HeapWriteStdout</a>(<span class="keyword">const</span> <a class="code" href="struct_heap.html">Heap</a> *i);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor">#endif // MINHEAP_H_</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aminheap_8h_html_a83d1463d87e435c48e2f6562a95b8da9"><div class="ttname"><a href="minheap_8h.html#a83d1463d87e435c48e2f6562a95b8da9">HeapMinInsertNode</a></div><div class="ttdeci">void HeapMinInsertNode(Heap *h, const ElemType *e)</div><div class="ttdoc">La funzione HeapMinInsertNode() aggiunge un nodo a una coda di priorità esistente,...</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00034">minheap.c:34</a></div></div>
+<div class="ttc" id="aminheap_8h_html_aa17b719fa56942e3c2f9adc9810770d9"><div class="ttname"><a href="minheap_8h.html#aa17b719fa56942e3c2f9adc9810770d9">HeapCreateEmpty</a></div><div class="ttdeci">Heap * HeapCreateEmpty()</div><div class="ttdoc">La funzione HeapCreateEmpty() crea e ritorna una coda di priorità vuota implementata mediante array.</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00027">minheap.c:27</a></div></div>
+<div class="ttc" id="aminheap_8h_html_a670ae781a2cecc947caf652c892817aa"><div class="ttname"><a href="minheap_8h.html#a670ae781a2cecc947caf652c892817aa">HeapLeft</a></div><div class="ttdeci">int HeapLeft(int i)</div><div class="ttdoc">Dato l'indice di un nodo della coda di priorità, la funzione HeapLeft() ritorna l'indice del suo figl...</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00011">minheap.c:11</a></div></div>
+<div class="ttc" id="astruct_heap_html_a5f79f5913daef7ddddff422ffd9ec5f7"><div class="ttname"><a href="struct_heap.html#a5f79f5913daef7ddddff422ffd9ec5f7">Heap::data</a></div><div class="ttdeci">ElemType * data</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8h_source.html#l00021">minheap.h:21</a></div></div>
+<div class="ttc" id="aminheap_8h_html_a74eb233a90a8bcde03f823382b376f10"><div class="ttname"><a href="minheap_8h.html#a74eb233a90a8bcde03f823382b376f10">HeapDelete</a></div><div class="ttdeci">void HeapDelete(Heap *h)</div><div class="ttdoc">La funzione HeapDelete() libera la memoria occupata dall'heap.</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00085">minheap.c:85</a></div></div>
+<div class="ttc" id="aminheap_8h_html_a9a55009d4ea70006f58d30c3e087aecb"><div class="ttname"><a href="minheap_8h.html#a9a55009d4ea70006f58d30c3e087aecb">HeapIsEmpty</a></div><div class="ttdeci">bool HeapIsEmpty(const Heap *h)</div><div class="ttdoc">La funzione HeapIsEmpty() verifica se una coda di priorità esistente è vuota.</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00023">minheap.c:23</a></div></div>
+<div class="ttc" id="aminheap_8h_html_a95485157b28f07c07683f5352e54c480"><div class="ttname"><a href="minheap_8h.html#a95485157b28f07c07683f5352e54c480">HeapMinMoveUp</a></div><div class="ttdeci">void HeapMinMoveUp(Heap *h, int i)</div><div class="ttdoc">Dato un heap e l'indice di un nodo, la funzione HeapMinMoveUp() sposta il nodo verso l'alto,...</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00053">minheap.c:53</a></div></div>
+<div class="ttc" id="aminheap_8h_html_a016f16f4fc62a0d772ffc0ad61a72999"><div class="ttname"><a href="minheap_8h.html#a016f16f4fc62a0d772ffc0ad61a72999">HeapWrite</a></div><div class="ttdeci">void HeapWrite(const Heap *h, FILE *f)</div><div class="ttdoc">La funzione HeapWrite() stampa la coda di priorità su file. Nello specifico, la funzione stampa il ca...</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00097">minheap.c:97</a></div></div>
+<div class="ttc" id="aminheap_8h_html_af4b3cabbf468dcd9c0f629fbfd9419cc"><div class="ttname"><a href="minheap_8h.html#af4b3cabbf468dcd9c0f629fbfd9419cc">HeapParent</a></div><div class="ttdeci">int HeapParent(int i)</div><div class="ttdoc">Dato l'indice di un nodo della coda di priorità, la funzione HeapParent() ritorna l'indice del nodo p...</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00019">minheap.c:19</a></div></div>
+<div class="ttc" id="astruct_heap_html_a2ed455b269f1a100c7130d6a7eb871a9"><div class="ttname"><a href="struct_heap.html#a2ed455b269f1a100c7130d6a7eb871a9">Heap::size</a></div><div class="ttdeci">size_t size</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8h_source.html#l00022">minheap.h:22</a></div></div>
+<div class="ttc" id="astruct_heap_html"><div class="ttname"><a href="struct_heap.html">Heap</a></div><div class="ttdoc">Definizione del tipo struct Heap.</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8h_source.html#l00020">minheap.h:20</a></div></div>
+<div class="ttc" id="aminheap_8h_html_a031312bee3708b891e94825a65baa3e9"><div class="ttname"><a href="minheap_8h.html#a031312bee3708b891e94825a65baa3e9">HeapMinMoveDown</a></div><div class="ttdeci">void HeapMinMoveDown(Heap *h, int i)</div><div class="ttdoc">Dato un heap e l'indice di un nodo, la funzione HeapMinMoveDown() sposta il nodo verso il basso,...</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00060">minheap.c:60</a></div></div>
+<div class="ttc" id="aminheap_8h_html_a729cad514ec152c47c37fba9852c11d1"><div class="ttname"><a href="minheap_8h.html#a729cad514ec152c47c37fba9852c11d1">HeapGetNodeValue</a></div><div class="ttdeci">ElemType * HeapGetNodeValue(const Heap *h, int i)</div><div class="ttdoc">La funzione HeapGetNodeValue() ritorna un puntatore all'elemento contenuto nel nodo di indice specifi...</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00043">minheap.c:43</a></div></div>
+<div class="ttc" id="aminheap_8h_html_a4bda232afea7bef00cda6e1ae62de72f"><div class="ttname"><a href="minheap_8h.html#a4bda232afea7bef00cda6e1ae62de72f">HeapRight</a></div><div class="ttdeci">int HeapRight(int i)</div><div class="ttdoc">Dato l'indice di un nodo della coda di priorità, la funzione HeapRight() ritorna l'indice del suo fig...</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00015">minheap.c:15</a></div></div>
+<div class="ttc" id="aminheap_8h_html_a35cc73ce571493c30c3dead54e6a4020"><div class="ttname"><a href="minheap_8h.html#a35cc73ce571493c30c3dead54e6a4020">HeapWriteStdout</a></div><div class="ttdeci">void HeapWriteStdout(const Heap *i)</div><div class="ttdoc">La funzione HeapWriteStdout() stampa lo heap specificato su stdout. Nello specifico,...</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00108">minheap.c:108</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato da &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Alberi di &#39;char&#39;:  File sorgente tree.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+//<![CDATA[
+MathJax.Hub.Config(
+{
+  TeX: {
+      Macros: {
+          matTT: [ "\\[ \\left|\\begin{array}{ccc} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{array}\\right| \\]", 9],
+          fork: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ \\end{array} \\right.", 4],
+          forkthree: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ \\end{array} \\right.", 6],
+          forkfour: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ #7 & \\mbox{#8}\\\\ \\end{array} \\right.", 8],
+          vecthree: ["\\begin{bmatrix} #1\\\\ #2\\\\ #3 \\end{bmatrix}", 3],
+          vecthreethree: ["\\begin{bmatrix} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{bmatrix}", 9],
+          hdotsfor: ["\\dots", 1],
+          mathbbm: ["\\mathbb{#1}", 1],
+          bordermatrix: ["\\matrix{#1}", 1]
+      }
+  }
+}
+);
+//]]>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js" type="text/javascript"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div><!-- Generato da Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_77b9e4745de5785f527d3054817c1233.html">char</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">tree.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="tree_8h.html">Vai alla documentazione di questo file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef TREE_H_</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define TREE_H_</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="elemtype_8h.html">elemtype.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/*                          Node &amp; Primitives                                */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="struct_node.html">   20</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_node.html">Node</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="struct_node.html#a69baac3707a2db7e7e2851a6a7d01af7">   21</a></span>&#160;    <a class="code" href="elemtype_8h.html#a12d3c63dac62aa0001bad1376f775014">ElemType</a> <a class="code" href="struct_node.html#a69baac3707a2db7e7e2851a6a7d01af7">value</a>; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="struct_node.html#ad0976834843c7618677d22a10c495b36">   22</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_node.html">Node</a> *<a class="code" href="struct_node.html#ad0976834843c7618677d22a10c495b36">left</a>; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="struct_node.html#af99e7102380da88d7c079fa264230cf4">   23</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_node.html">Node</a> *<a class="code" href="struct_node.html#af99e7102380da88d7c079fa264230cf4">right</a>; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="tree_8h.html#a3b09f37e675bcd48a01bf22155996872">   26</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_node.html">Node</a> <a class="code" href="struct_node.html">Node</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<a class="code" href="struct_node.html">Node</a>* <a class="code" href="tree_8h.html#a4183c2535b8144ec783b68a4bfe3ec7b">TreeCreateEmpty</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<a class="code" href="struct_node.html">Node</a>* <a class="code" href="tree_8h.html#a70b7e9b55d048c3b479aaccd267fc0fe">TreeCreateRoot</a>(<span class="keyword">const</span> <a class="code" href="elemtype_8h.html#a12d3c63dac62aa0001bad1376f775014">ElemType</a> *e, <a class="code" href="struct_node.html">Node</a>* l, <a class="code" href="struct_node.html">Node</a>* r);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="tree_8h.html#a929e14a02e8528a0b9c73564756dd86f">TreeIsEmpty</a>(<span class="keyword">const</span> <a class="code" href="struct_node.html">Node</a> *n);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">const</span> <a class="code" href="elemtype_8h.html#a12d3c63dac62aa0001bad1376f775014">ElemType</a> *<a class="code" href="tree_8h.html#a507514fa3e42a9182c887ba34fabf39c">TreeGetRootValue</a>(<span class="keyword">const</span> <a class="code" href="struct_node.html">Node</a> *n);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<a class="code" href="struct_node.html">Node</a> *<a class="code" href="tree_8h.html#af1fc54f6d02cde1bbd335c8a2db39329">TreeLeft</a>(<span class="keyword">const</span> <a class="code" href="struct_node.html">Node</a> *n);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<a class="code" href="struct_node.html">Node</a> *<a class="code" href="tree_8h.html#a0eb59bfd383056bbad4123e1664b2602">TreeRight</a>(<span class="keyword">const</span> <a class="code" href="struct_node.html">Node</a> *n);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="tree_8h.html#a5d87edd2612d5bc6cd458aecae3ed2ed">TreeIsLeaf</a>(<span class="keyword">const</span> <a class="code" href="struct_node.html">Node</a> *n);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keywordtype">void</span> <a class="code" href="tree_8h.html#a94eb0bf6017b9da3dc6644005789f533">TreeDelete</a>(<a class="code" href="struct_node.html">Node</a> *n);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">/*                             Non Primitives                                */</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keywordtype">void</span> <a class="code" href="tree_8h.html#ae08a41389c612a5a92f91474a8278ccd">TreeWritePreOrder</a>(<span class="keyword">const</span> <a class="code" href="struct_node.html">Node</a> *n, FILE *f);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keywordtype">void</span> <a class="code" href="tree_8h.html#aeaae63ca539f1261e918c3f2cef3cd74">TreeWriteStdoutPreOrder</a>(<span class="keyword">const</span> <a class="code" href="struct_node.html">Node</a> *n);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keywordtype">void</span> <a class="code" href="tree_8h.html#a29a7ffa826cf8c04f67eae7f926f63b0">TreeWriteInOrder</a>(<span class="keyword">const</span> <a class="code" href="struct_node.html">Node</a> *n, FILE *f);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keywordtype">void</span> <a class="code" href="tree_8h.html#abc582b488245a25572198877421d8515">TreeWriteStdoutInOrder</a>(<span class="keyword">const</span> <a class="code" href="struct_node.html">Node</a> *n);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keywordtype">void</span> <a class="code" href="tree_8h.html#a42b1891d81fc047ded14681903d0a406">TreeWritePostOrder</a>(<span class="keyword">const</span> <a class="code" href="struct_node.html">Node</a> *n, FILE *f);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="keywordtype">void</span> <a class="code" href="tree_8h.html#a4639568da0eb448c91368cdf2721c64f">TreeWriteStdoutPostOrder</a>(<span class="keyword">const</span> <a class="code" href="struct_node.html">Node</a> *n);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor">#endif // TREE_H_</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="atree_8h_html_aeaae63ca539f1261e918c3f2cef3cd74"><div class="ttname"><a href="tree_8h.html#aeaae63ca539f1261e918c3f2cef3cd74">TreeWriteStdoutPreOrder</a></div><div class="ttdeci">void TreeWriteStdoutPreOrder(const Node *n)</div><div class="ttdoc">La funzione TreeWriteStdoutPreOrder() stampa l'albero specificato su stdout, visitandolo in pre-ordin...</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00100">tree.c:100</a></div></div>
+<div class="ttc" id="atree_8h_html_abc582b488245a25572198877421d8515"><div class="ttname"><a href="tree_8h.html#abc582b488245a25572198877421d8515">TreeWriteStdoutInOrder</a></div><div class="ttdeci">void TreeWriteStdoutInOrder(const Node *n)</div><div class="ttdoc">La funzione TreeWriteStdoutInOrder() stampa l'albero specificato su stdout, visitandolo in ordine....</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00128">tree.c:128</a></div></div>
+<div class="ttc" id="atree_8h_html_a507514fa3e42a9182c887ba34fabf39c"><div class="ttname"><a href="tree_8h.html#a507514fa3e42a9182c887ba34fabf39c">TreeGetRootValue</a></div><div class="ttdeci">const ElemType * TreeGetRootValue(const Node *n)</div><div class="ttdoc">La funzione TreeGetRootValue() ritorna un puntatore all'elemento contentuto nel nodo radice dell'albe...</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00027">tree.c:27</a></div></div>
+<div class="ttc" id="astruct_node_html_ad0976834843c7618677d22a10c495b36"><div class="ttname"><a href="struct_node.html#ad0976834843c7618677d22a10c495b36">Node::left</a></div><div class="ttdeci">struct Node * left</div><div class="ttdef"><b>Definition:</b> <a href="tree_8h_source.html#l00022">tree.h:22</a></div></div>
+<div class="ttc" id="atree_8h_html_a5d87edd2612d5bc6cd458aecae3ed2ed"><div class="ttname"><a href="tree_8h.html#a5d87edd2612d5bc6cd458aecae3ed2ed">TreeIsLeaf</a></div><div class="ttdeci">bool TreeIsLeaf(const Node *n)</div><div class="ttdoc">La funzione TreeIsLeaf() verifica se il nodo specificato è una foglia.</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00055">tree.c:55</a></div></div>
+<div class="ttc" id="atree_8h_html_af1fc54f6d02cde1bbd335c8a2db39329"><div class="ttname"><a href="tree_8h.html#af1fc54f6d02cde1bbd335c8a2db39329">TreeLeft</a></div><div class="ttdeci">Node * TreeLeft(const Node *n)</div><div class="ttdoc">La funzione TreeLeft() ritorna un puntatore al nodo figlio sinistro dell'albero specificato.</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00037">tree.c:37</a></div></div>
+<div class="ttc" id="astruct_node_html"><div class="ttname"><a href="struct_node.html">Node</a></div><div class="ttdoc">Definizione del tipo struct Node.</div><div class="ttdef"><b>Definition:</b> <a href="tree_8h_source.html#l00020">tree.h:20</a></div></div>
+<div class="ttc" id="atree_8h_html_a929e14a02e8528a0b9c73564756dd86f"><div class="ttname"><a href="tree_8h.html#a929e14a02e8528a0b9c73564756dd86f">TreeIsEmpty</a></div><div class="ttdeci">bool TreeIsEmpty(const Node *n)</div><div class="ttdoc">La funzione TreeIsEmpty() verifica se un albero è vuoto o meno.</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00023">tree.c:23</a></div></div>
+<div class="ttc" id="atree_8h_html_a4639568da0eb448c91368cdf2721c64f"><div class="ttname"><a href="tree_8h.html#a4639568da0eb448c91368cdf2721c64f">TreeWriteStdoutPostOrder</a></div><div class="ttdeci">void TreeWriteStdoutPostOrder(const Node *n)</div><div class="ttdoc">La funzione TreeWriteStdoutPostOrder() stampa l'albero specificato su stdout, visitandolo in post-ord...</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00154">tree.c:154</a></div></div>
+<div class="ttc" id="atree_8h_html_a4183c2535b8144ec783b68a4bfe3ec7b"><div class="ttname"><a href="tree_8h.html#a4183c2535b8144ec783b68a4bfe3ec7b">TreeCreateEmpty</a></div><div class="ttdeci">Node * TreeCreateEmpty(void)</div><div class="ttdoc">La funzione TreeCreateEmpty() crea e ritorna un albero vuoto, ovvero NULL.</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00011">tree.c:11</a></div></div>
+<div class="ttc" id="atree_8h_html_a0eb59bfd383056bbad4123e1664b2602"><div class="ttname"><a href="tree_8h.html#a0eb59bfd383056bbad4123e1664b2602">TreeRight</a></div><div class="ttdeci">Node * TreeRight(const Node *n)</div><div class="ttdoc">La funzione TreeRight() ritorna un puntatore al nodo figlio destro dell'albero specificato.</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00046">tree.c:46</a></div></div>
+<div class="ttc" id="atree_8h_html_ae08a41389c612a5a92f91474a8278ccd"><div class="ttname"><a href="tree_8h.html#ae08a41389c612a5a92f91474a8278ccd">TreeWritePreOrder</a></div><div class="ttdeci">void TreeWritePreOrder(const Node *n, FILE *f)</div><div class="ttdoc">La funzione TreeWritePreOrder() stampa l'albero specificato su file, visitandolo in pre-ordine....</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00089">tree.c:89</a></div></div>
+<div class="ttc" id="astruct_node_html_af99e7102380da88d7c079fa264230cf4"><div class="ttname"><a href="struct_node.html#af99e7102380da88d7c079fa264230cf4">Node::right</a></div><div class="ttdeci">struct Node * right</div><div class="ttdef"><b>Definition:</b> <a href="tree_8h_source.html#l00023">tree.h:23</a></div></div>
+<div class="ttc" id="aelemtype_8h_html_a12d3c63dac62aa0001bad1376f775014"><div class="ttname"><a href="elemtype_8h.html#a12d3c63dac62aa0001bad1376f775014">ElemType</a></div><div class="ttdeci">char ElemType</div><div class="ttdoc">Definizione di struct ElemType.</div><div class="ttdef"><b>Definition:</b> <a href="elemtype_8h_source.html#l00013">elemtype.h:13</a></div></div>
+<div class="ttc" id="atree_8h_html_a29a7ffa826cf8c04f67eae7f926f63b0"><div class="ttname"><a href="tree_8h.html#a29a7ffa826cf8c04f67eae7f926f63b0">TreeWriteInOrder</a></div><div class="ttdeci">void TreeWriteInOrder(const Node *n, FILE *f)</div><div class="ttdoc">La funzione TreeWriteInOrder() stampa l'albero specificato su file, visitandolo in ordine....</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00117">tree.c:117</a></div></div>
+<div class="ttc" id="atree_8h_html_a42b1891d81fc047ded14681903d0a406"><div class="ttname"><a href="tree_8h.html#a42b1891d81fc047ded14681903d0a406">TreeWritePostOrder</a></div><div class="ttdeci">void TreeWritePostOrder(const Node *n, FILE *f)</div><div class="ttdoc">La funzione TreeWritePostOrder() stampa l'albero specificato su file, visitandolo in post-ordine....</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00143">tree.c:143</a></div></div>
+<div class="ttc" id="atree_8h_html_a70b7e9b55d048c3b479aaccd267fc0fe"><div class="ttname"><a href="tree_8h.html#a70b7e9b55d048c3b479aaccd267fc0fe">TreeCreateRoot</a></div><div class="ttdeci">Node * TreeCreateRoot(const ElemType *e, Node *l, Node *r)</div><div class="ttdoc">La funzione TreeCreateRoot() crea un nuovo albero avente come radice il valore specificato e come fig...</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00015">tree.c:15</a></div></div>
+<div class="ttc" id="aelemtype_8h_html"><div class="ttname"><a href="elemtype_8h.html">elemtype.h</a></div></div>
+<div class="ttc" id="astruct_node_html_a69baac3707a2db7e7e2851a6a7d01af7"><div class="ttname"><a href="struct_node.html#a69baac3707a2db7e7e2851a6a7d01af7">Node::value</a></div><div class="ttdeci">ElemType value</div><div class="ttdef"><b>Definition:</b> <a href="tree_8h_source.html#l00021">tree.h:21</a></div></div>
+<div class="ttc" id="atree_8h_html_a94eb0bf6017b9da3dc6644005789f533"><div class="ttname"><a href="tree_8h.html#a94eb0bf6017b9da3dc6644005789f533">TreeDelete</a></div><div class="ttdeci">void TreeDelete(Node *n)</div><div class="ttdoc">La funzione TreeDelete() libera la memoria occupata dai nodi di un albero.</div><div class="ttdef"><b>Definition:</b> <a href="tree_8c_source.html#l00059">tree.c:59</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato da &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Heap: Riferimenti per il file minheap.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+//<![CDATA[
+MathJax.Hub.Config(
+{
+  TeX: {
+      Macros: {
+          matTT: [ "\\[ \\left|\\begin{array}{ccc} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{array}\\right| \\]", 9],
+          fork: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ \\end{array} \\right.", 4],
+          forkthree: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ \\end{array} \\right.", 6],
+          forkfour: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ #7 & \\mbox{#8}\\\\ \\end{array} \\right.", 8],
+          vecthree: ["\\begin{bmatrix} #1\\\\ #2\\\\ #3 \\end{bmatrix}", 3],
+          vecthreethree: ["\\begin{bmatrix} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{bmatrix}", 9],
+          hdotsfor: ["\\dots", 1],
+          mathbbm: ["\\mathbb{#1}", 1],
+          bordermatrix: ["\\matrix{#1}", 1]
+      }
+  }
+}
+);
+//]]>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js" type="text/javascript"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div><!-- Generato da Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e1170e49d0c1796be68fb1b40d7499b0.html">minheap</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Composti</a> &#124;
+<a href="#typedef-members">Ridefinizioni di tipo (typedef)</a> &#124;
+<a href="#func-members">Funzioni</a>  </div>
+  <div class="headertitle">
+<div class="title">Riferimenti per il file minheap.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;elemtype.h&quot;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+</div>
+<p><a href="minheap_8h_source.html">Vai al codice sorgente di questo file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Composti</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_heap.html">Heap</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definizione del tipo <code>struct <a class="el" href="struct_heap.html" title="Definizione del tipo struct Heap.">Heap</a></code>.  <a href="struct_heap.html#details">Continua...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Ridefinizioni di tipo (typedef)</h2></td></tr>
+<tr class="memitem:a705af815969c97892c0aaaa658f6c88c"><td class="memItemLeft" align="right" valign="top"><a id="a705af815969c97892c0aaaa658f6c88c"></a>
+typedef struct <a class="el" href="struct_heap.html">Heap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minheap_8h.html#a705af815969c97892c0aaaa658f6c88c">Heap</a></td></tr>
+<tr class="memdesc:a705af815969c97892c0aaaa658f6c88c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definizione di un nome alternativo per <code>struct <a class="el" href="struct_heap.html" title="Definizione del tipo struct Heap.">Heap</a></code>. <br /></td></tr>
+<tr class="separator:a705af815969c97892c0aaaa658f6c88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funzioni</h2></td></tr>
+<tr class="memitem:a670ae781a2cecc947caf652c892817aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minheap_8h.html#a670ae781a2cecc947caf652c892817aa">HeapLeft</a> (int i)</td></tr>
+<tr class="memdesc:a670ae781a2cecc947caf652c892817aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dato l'indice di un nodo della coda di priorità, la funzione <code><a class="el" href="minheap_8h.html#a670ae781a2cecc947caf652c892817aa" title="Dato l&#39;indice di un nodo della coda di priorità, la funzione HeapLeft() ritorna l&#39;indice del suo figl...">HeapLeft()</a></code> ritorna l'indice del suo figlio sinistro.  <a href="minheap_8h.html#a670ae781a2cecc947caf652c892817aa">Continua...</a><br /></td></tr>
+<tr class="separator:a670ae781a2cecc947caf652c892817aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bda232afea7bef00cda6e1ae62de72f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minheap_8h.html#a4bda232afea7bef00cda6e1ae62de72f">HeapRight</a> (int i)</td></tr>
+<tr class="memdesc:a4bda232afea7bef00cda6e1ae62de72f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dato l'indice di un nodo della coda di priorità, la funzione <code><a class="el" href="minheap_8h.html#a4bda232afea7bef00cda6e1ae62de72f" title="Dato l&#39;indice di un nodo della coda di priorità, la funzione HeapRight() ritorna l&#39;indice del suo fig...">HeapRight()</a></code> ritorna l'indice del suo figlio destro.  <a href="minheap_8h.html#a4bda232afea7bef00cda6e1ae62de72f">Continua...</a><br /></td></tr>
+<tr class="separator:a4bda232afea7bef00cda6e1ae62de72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4b3cabbf468dcd9c0f629fbfd9419cc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minheap_8h.html#af4b3cabbf468dcd9c0f629fbfd9419cc">HeapParent</a> (int i)</td></tr>
+<tr class="memdesc:af4b3cabbf468dcd9c0f629fbfd9419cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dato l'indice di un nodo della coda di priorità, la funzione <code><a class="el" href="minheap_8h.html#af4b3cabbf468dcd9c0f629fbfd9419cc" title="Dato l&#39;indice di un nodo della coda di priorità, la funzione HeapParent() ritorna l&#39;indice del nodo p...">HeapParent()</a></code> ritorna l'indice del nodo padre.  <a href="minheap_8h.html#af4b3cabbf468dcd9c0f629fbfd9419cc">Continua...</a><br /></td></tr>
+<tr class="separator:af4b3cabbf468dcd9c0f629fbfd9419cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa17b719fa56942e3c2f9adc9810770d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_heap.html">Heap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minheap_8h.html#aa17b719fa56942e3c2f9adc9810770d9">HeapCreateEmpty</a> ()</td></tr>
+<tr class="memdesc:aa17b719fa56942e3c2f9adc9810770d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">La funzione <code><a class="el" href="minheap_8h.html#aa17b719fa56942e3c2f9adc9810770d9" title="La funzione HeapCreateEmpty() crea e ritorna una coda di priorità vuota implementata mediante array.">HeapCreateEmpty()</a></code> crea e ritorna una coda di priorità vuota implementata mediante array.  <a href="minheap_8h.html#aa17b719fa56942e3c2f9adc9810770d9">Continua...</a><br /></td></tr>
+<tr class="separator:aa17b719fa56942e3c2f9adc9810770d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83d1463d87e435c48e2f6562a95b8da9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minheap_8h.html#a83d1463d87e435c48e2f6562a95b8da9">HeapMinInsertNode</a> (<a class="el" href="struct_heap.html">Heap</a> *h, const ElemType *e)</td></tr>
+<tr class="memdesc:a83d1463d87e435c48e2f6562a95b8da9"><td class="mdescLeft">&#160;</td><td class="mdescRight">La funzione <code><a class="el" href="minheap_8h.html#a83d1463d87e435c48e2f6562a95b8da9" title="La funzione HeapMinInsertNode() aggiunge un nodo a una coda di priorità esistente,...">HeapMinInsertNode()</a></code> aggiunge un nodo a una coda di priorità esistente, garantendo che le proprietà (min-)heap siano rispettate.  <a href="minheap_8h.html#a83d1463d87e435c48e2f6562a95b8da9">Continua...</a><br /></td></tr>
+<tr class="separator:a83d1463d87e435c48e2f6562a95b8da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a55009d4ea70006f58d30c3e087aecb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minheap_8h.html#a9a55009d4ea70006f58d30c3e087aecb">HeapIsEmpty</a> (const <a class="el" href="struct_heap.html">Heap</a> *h)</td></tr>
+<tr class="memdesc:a9a55009d4ea70006f58d30c3e087aecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">La funzione <code><a class="el" href="minheap_8h.html#a9a55009d4ea70006f58d30c3e087aecb" title="La funzione HeapIsEmpty() verifica se una coda di priorità esistente è vuota.">HeapIsEmpty()</a></code> verifica se una coda di priorità esistente è vuota.  <a href="minheap_8h.html#a9a55009d4ea70006f58d30c3e087aecb">Continua...</a><br /></td></tr>
+<tr class="separator:a9a55009d4ea70006f58d30c3e087aecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a729cad514ec152c47c37fba9852c11d1"><td class="memItemLeft" align="right" valign="top">ElemType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minheap_8h.html#a729cad514ec152c47c37fba9852c11d1">HeapGetNodeValue</a> (const <a class="el" href="struct_heap.html">Heap</a> *h, int i)</td></tr>
+<tr class="memdesc:a729cad514ec152c47c37fba9852c11d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">La funzione <code><a class="el" href="minheap_8h.html#a729cad514ec152c47c37fba9852c11d1" title="La funzione HeapGetNodeValue() ritorna un puntatore all&#39;elemento contenuto nel nodo di indice specifi...">HeapGetNodeValue()</a></code> ritorna un puntatore all'elemento contenuto nel nodo di indice specificato.  <a href="minheap_8h.html#a729cad514ec152c47c37fba9852c11d1">Continua...</a><br /></td></tr>
+<tr class="separator:a729cad514ec152c47c37fba9852c11d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95485157b28f07c07683f5352e54c480"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minheap_8h.html#a95485157b28f07c07683f5352e54c480">HeapMinMoveUp</a> (<a class="el" href="struct_heap.html">Heap</a> *h, int i)</td></tr>
+<tr class="memdesc:a95485157b28f07c07683f5352e54c480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dato un heap e l'indice di un nodo, la funzione <code><a class="el" href="minheap_8h.html#a95485157b28f07c07683f5352e54c480" title="Dato un heap e l&#39;indice di un nodo, la funzione HeapMinMoveUp() sposta il nodo verso l&#39;alto,...">HeapMinMoveUp()</a></code> sposta il nodo verso l'alto, ovvero lo scambia con il nodo padre ricorsivamente fino a quando le condizione (min-)heap non sono rispettate.  <a href="minheap_8h.html#a95485157b28f07c07683f5352e54c480">Continua...</a><br /></td></tr>
+<tr class="separator:a95485157b28f07c07683f5352e54c480"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a031312bee3708b891e94825a65baa3e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minheap_8h.html#a031312bee3708b891e94825a65baa3e9">HeapMinMoveDown</a> (<a class="el" href="struct_heap.html">Heap</a> *h, int i)</td></tr>
+<tr class="memdesc:a031312bee3708b891e94825a65baa3e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dato un heap e l'indice di un nodo, la funzione <code><a class="el" href="minheap_8h.html#a031312bee3708b891e94825a65baa3e9" title="Dato un heap e l&#39;indice di un nodo, la funzione HeapMinMoveDown() sposta il nodo verso il basso,...">HeapMinMoveDown()</a></code> sposta il nodo verso il basso, ovvero lo scambia con il minore dei figli ricorsivamente fino a quando le condizione (min-)heap non sono rispettate.  <a href="minheap_8h.html#a031312bee3708b891e94825a65baa3e9">Continua...</a><br /></td></tr>
+<tr class="separator:a031312bee3708b891e94825a65baa3e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74eb233a90a8bcde03f823382b376f10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minheap_8h.html#a74eb233a90a8bcde03f823382b376f10">HeapDelete</a> (<a class="el" href="struct_heap.html">Heap</a> *h)</td></tr>
+<tr class="memdesc:a74eb233a90a8bcde03f823382b376f10"><td class="mdescLeft">&#160;</td><td class="mdescRight">La funzione <code><a class="el" href="minheap_8h.html#a74eb233a90a8bcde03f823382b376f10" title="La funzione HeapDelete() libera la memoria occupata dall&#39;heap.">HeapDelete()</a></code> libera la memoria occupata dall'heap.  <a href="minheap_8h.html#a74eb233a90a8bcde03f823382b376f10">Continua...</a><br /></td></tr>
+<tr class="separator:a74eb233a90a8bcde03f823382b376f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a016f16f4fc62a0d772ffc0ad61a72999"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minheap_8h.html#a016f16f4fc62a0d772ffc0ad61a72999">HeapWrite</a> (const <a class="el" href="struct_heap.html">Heap</a> *h, FILE *f)</td></tr>
+<tr class="memdesc:a016f16f4fc62a0d772ffc0ad61a72999"><td class="mdescLeft">&#160;</td><td class="mdescRight">La funzione <code><a class="el" href="minheap_8h.html#a016f16f4fc62a0d772ffc0ad61a72999" title="La funzione HeapWrite() stampa la coda di priorità su file. Nello specifico, la funzione stampa il ca...">HeapWrite()</a></code> stampa la coda di priorità su file. Nello specifico, la funzione stampa il carattere "[" seguito dagli elementi del vettore che implementa la coda di priorità, separati dai caratteri ", ". Infine viene stampato il carattere "]". La stampa degli elementi dipende dalla definizione di <code>ElemType</code>.  <a href="minheap_8h.html#a016f16f4fc62a0d772ffc0ad61a72999">Continua...</a><br /></td></tr>
+<tr class="separator:a016f16f4fc62a0d772ffc0ad61a72999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35cc73ce571493c30c3dead54e6a4020"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="minheap_8h.html#a35cc73ce571493c30c3dead54e6a4020">HeapWriteStdout</a> (const <a class="el" href="struct_heap.html">Heap</a> *i)</td></tr>
+<tr class="memdesc:a35cc73ce571493c30c3dead54e6a4020"><td class="mdescLeft">&#160;</td><td class="mdescRight">La funzione <code><a class="el" href="minheap_8h.html#a35cc73ce571493c30c3dead54e6a4020" title="La funzione HeapWriteStdout() stampa lo heap specificato su stdout. Nello specifico,...">HeapWriteStdout()</a></code> stampa lo heap specificato su <code>stdout</code>. Nello specifico, la funzione stampa il carattere "[" seguito dagli elementi del vettore che implementa la coda di priorità, separati dai caratteri ", ". Infine viene stampato il carattere "]". La stampa degli elementi dipende dalla definizione di <code>ElemType</code>.  <a href="minheap_8h.html#a35cc73ce571493c30c3dead54e6a4020">Continua...</a><br /></td></tr>
+<tr class="separator:a35cc73ce571493c30c3dead54e6a4020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrizione dettagliata</h2>
+<div class="textblock"><p>Questo file contiene la definizione del tipo <code><a class="el" href="struct_heap.html" title="Definizione del tipo struct Heap.">Heap</a></code> e la documentazione delle funzioni primitive (e non) relative alle code di priorità (heap). Si noti che il comportamento di queste funzioni è indipendente dalla definizione di <code>ElemType</code>. </p>
+
+<p class="definition">Definizione nel file <a class="el" href="minheap_8h_source.html">minheap.h</a>.</p>
+</div><h2 class="groupheader">Documentazione delle funzioni</h2>
+<a id="aa17b719fa56942e3c2f9adc9810770d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa17b719fa56942e3c2f9adc9810770d9">&#9670;&nbsp;</a></span>HeapCreateEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_heap.html">Heap</a>* HeapCreateEmpty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>La funzione <code><a class="el" href="minheap_8h.html#aa17b719fa56942e3c2f9adc9810770d9" title="La funzione HeapCreateEmpty() crea e ritorna una coda di priorità vuota implementata mediante array.">HeapCreateEmpty()</a></code> crea e ritorna una coda di priorità vuota implementata mediante array. </p>
+<dl class="section return"><dt>Restituisce</dt><dd>Puntatore allo heap appena creato. </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="minheap_8c_source.html#l00027">27</a> del file <a class="el" href="minheap_8c_source.html">minheap.c</a>.</p>
+
+</div>
+</div>
+<a id="a74eb233a90a8bcde03f823382b376f10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74eb233a90a8bcde03f823382b376f10">&#9670;&nbsp;</a></span>HeapDelete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HeapDelete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_heap.html">Heap</a> *&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>La funzione <code><a class="el" href="minheap_8h.html#a74eb233a90a8bcde03f823382b376f10" title="La funzione HeapDelete() libera la memoria occupata dall&#39;heap.">HeapDelete()</a></code> libera la memoria occupata dall'heap. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td><a class="el" href="struct_heap.html" title="Definizione del tipo struct Heap.">Heap</a> di cui liberare la memoria.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Non ci sono valori di ritorno. </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="minheap_8c_source.html#l00085">85</a> del file <a class="el" href="minheap_8c_source.html">minheap.c</a>.</p>
+
+</div>
+</div>
+<a id="a729cad514ec152c47c37fba9852c11d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a729cad514ec152c47c37fba9852c11d1">&#9670;&nbsp;</a></span>HeapGetNodeValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ElemType* HeapGetNodeValue </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_heap.html">Heap</a> *&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>La funzione <code><a class="el" href="minheap_8h.html#a729cad514ec152c47c37fba9852c11d1" title="La funzione HeapGetNodeValue() ritorna un puntatore all&#39;elemento contenuto nel nodo di indice specifi...">HeapGetNodeValue()</a></code> ritorna un puntatore all'elemento contenuto nel nodo di indice specificato. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td>(min-)heap. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>Indice del nodo.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Puntatore all'elemento contenuto nel nodo di indice <code>i</code>. </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="minheap_8c_source.html#l00043">43</a> del file <a class="el" href="minheap_8c_source.html">minheap.c</a>.</p>
+
+</div>
+</div>
+<a id="a9a55009d4ea70006f58d30c3e087aecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a55009d4ea70006f58d30c3e087aecb">&#9670;&nbsp;</a></span>HeapIsEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HeapIsEmpty </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_heap.html">Heap</a> *&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>La funzione <code><a class="el" href="minheap_8h.html#a9a55009d4ea70006f58d30c3e087aecb" title="La funzione HeapIsEmpty() verifica se una coda di priorità esistente è vuota.">HeapIsEmpty()</a></code> verifica se una coda di priorità esistente è vuota. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td><a class="el" href="struct_heap.html" title="Definizione del tipo struct Heap.">Heap</a> da testare.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd><code>true</code> se lo heap è vuoto, ovvero contiene zero elementi (<code>h-&gt;size == 0</code>), <code>false</code> altrimenti. </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="minheap_8c_source.html#l00023">23</a> del file <a class="el" href="minheap_8c_source.html">minheap.c</a>.</p>
+
+</div>
+</div>
+<a id="a670ae781a2cecc947caf652c892817aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a670ae781a2cecc947caf652c892817aa">&#9670;&nbsp;</a></span>HeapLeft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HeapLeft </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dato l'indice di un nodo della coda di priorità, la funzione <code><a class="el" href="minheap_8h.html#a670ae781a2cecc947caf652c892817aa" title="Dato l&#39;indice di un nodo della coda di priorità, la funzione HeapLeft() ritorna l&#39;indice del suo figl...">HeapLeft()</a></code> ritorna l'indice del suo figlio sinistro. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>Indice di un nodo della coda.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Indice del figlio sinistro del nodo <code>i</code>. Non e' detto che il nodo avente l'indice ritornato sia effettivamente presente nella coda. </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="minheap_8c_source.html#l00011">11</a> del file <a class="el" href="minheap_8c_source.html">minheap.c</a>.</p>
+
+</div>
+</div>
+<a id="a83d1463d87e435c48e2f6562a95b8da9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83d1463d87e435c48e2f6562a95b8da9">&#9670;&nbsp;</a></span>HeapMinInsertNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HeapMinInsertNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_heap.html">Heap</a> *&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ElemType *&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>La funzione <code><a class="el" href="minheap_8h.html#a83d1463d87e435c48e2f6562a95b8da9" title="La funzione HeapMinInsertNode() aggiunge un nodo a una coda di priorità esistente,...">HeapMinInsertNode()</a></code> aggiunge un nodo a una coda di priorità esistente, garantendo che le proprietà (min-)heap siano rispettate. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td>(min-)heap. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>Valore da utilizzare per la creazione del nuovo nodo.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Non ci sono valori di ritorno. </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="minheap_8c_source.html#l00034">34</a> del file <a class="el" href="minheap_8c_source.html">minheap.c</a>.</p>
+
+</div>
+</div>
+<a id="a031312bee3708b891e94825a65baa3e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a031312bee3708b891e94825a65baa3e9">&#9670;&nbsp;</a></span>HeapMinMoveDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HeapMinMoveDown </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_heap.html">Heap</a> *&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dato un heap e l'indice di un nodo, la funzione <code><a class="el" href="minheap_8h.html#a031312bee3708b891e94825a65baa3e9" title="Dato un heap e l&#39;indice di un nodo, la funzione HeapMinMoveDown() sposta il nodo verso il basso,...">HeapMinMoveDown()</a></code> sposta il nodo verso il basso, ovvero lo scambia con il minore dei figli ricorsivamente fino a quando le condizione (min-)heap non sono rispettate. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[i]</td><td>h (min-)heap. Tutti i nodi di <code>h</code>, ad eccezione di quello di indice <code>i</code>, devono rispettare le condizioni (min-)heap. </td></tr>
+    <tr><td class="paramname">[i]</td><td>i Indice del nodo su cui applicare la procedura.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Non ci sono valori di ritorno. </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="minheap_8c_source.html#l00060">60</a> del file <a class="el" href="minheap_8c_source.html">minheap.c</a>.</p>
+
+</div>
+</div>
+<a id="a95485157b28f07c07683f5352e54c480"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95485157b28f07c07683f5352e54c480">&#9670;&nbsp;</a></span>HeapMinMoveUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HeapMinMoveUp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_heap.html">Heap</a> *&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dato un heap e l'indice di un nodo, la funzione <code><a class="el" href="minheap_8h.html#a95485157b28f07c07683f5352e54c480" title="Dato un heap e l&#39;indice di un nodo, la funzione HeapMinMoveUp() sposta il nodo verso l&#39;alto,...">HeapMinMoveUp()</a></code> sposta il nodo verso l'alto, ovvero lo scambia con il nodo padre ricorsivamente fino a quando le condizione (min-)heap non sono rispettate. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">[i]</td><td>h (min-)heap. Tutti i nodi di <code>h</code>, ad eccezione di quello di indice <code>i</code>, devono rispettare le condizioni (min-)heap. </td></tr>
+    <tr><td class="paramname">[i]</td><td>i Indice del nodo su cui applicare la procedura.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Non ci sono valori di ritorno. </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="minheap_8c_source.html#l00053">53</a> del file <a class="el" href="minheap_8c_source.html">minheap.c</a>.</p>
+
+</div>
+</div>
+<a id="af4b3cabbf468dcd9c0f629fbfd9419cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4b3cabbf468dcd9c0f629fbfd9419cc">&#9670;&nbsp;</a></span>HeapParent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HeapParent </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dato l'indice di un nodo della coda di priorità, la funzione <code><a class="el" href="minheap_8h.html#af4b3cabbf468dcd9c0f629fbfd9419cc" title="Dato l&#39;indice di un nodo della coda di priorità, la funzione HeapParent() ritorna l&#39;indice del nodo p...">HeapParent()</a></code> ritorna l'indice del nodo padre. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>Indice di un nodo della coda.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Indice del padre del nodo <code>i</code>. Non è detto che il nodo avente l'indice ritornato sia effettivamente presente nella coda. </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="minheap_8c_source.html#l00019">19</a> del file <a class="el" href="minheap_8c_source.html">minheap.c</a>.</p>
+
+</div>
+</div>
+<a id="a4bda232afea7bef00cda6e1ae62de72f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bda232afea7bef00cda6e1ae62de72f">&#9670;&nbsp;</a></span>HeapRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int HeapRight </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dato l'indice di un nodo della coda di priorità, la funzione <code><a class="el" href="minheap_8h.html#a4bda232afea7bef00cda6e1ae62de72f" title="Dato l&#39;indice di un nodo della coda di priorità, la funzione HeapRight() ritorna l&#39;indice del suo fig...">HeapRight()</a></code> ritorna l'indice del suo figlio destro. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>Indice di un nodo della coda.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Indice del figlio destro del nodo <code>i</code>. Non è detto che il nodo avente l'indice ritornato sia effettivamente presente nella coda. </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="minheap_8c_source.html#l00015">15</a> del file <a class="el" href="minheap_8c_source.html">minheap.c</a>.</p>
+
+</div>
+</div>
+<a id="a016f16f4fc62a0d772ffc0ad61a72999"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a016f16f4fc62a0d772ffc0ad61a72999">&#9670;&nbsp;</a></span>HeapWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HeapWrite </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_heap.html">Heap</a> *&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>La funzione <code><a class="el" href="minheap_8h.html#a016f16f4fc62a0d772ffc0ad61a72999" title="La funzione HeapWrite() stampa la coda di priorità su file. Nello specifico, la funzione stampa il ca...">HeapWrite()</a></code> stampa la coda di priorità su file. Nello specifico, la funzione stampa il carattere "[" seguito dagli elementi del vettore che implementa la coda di priorità, separati dai caratteri ", ". Infine viene stampato il carattere "]". La stampa degli elementi dipende dalla definizione di <code>ElemType</code>. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td><a class="el" href="struct_heap.html" title="Definizione del tipo struct Heap.">Heap</a> da stampare su file. Lo heap non viene modificato. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td><code>FILE *</code> su cui stampare lo heap.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Non ci sono valori di ritorno. </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="minheap_8c_source.html#l00097">97</a> del file <a class="el" href="minheap_8c_source.html">minheap.c</a>.</p>
+
+</div>
+</div>
+<a id="a35cc73ce571493c30c3dead54e6a4020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35cc73ce571493c30c3dead54e6a4020">&#9670;&nbsp;</a></span>HeapWriteStdout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HeapWriteStdout </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_heap.html">Heap</a> *&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>La funzione <code><a class="el" href="minheap_8h.html#a35cc73ce571493c30c3dead54e6a4020" title="La funzione HeapWriteStdout() stampa lo heap specificato su stdout. Nello specifico,...">HeapWriteStdout()</a></code> stampa lo heap specificato su <code>stdout</code>. Nello specifico, la funzione stampa il carattere "[" seguito dagli elementi del vettore che implementa la coda di priorità, separati dai caratteri ", ". Infine viene stampato il carattere "]". La stampa degli elementi dipende dalla definizione di <code>ElemType</code>. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td><a class="el" href="struct_heap.html" title="Definizione del tipo struct Heap.">Heap</a> da stampare su <code>stdout</code>. Lo heap non viene modificato.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Restituisce</dt><dd>Non ci sono valori di ritorno. </dd></dl>
+
+<p class="definition">Definizione alla linea <a class="el" href="minheap_8c_source.html#l00108">108</a> del file <a class="el" href="minheap_8c_source.html">minheap.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato da &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Liste di &#39;int&#39;:  File sorgente elemtype.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+//<![CDATA[
+MathJax.Hub.Config(
+{
+  TeX: {
+      Macros: {
+          matTT: [ "\\[ \\left|\\begin{array}{ccc} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{array}\\right| \\]", 9],
+          fork: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ \\end{array} \\right.", 4],
+          forkthree: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ \\end{array} \\right.", 6],
+          forkfour: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ #7 & \\mbox{#8}\\\\ \\end{array} \\right.", 8],
+          vecthree: ["\\begin{bmatrix} #1\\\\ #2\\\\ #3 \\end{bmatrix}", 3],
+          vecthreethree: ["\\begin{bmatrix} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{bmatrix}", 9],
+          hdotsfor: ["\\dots", 1],
+          mathbbm: ["\\mathbb{#1}", 1],
+          bordermatrix: ["\\matrix{#1}", 1]
+      }
+  }
+}
+);
+//]]>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js" type="text/javascript"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div><!-- Generato da Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d2d5a73aa675843712555d2b5cc20c2a.html">int</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">elemtype.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#define _CRT_SECURE_NO_WARNINGS</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="elemtype_8h.html">elemtype.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define _unused(x) ((void)(x))</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="elemtype_8h.html#a7268d566f05ce324f6bceea069d9793a">    9</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="elemtype_8h.html#a7268d566f05ce324f6bceea069d9793a">ElemCompare</a>(<span class="keyword">const</span> <a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> *e1, <span class="keyword">const</span> <a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> *e2) {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordflow">return</span> (*e1 &gt; *e2) - (*e1 &lt; *e2);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="elemtype_8h.html#ae7bedbb439aa379a44372e19f76e66ad">   13</a></span>&#160;<a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> <a class="code" href="elemtype_8h.html#ae7bedbb439aa379a44372e19f76e66ad">ElemCopy</a>(<span class="keyword">const</span> <a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> *e) {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> *e;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="elemtype_8h.html#a401aff973efade5d3e80761e8777fccf">   17</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="elemtype_8h.html#a401aff973efade5d3e80761e8777fccf">ElemSwap</a>(<a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> *e1, <a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> *e2) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> tmp = *e1;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    *e1 = *e2;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    *e2 = tmp;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="elemtype_8h.html#a07a02ea8bccc1a067b0d457286daa6fa">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="elemtype_8h.html#a07a02ea8bccc1a067b0d457286daa6fa">ElemDelete</a>(<a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> *e) {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">// In questo caso la funzione ElemDelete non deve fare nulla, ma il </span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// compilatore potrebbe segnalare il mancato utilizzo di e, come warning</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// o come errore. Utilizzando la macro _unused sopra definita eliminiamo</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">// questo problema.</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    _unused(e);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="elemtype_8h.html#aa2bb2feca84fdae8050573ba08a75d6f">   31</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="elemtype_8h.html#aa2bb2feca84fdae8050573ba08a75d6f">ElemRead</a>(FILE *f, <a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> *e) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> fscanf(f, <span class="stringliteral">&quot;%d&quot;</span>, e);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="elemtype_8h.html#a2b426f5476bab11891028c61380edd8e">   35</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="elemtype_8h.html#a2b426f5476bab11891028c61380edd8e">ElemReadStdin</a>(<a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> *e) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="elemtype_8h.html#aa2bb2feca84fdae8050573ba08a75d6f">ElemRead</a>(stdin, e);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="elemtype_8h.html#a043e7fc95431882a8f4ba227feede7ec">   39</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="elemtype_8h.html#a043e7fc95431882a8f4ba227feede7ec">ElemWrite</a>(<span class="keyword">const</span> <a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> *e, FILE *f) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    fprintf(f, <span class="stringliteral">&quot;%d&quot;</span>, *e);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="elemtype_8h.html#a64743dd0ac62b893d9f1371129cdf47e">   43</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="elemtype_8h.html#a64743dd0ac62b893d9f1371129cdf47e">ElemWriteStdout</a>(<span class="keyword">const</span> <a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> *e) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="elemtype_8h.html#a043e7fc95431882a8f4ba227feede7ec">ElemWrite</a>(e, stdout);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aelemtype_8h_html_a3e8b1bd855f5efcb6aa1f67fddcb69ad"><div class="ttname"><a href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a></div><div class="ttdeci">int ElemType</div><div class="ttdoc">Definizione di struct ElemType.</div><div class="ttdef"><b>Definition:</b> <a href="elemtype_8h_source.html#l00013">elemtype.h:13</a></div></div>
+<div class="ttc" id="aelemtype_8h_html_a401aff973efade5d3e80761e8777fccf"><div class="ttname"><a href="elemtype_8h.html#a401aff973efade5d3e80761e8777fccf">ElemSwap</a></div><div class="ttdeci">void ElemSwap(ElemType *e1, ElemType *e2)</div><div class="ttdoc">La funzione ElemSwap() scambia i due elementi specificati.</div><div class="ttdef"><b>Definition:</b> <a href="elemtype_8c_source.html#l00017">elemtype.c:17</a></div></div>
+<div class="ttc" id="aelemtype_8h_html_ae7bedbb439aa379a44372e19f76e66ad"><div class="ttname"><a href="elemtype_8h.html#ae7bedbb439aa379a44372e19f76e66ad">ElemCopy</a></div><div class="ttdeci">ElemType ElemCopy(const ElemType *e)</div><div class="ttdoc">La funzione ElemCopy() crea e ritorna una copia dell'elemento dato.</div><div class="ttdef"><b>Definition:</b> <a href="elemtype_8c_source.html#l00013">elemtype.c:13</a></div></div>
+<div class="ttc" id="aelemtype_8h_html_a07a02ea8bccc1a067b0d457286daa6fa"><div class="ttname"><a href="elemtype_8h.html#a07a02ea8bccc1a067b0d457286daa6fa">ElemDelete</a></div><div class="ttdeci">void ElemDelete(ElemType *e)</div><div class="ttdoc">La funzione ElemDelete() libera la memoria occupata dall'elemento specificato.</div><div class="ttdef"><b>Definition:</b> <a href="elemtype_8c_source.html#l00023">elemtype.c:23</a></div></div>
+<div class="ttc" id="aelemtype_8h_html_a043e7fc95431882a8f4ba227feede7ec"><div class="ttname"><a href="elemtype_8h.html#a043e7fc95431882a8f4ba227feede7ec">ElemWrite</a></div><div class="ttdeci">void ElemWrite(const ElemType *e, FILE *f)</div><div class="ttdoc">La funzione ElemWrite() stampa un elemento su file.</div><div class="ttdef"><b>Definition:</b> <a href="elemtype_8c_source.html#l00039">elemtype.c:39</a></div></div>
+<div class="ttc" id="aelemtype_8h_html_a7268d566f05ce324f6bceea069d9793a"><div class="ttname"><a href="elemtype_8h.html#a7268d566f05ce324f6bceea069d9793a">ElemCompare</a></div><div class="ttdeci">int ElemCompare(const ElemType *e1, const ElemType *e2)</div><div class="ttdoc">La funzione ElemCompare() confronta due elementi.</div><div class="ttdef"><b>Definition:</b> <a href="elemtype_8c_source.html#l00009">elemtype.c:9</a></div></div>
+<div class="ttc" id="aelemtype_8h_html_aa2bb2feca84fdae8050573ba08a75d6f"><div class="ttname"><a href="elemtype_8h.html#aa2bb2feca84fdae8050573ba08a75d6f">ElemRead</a></div><div class="ttdeci">int ElemRead(FILE *f, ElemType *e)</div><div class="ttdoc">La funzione ElemRead() legge un elemento da file.</div><div class="ttdef"><b>Definition:</b> <a href="elemtype_8c_source.html#l00031">elemtype.c:31</a></div></div>
+<div class="ttc" id="aelemtype_8h_html_a2b426f5476bab11891028c61380edd8e"><div class="ttname"><a href="elemtype_8h.html#a2b426f5476bab11891028c61380edd8e">ElemReadStdin</a></div><div class="ttdeci">int ElemReadStdin(ElemType *e)</div><div class="ttdoc">La funzione ElemReadStdin() legge un elemento da stdin.</div><div class="ttdef"><b>Definition:</b> <a href="elemtype_8c_source.html#l00035">elemtype.c:35</a></div></div>
+<div class="ttc" id="aelemtype_8h_html_a64743dd0ac62b893d9f1371129cdf47e"><div class="ttname"><a href="elemtype_8h.html#a64743dd0ac62b893d9f1371129cdf47e">ElemWriteStdout</a></div><div class="ttdeci">void ElemWriteStdout(const ElemType *e)</div><div class="ttdoc">La funzione ElemWriteStdout() stampa un elemento su stdout.</div><div class="ttdef"><b>Definition:</b> <a href="elemtype_8c_source.html#l00043">elemtype.c:43</a></div></div>
+<div class="ttc" id="aelemtype_8h_html"><div class="ttname"><a href="elemtype_8h.html">elemtype.h</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato da &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MinHeap di &#39;int&#39;:  File sorgente heapsort.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+//<![CDATA[
+MathJax.Hub.Config(
+{
+  TeX: {
+      Macros: {
+          matTT: [ "\\[ \\left|\\begin{array}{ccc} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{array}\\right| \\]", 9],
+          fork: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ \\end{array} \\right.", 4],
+          forkthree: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ \\end{array} \\right.", 6],
+          forkfour: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ #7 & \\mbox{#8}\\\\ \\end{array} \\right.", 8],
+          vecthree: ["\\begin{bmatrix} #1\\\\ #2\\\\ #3 \\end{bmatrix}", 3],
+          vecthreethree: ["\\begin{bmatrix} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{bmatrix}", 9],
+          hdotsfor: ["\\dots", 1],
+          mathbbm: ["\\mathbb{#1}", 1],
+          bordermatrix: ["\\matrix{#1}", 1]
+      }
+  }
+}
+);
+//]]>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js" type="text/javascript"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div><!-- Generato da Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d2d5a73aa675843712555d2b5cc20c2a.html">int</a></li><li class="navelem"><a class="el" href="dir_04af23718f22f443e7fc5780e65d627c.html">examples</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">heapsort.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="minheap_8h.html">minheap.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> HeapsortMinHeap(<a class="code" href="struct_heap.html">Heap</a> *h) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">size_t</span> origin_size = h-&gt;<a class="code" href="struct_heap.html#a2ed455b269f1a100c7130d6a7eb871a9">size</a>; <span class="comment">// Ci salviamo la dimensione originaria per</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                                  <span class="comment">// ripristinarla al termine. </span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">while</span>(h-&gt;<a class="code" href="struct_heap.html#a2ed455b269f1a100c7130d6a7eb871a9">size</a> &gt;= 2) {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="elemtype_8h.html#a401aff973efade5d3e80761e8777fccf">ElemSwap</a>(<a class="code" href="minheap_8h.html#a729cad514ec152c47c37fba9852c11d1">HeapGetNodeValue</a>(h, 0), <a class="code" href="minheap_8h.html#a729cad514ec152c47c37fba9852c11d1">HeapGetNodeValue</a>(h, h-&gt;<a class="code" href="struct_heap.html#a2ed455b269f1a100c7130d6a7eb871a9">size</a> - 1));</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        h-&gt;<a class="code" href="struct_heap.html#a2ed455b269f1a100c7130d6a7eb871a9">size</a>--;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="minheap_8h.html#a031312bee3708b891e94825a65baa3e9">HeapMinMoveDown</a>(h, 0);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    h-&gt;<a class="code" href="struct_heap.html#a2ed455b269f1a100c7130d6a7eb871a9">size</a> = origin_size; <span class="comment">// Ripristiniamo la dimensione originaria altrimenti</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                           <span class="comment">// il distruttore della heap (HeapDelete) non può</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                           <span class="comment">// fare il suo dovere. </span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<a class="code" href="struct_heap.html">Heap</a>* HeapifyMinHeap(<a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> *v, <span class="keywordtype">size_t</span> v_size) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="struct_heap.html">Heap</a> *h = <a class="code" href="minheap_8h.html#aa17b719fa56942e3c2f9adc9810770d9">HeapCreateEmpty</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    h-&gt;<a class="code" href="struct_heap.html#a2ed455b269f1a100c7130d6a7eb871a9">size</a> = v_size;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    h-&gt;<a class="code" href="struct_heap.html#a5f79f5913daef7ddddff422ffd9ec5f7">data</a> = malloc(<span class="keyword">sizeof</span>(<a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a>)*(v_size));</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    memcpy(h-&gt;<a class="code" href="struct_heap.html#a5f79f5913daef7ddddff422ffd9ec5f7">data</a>, v, v_size * <span class="keyword">sizeof</span>(<a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a>));</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = (<span class="keywordtype">int</span>)h-&gt;<a class="code" href="struct_heap.html#a2ed455b269f1a100c7130d6a7eb871a9">size</a> / 2 - 1; i &gt;= 0; i--) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="minheap_8h.html#a031312bee3708b891e94825a65baa3e9">HeapMinMoveDown</a>(h, i);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> h;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">int</span> main(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> v[] = { 0, 12, 4, 21, 2, 5, 18, 77, 8, 9 };</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">size_t</span> v_size = <span class="keyword">sizeof</span>(v) / <span class="keyword">sizeof</span>(<a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="struct_heap.html">Heap</a>* h = HeapifyMinHeap(v, v_size);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="minheap_8h.html#a35cc73ce571493c30c3dead54e6a4020">HeapWriteStdout</a>(h);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    HeapsortMinHeap(h);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="minheap_8h.html#a35cc73ce571493c30c3dead54e6a4020">HeapWriteStdout</a>(h);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="minheap_8h.html#a74eb233a90a8bcde03f823382b376f10">HeapDelete</a>(h);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aelemtype_8h_html_a3e8b1bd855f5efcb6aa1f67fddcb69ad"><div class="ttname"><a href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a></div><div class="ttdeci">int ElemType</div><div class="ttdoc">Definizione di struct ElemType.</div><div class="ttdef"><b>Definition:</b> <a href="elemtype_8h_source.html#l00013">elemtype.h:13</a></div></div>
+<div class="ttc" id="aelemtype_8h_html_a401aff973efade5d3e80761e8777fccf"><div class="ttname"><a href="elemtype_8h.html#a401aff973efade5d3e80761e8777fccf">ElemSwap</a></div><div class="ttdeci">void ElemSwap(ElemType *e1, ElemType *e2)</div><div class="ttdoc">La funzione ElemSwap() scambia i due elementi specificati.</div><div class="ttdef"><b>Definition:</b> <a href="elemtype_8c_source.html#l00017">elemtype.c:17</a></div></div>
+<div class="ttc" id="aminheap_8h_html"><div class="ttname"><a href="minheap_8h.html">minheap.h</a></div></div>
+<div class="ttc" id="aminheap_8h_html_aa17b719fa56942e3c2f9adc9810770d9"><div class="ttname"><a href="minheap_8h.html#aa17b719fa56942e3c2f9adc9810770d9">HeapCreateEmpty</a></div><div class="ttdeci">Heap * HeapCreateEmpty()</div><div class="ttdoc">La funzione HeapCreateEmpty() crea e ritorna una coda di priorità vuota implementata mediante array.</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00027">minheap.c:27</a></div></div>
+<div class="ttc" id="astruct_heap_html_a5f79f5913daef7ddddff422ffd9ec5f7"><div class="ttname"><a href="struct_heap.html#a5f79f5913daef7ddddff422ffd9ec5f7">Heap::data</a></div><div class="ttdeci">ElemType * data</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8h_source.html#l00021">minheap.h:21</a></div></div>
+<div class="ttc" id="aminheap_8h_html_a74eb233a90a8bcde03f823382b376f10"><div class="ttname"><a href="minheap_8h.html#a74eb233a90a8bcde03f823382b376f10">HeapDelete</a></div><div class="ttdeci">void HeapDelete(Heap *h)</div><div class="ttdoc">La funzione HeapDelete() libera la memoria occupata dall'heap.</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00085">minheap.c:85</a></div></div>
+<div class="ttc" id="astruct_heap_html_a2ed455b269f1a100c7130d6a7eb871a9"><div class="ttname"><a href="struct_heap.html#a2ed455b269f1a100c7130d6a7eb871a9">Heap::size</a></div><div class="ttdeci">size_t size</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8h_source.html#l00022">minheap.h:22</a></div></div>
+<div class="ttc" id="astruct_heap_html"><div class="ttname"><a href="struct_heap.html">Heap</a></div><div class="ttdoc">Definizione del tipo struct Heap.</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8h_source.html#l00020">minheap.h:20</a></div></div>
+<div class="ttc" id="aminheap_8h_html_a031312bee3708b891e94825a65baa3e9"><div class="ttname"><a href="minheap_8h.html#a031312bee3708b891e94825a65baa3e9">HeapMinMoveDown</a></div><div class="ttdeci">void HeapMinMoveDown(Heap *h, int i)</div><div class="ttdoc">Dato un heap e l'indice di un nodo, la funzione HeapMinMoveDown() sposta il nodo verso il basso,...</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00060">minheap.c:60</a></div></div>
+<div class="ttc" id="aminheap_8h_html_a729cad514ec152c47c37fba9852c11d1"><div class="ttname"><a href="minheap_8h.html#a729cad514ec152c47c37fba9852c11d1">HeapGetNodeValue</a></div><div class="ttdeci">ElemType * HeapGetNodeValue(const Heap *h, int i)</div><div class="ttdoc">La funzione HeapGetNodeValue() ritorna un puntatore all'elemento contenuto nel nodo di indice specifi...</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00043">minheap.c:43</a></div></div>
+<div class="ttc" id="aminheap_8h_html_a35cc73ce571493c30c3dead54e6a4020"><div class="ttname"><a href="minheap_8h.html#a35cc73ce571493c30c3dead54e6a4020">HeapWriteStdout</a></div><div class="ttdeci">void HeapWriteStdout(const Heap *i)</div><div class="ttdoc">La funzione HeapWriteStdout() stampa lo heap specificato su stdout. Nello specifico,...</div><div class="ttdef"><b>Definition:</b> <a href="minheap_8c_source.html#l00108">minheap.c:108</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato da &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

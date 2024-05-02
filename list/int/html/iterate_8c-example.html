@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Liste di &#39;int&#39;: iterate.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+//<![CDATA[
+MathJax.Hub.Config(
+{
+  TeX: {
+      Macros: {
+          matTT: [ "\\[ \\left|\\begin{array}{ccc} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{array}\\right| \\]", 9],
+          fork: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ \\end{array} \\right.", 4],
+          forkthree: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ \\end{array} \\right.", 6],
+          forkfour: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ #7 & \\mbox{#8}\\\\ \\end{array} \\right.", 8],
+          vecthree: ["\\begin{bmatrix} #1\\\\ #2\\\\ #3 \\end{bmatrix}", 3],
+          vecthreethree: ["\\begin{bmatrix} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{bmatrix}", 9],
+          hdotsfor: ["\\dots", 1],
+          mathbbm: ["\\mathbb{#1}", 1],
+          bordermatrix: ["\\matrix{#1}", 1]
+      }
+  }
+}
+);
+//]]>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js" type="text/javascript"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div><!-- Generato da Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Cerca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Cerca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">iterate.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<p>In questo esempio si mostra come creare una lista a partire da un vettore di <code>ElemType</code> e come iterare gli elementi di una lista esistente utilizzando i ciclo <code>for</code> e <code>while</code> facendo o meno uso delle funzioni primitive.</p>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="list_8h.html">list.h</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a name="_a0"></a><a class="code" href="struct_item.html">Item</a> *ListCreateFromVector(<span class="keyword">const</span> <span class="keywordtype">int</span> *v, <span class="keywordtype">size_t</span> v_size) {</div>
+<div class="line">    <a class="code" href="struct_item.html">Item</a> *list = <a name="a1"></a><a class="code" href="list_8h.html#a01d8920932ace5c2a6c5ed09c0b6dc48">ListCreateEmpty</a>();</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; v_size; ++i) {</div>
+<div class="line">        list = <a name="a2"></a><a class="code" href="list_8h.html#a82b06a33ed159ba7fbdda154ab82861d">ListInsertBack</a>(list, &amp;v[i]);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> list;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>) {</div>
+<div class="line">    <span class="keywordtype">int</span> v[] = { 1,2,3,4,5,6,7,8,9 };</div>
+<div class="line">    <span class="keywordtype">size_t</span> v_size = <span class="keyword">sizeof</span>(v) / <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>);</div>
+<div class="line">    <a class="code" href="struct_item.html">Item</a> *list = ListCreateFromVector(v, v_size);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Iterazione con il for usando le primitive:</span></div>
+<div class="line">    <span class="keywordflow">for</span> (<a class="code" href="struct_item.html">Item</a> *tmp = list; !<a name="a3"></a><a class="code" href="list_8h.html#ad9a388ad40808475df44a1be713508b1">ListIsEmpty</a>(tmp); tmp = <a name="a4"></a><a class="code" href="list_8h.html#a176c8523d29fb407463116d89ca04629">ListGetTail</a>(tmp)) {</div>
+<div class="line">        <span class="comment">// Prendo il valore dell&#39;elemento corrente della lista.</span></div>
+<div class="line">        <span class="keyword">const</span> <a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> *e = <a name="a5"></a><a class="code" href="list_8h.html#a29a04837f578eca20e2e838e87abfdc0">ListGetHeadValue</a>(tmp);</div>
+<div class="line">        <span class="comment">// Se volessi un elemento modificabile potrei fare:</span></div>
+<div class="line">        <span class="comment">// ElemType e = ElemCopy(ListGetHeadValue(tmp));</span></div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// E lo uso </span></div>
+<div class="line">        <span class="comment">// ...    </span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Iterazione con il for senza la primitive:</span></div>
+<div class="line">    <span class="keywordflow">for</span> (<a class="code" href="struct_item.html">Item</a> *tmp = list; tmp; tmp = tmp-&gt;<a name="a6"></a><a class="code" href="struct_item.html#a6805b7d0bb98eb940404897b713986f7">next</a>) {</div>
+<div class="line">        <a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> e = tmp-&gt;value;</div>
+<div class="line">        <span class="comment">// Cose ...</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Iterazione con il while usando le primitive:</span></div>
+<div class="line">    <a class="code" href="struct_item.html">Item</a> *tmp = list;</div>
+<div class="line">    <span class="keywordflow">while</span> (!<a class="code" href="list_8h.html#ad9a388ad40808475df44a1be713508b1">ListIsEmpty</a>(tmp)) {</div>
+<div class="line">        <span class="keyword">const</span> <a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> *e = <a class="code" href="list_8h.html#a29a04837f578eca20e2e838e87abfdc0">ListGetHeadValue</a>(tmp);</div>
+<div class="line">        <span class="comment">// Cose ...</span></div>
+<div class="line"> </div>
+<div class="line">        tmp = <a class="code" href="list_8h.html#a176c8523d29fb407463116d89ca04629">ListGetTail</a>(tmp);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Iterazione con il while senza le primitive:</span></div>
+<div class="line">    <span class="comment">/*Item**/</span> tmp = list;</div>
+<div class="line">    <span class="keywordflow">while</span> (tmp) {</div>
+<div class="line">        <a class="code" href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a> e = tmp-&gt;<a name="a7"></a><a class="code" href="struct_item.html#ab670d286d26d72f0e16350ff5ea2f77c">value</a>;</div>
+<div class="line">        <span class="comment">// Cose ...</span></div>
+<div class="line">        tmp = tmp-&gt;<a class="code" href="struct_item.html#a6805b7d0bb98eb940404897b713986f7">next</a>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a name="a8"></a><a class="code" href="list_8h.html#a4fd1a2bd21ca1394018a2927ee2b2f31">ListDelete</a>(list);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div><!-- contents -->
+<div class="ttc" id="aelemtype_8h_html_a3e8b1bd855f5efcb6aa1f67fddcb69ad"><div class="ttname"><a href="elemtype_8h.html#a3e8b1bd855f5efcb6aa1f67fddcb69ad">ElemType</a></div><div class="ttdeci">int ElemType</div><div class="ttdoc">Definizione di struct ElemType.</div><div class="ttdef"><b>Definition:</b> <a href="elemtype_8h_source.html#l00013">elemtype.h:13</a></div></div>
+<div class="ttc" id="alist_8h_html_a176c8523d29fb407463116d89ca04629"><div class="ttname"><a href="list_8h.html#a176c8523d29fb407463116d89ca04629">ListGetTail</a></div><div class="ttdeci">Item * ListGetTail(const Item *i)</div><div class="ttdoc">La funzione ListGetTail() ritorna la lista privata dell'elemento in testa. La funzione NON dealloca l...</div><div class="ttdef"><b>Definition:</b> <a href="list_8c_source.html#l00036">list.c:36</a></div></div>
+<div class="ttc" id="alist_8h_html_a29a04837f578eca20e2e838e87abfdc0"><div class="ttname"><a href="list_8h.html#a29a04837f578eca20e2e838e87abfdc0">ListGetHeadValue</a></div><div class="ttdeci">const ElemType * ListGetHeadValue(const Item *i)</div><div class="ttdoc">La funzione ListGetHead() ritorna un puntatore all'elemento in testa alla lista, senza rimuoverlo.</div><div class="ttdef"><b>Definition:</b> <a href="list_8c_source.html#l00026">list.c:26</a></div></div>
+<div class="ttc" id="alist_8h_html_a82b06a33ed159ba7fbdda154ab82861d"><div class="ttname"><a href="list_8h.html#a82b06a33ed159ba7fbdda154ab82861d">ListInsertBack</a></div><div class="ttdeci">Item * ListInsertBack(Item *i, const ElemType *e)</div><div class="ttdoc">La funzione ListInsertBack() aggiunge un elemento in coda ad una lista (anche vuota) e ritorna la lis...</div><div class="ttdef"><b>Definition:</b> <a href="list_8c_source.html#l00046">list.c:46</a></div></div>
+<div class="ttc" id="astruct_item_html_ab670d286d26d72f0e16350ff5ea2f77c"><div class="ttname"><a href="struct_item.html#ab670d286d26d72f0e16350ff5ea2f77c">Item::value</a></div><div class="ttdeci">ElemType value</div><div class="ttdef"><b>Definition:</b> <a href="list_8h_source.html#l00021">list.h:21</a></div></div>
+<div class="ttc" id="astruct_item_html"><div class="ttname"><a href="struct_item.html">Item</a></div><div class="ttdoc">Definizione del tipo struct Item.</div><div class="ttdef"><b>Definition:</b> <a href="list_8h_source.html#l00020">list.h:20</a></div></div>
+<div class="ttc" id="alist_8h_html_ad9a388ad40808475df44a1be713508b1"><div class="ttname"><a href="list_8h.html#ad9a388ad40808475df44a1be713508b1">ListIsEmpty</a></div><div class="ttdeci">bool ListIsEmpty(const Item *i)</div><div class="ttdoc">La funzione ListIsEmpty() verifica se una lista è vuota.</div><div class="ttdef"><b>Definition:</b> <a href="list_8c_source.html#l00022">list.c:22</a></div></div>
+<div class="ttc" id="astruct_item_html_a6805b7d0bb98eb940404897b713986f7"><div class="ttname"><a href="struct_item.html#a6805b7d0bb98eb940404897b713986f7">Item::next</a></div><div class="ttdeci">struct Item * next</div><div class="ttdef"><b>Definition:</b> <a href="list_8h_source.html#l00022">list.h:22</a></div></div>
+<div class="ttc" id="alist_8h_html"><div class="ttname"><a href="list_8h.html">list.h</a></div></div>
+<div class="ttc" id="alist_8h_html_a01d8920932ace5c2a6c5ed09c0b6dc48"><div class="ttname"><a href="list_8h.html#a01d8920932ace5c2a6c5ed09c0b6dc48">ListCreateEmpty</a></div><div class="ttdeci">Item * ListCreateEmpty(void)</div><div class="ttdoc">La funzione ListCreateEmpty() crea e ritorna una lista vuota, ovvero NULL.</div><div class="ttdef"><b>Definition:</b> <a href="list_8c_source.html#l00011">list.c:11</a></div></div>
+<div class="ttc" id="alist_8h_html_a4fd1a2bd21ca1394018a2927ee2b2f31"><div class="ttname"><a href="list_8h.html#a4fd1a2bd21ca1394018a2927ee2b2f31">ListDelete</a></div><div class="ttdeci">void ListDelete(Item *i)</div><div class="ttdoc">La funzione ListDelete() libera la memoria occupata dagli elementi di una lista.</div><div class="ttdef"><b>Definition:</b> <a href="list_8c_source.html#l00063">list.c:63</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generato da &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>
